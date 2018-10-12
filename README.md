@@ -24,7 +24,9 @@ chmod 777 file.txt    // allow everyone to read, write, and execute file
 ssh -i file [user@]hostname	// here, -i means selecting a file from which the identity for RSA is read.
 ```
 
-[QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
+[QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog) (time: 25 min)
+
+Notes: In this lab, I learned the basic usage of S3 by finishing the tasks one by one. Amazon Simple Storage Service (Amazon S3) is storage for the Internet. Users can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web. Following the instructions, I have created a bucket in S3, added 2 pictures to my bucket, managed access permisson on pictures, created a Bucket Policy for permisson control, and tried to use bucked versioning.
 
 ## Area 2
 
