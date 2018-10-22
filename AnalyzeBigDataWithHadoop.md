@@ -39,3 +39,25 @@
 > - <strong>Output S3 location</strong>: s3://hadoop-1995/
 > - <strong>Arguments</strong>: -hiveconf hive.support.sql11.reserved.keywords=false
 > - ![avatar](/Image/lab17.png)
+- click <strong>Add</strong>
+- Wait for the status of the step to change to <strong>Completed</strong>.
+![avatar](/Image/lab18.png)
+
+## View the Results
+- On the <strong>Services</strong> menu, click <strong>S3</strong>.
+- Click on the name of the hadoop-bucket.
+- Click the <strong>os_requests</strong> folder.
+- Select the 000000_0 file.
+- Click <strong>Download</strong> in the pop-up box and save the file to your computer.
+- Open the file using a text editor such as WordPad.
+![avatar](/Image/lab19.png)
+
+## Terminate your Amazon EMR Cluster
+- On the <strong>Services</strong> menu, click <strong>EMR</strong>.
+- Select <strong>My cluster</strong>.
+- Click <strong>Terminate</strong>.
+- In the <strong>Terminate cluster</strong> dialog, click <strong>Terminate</strong>.
+![avatar](/Image/lab110.png)
+
+
+
