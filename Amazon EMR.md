@@ -19,5 +19,36 @@ File System (HDFS) on your cluster. Multi-node clusters have at least one core n
 Task nodes are optional.
 
 ## Analyzing Big Data with Amazon EMR
-- C
+- Create an Amazon S3 Bucket
+![avatar](/Image/lab41.png)
+- Create an Amazon EC2 Key Pair
+![avatar](/Image/lab42.png)
+- Open the Amazon EMR console and Choose <strong>Create cluster</strong>
+![avatar](/Image/lab43.png)
+- On the <strong>Create Cluster - Quick Options</strong> page, accept the default values.
+![avatar](/Image/lab44.png)
+![avatar](/Image/lab45.png)
+- Choose <strong>Create</strong>
+![avatar](/Image/lab46.png)
+- Open the Amazon EMR console
+- Choose <strong>Clusters</strong>
+- Choose the <strong>Name</strong> of the cluster.
+![avatar](/Image/lab47.png)
+- User <strong>Security and access</strong> choose the <strong>Security groups for Master</strong> link.
+- Choose <strong>ElasticMapReduce-master</strong> from the list.
+- Choose <strong>Inbound, Edit</strong> to add a new inbound rule.
+- Scroll down through the listing of default rultes and choose <strong>Add Rule</strong> at the bottom of the list.
+- For <strong>Type</strong>, select <strong>SSH</strong>. For source, select <strong>My IP</strong
+- Choose <strong>Save</strong>
+- Click <strong>Step</strong>.
+![avatar](/Image/lab49.png)
+- Choose <strong>Add</strong>. The step apears in the console with as status of Pending.
+![avatar](/Image/lab48.png)
+- Open the Amazon S3 console.
+- Choose the <strong>Bucket name</strong> and then the folder that set up earlier.
+- Choose the file, and the choose <strong>Download</strong> to save it locally.
+- Open the file.
+![avatar](/Image/lab411.png)
+
+
 
