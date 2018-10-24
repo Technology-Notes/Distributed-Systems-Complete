@@ -37,5 +37,10 @@ DynamoDB: It’s a NoSQL database provided by AWS as a service <br>
 -	To access older version click on file name and click latest version to access all old versions
 
 
+### Virtualization (10 min)
+
+Virtualization is known as an act of emulating a physically realized object where it provides the functionality of the object from which it was virtualized.  IBM in early 1960’s was not able to run few OS because of which they started to lose business. This encouraged them to take a step towards virtualization. Few smart people from Stanford university were able to perform software emulation who later established a company VMware. In todays world cloud technologies can sell a piece of computer by provided required number of core and memory. It is still known that we haven’t made the application which can utilize high numbers of core at a time.
+
+
 ## Area 2
 > Include notes here about each of the links
