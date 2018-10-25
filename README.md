@@ -33,7 +33,7 @@ Before we go ahead and know what AWS is and what services it offers, it’s very
 -	We further need to configure bucket by selecting keep all versioning on and set permission as per the requirements (in manage public permission do not grant access to public) of the project then simply click create bucket  
 -	To add files simply click your bucket name and then click upload where we can browse the files to be uploaded 
 -	The file after uploading file, it will create an access link by clicking the link we won’t be able to access the file as the permission is set to private
--	 To change the permission follow the path  `S3>{bucketName}>{filename}>Permission>Public Access> Everyone`, this will allow us to access the file by clicking the link
+-	 To change the permission follow the path  `S3>{bucketName}>{filename}>Permission>Public Access>Everyone`, this will allow us to access the file by clicking the link
 -	We can also create bucket policy to assign set of permission to our bucket manually or by using policy generator 
 -	To understand versioning system, add another file with name to the bucket and access it through the link where we will able to see new file which we recently uploaded
 -	To access older version click on file name and click latest version to access all old versions
