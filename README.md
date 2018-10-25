@@ -82,7 +82,7 @@ Step skipped
        private static $dbName = 'website_visit' ;
        private static $dbHost = 'localhost' ;
        private static $dbUsername = 'root';
-       private static $dbUserPassword = 'root';
+       private static $dbUserPassword = '********';
    
        private static $cont  = null;
    
