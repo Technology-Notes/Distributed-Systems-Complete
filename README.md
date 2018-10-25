@@ -26,11 +26,11 @@ Step skipped
 
 3. It works
 
-   ![Screen Shot 2018-10-24 at 5.08.03 PM](/Users/zhengxiangyue/Desktop/Screen Shot 2018-10-24 at 5.08.03 PM.png)
+   ![Screen Shot 2018-10-24 at 5.08.03 PM](static/1.png)
 
 4. Install **mariadb** and db management tool phpmyadmin
 
-   ![Screen Shot 2018-10-24 at 5.20.10 PM](/Users/zhengxiangyue/Desktop/Screen Shot 2018-10-24 at 5.20.10 PM.png)
+   ![Screen Shot 2018-10-24 at 5.20.10 PM](static/2.png)
 
 5. Build a simple project to provide "add record" interface
 
@@ -153,11 +153,11 @@ Step skipped
 
 6. Check the result
 
-   ![Screen Shot 2018-10-24 at 6.54.59 PM](/Users/zhengxiangyue/Desktop/Screen Shot 2018-10-24 at 6.54.59 PM.png)
+   ![Screen Shot 2018-10-24 at 6.54.59 PM](static/3.png)
 
 
 
-   ![Screen Shot 2018-10-24 at 6.55.43 PM](/Users/zhengxiangyue/Desktop/Screen Shot 2018-10-24 at 6.55.43 PM.png)
+![Screen Shot 2018-10-24 at 6.55.43 PM](static/4.png)
 
    > Great, now at least I know how many employers have checked my resume, or even their IP address to locate the company
 
