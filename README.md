@@ -24,7 +24,7 @@ Step skipped
 
 2. In **Security Group**, add In **bound Rule** for http/https service
 
-3. It works
+3. Start server. It works
 
    ![Screen Shot 2018-10-24 at 5.08.03 PM](static/1.png)
 
