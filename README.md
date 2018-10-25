@@ -78,6 +78,50 @@ Virtualization is known as an act of emulating a physically realized object wher
 -	We can test the function by specifying events name and templet where we also have to modify our template according to the services we are using, e.g. by specifying bucket name created in S3
 -	We can monitor different status of lambda function by selecting monitor tab by clicking name of the function we have created 
 
+### [Intro to Amazon API Gateway:](https://awseducate.qwiklabs.com/focuses/21?parent=catalog) (15 min)
+-	By using API Gateways in AWS we can create an application which uses microservices architecture 
+-	To use API Gateway service, we can create a lambda function and integrate API Gateway
+-	To create Lambda function we need to select AWS Lambda service and create function
+-	We can configure the function according to our requirement and write function code
+-	In designer section of Lambda we need to add trigger and configure it to add it in application
+-	Our API is created, now we need to test our API which can be accomplish by clicking right arrow under API gateway section to view the details
+-	Copy and paste API endpoint to new browser which will show us the entry we have added in function code
+-	This proves that the part of the data requested was successfully shown on the browser which serves as the Client-Server model and it could be considered as a form of microservice architecture where we are using RESTful API and format of the API is JSON
+
+
+### [Building a serverless web application:](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/?trk=gs_card) (1.50 hours) 
+
+-	We are basically using various services offered by AWS to host a complete serverless web app on cloud
+-	The services used in the application are DynamoDB, AWS Lambda, API Gateway, S3, Cognito
+-	We will use S3 to host a static website where we need to enable website hosting in addition to the above tutorials mentioned on “Intro to S3” and index.html will always be the index document 
+-	Amazon Cognito have two way of authenticating the user where user can use sign-up and sign-in functionality or use social identity provider such as Facebook, Twitter or Amazon
+-	Note the pool id by creating a ‘User Pool’ and add your application through app client in general settings 
+-	Update your config.js file where you need to add values for ‘userPoolId’, ‘userPoolClientId’ and ‘region’
+-	We will have to create a DynamoDB table and IAM Role to provide various permission to the application
+-	Later we must create Lambda function to handle requests where request details will be recorded in DynamoDB table and respond to the frontend application 
+-	To use the function created in Lambda as a RESTFul API we will need to add API Gateway 
+-	To authenticate we will need to add authorizers newly created API
+-	Create a new resource method with ‘POST’ method and configure it to use Lambda function
+-	Now we need to deploy the API and add ‘Invoke URL’ to config.js
+-	Now simply test working of your application with website url created 
+-	To destroy the application we need to delete S3 bucket, Cognito user pool, Lambda function, IAM Role, DynamoDB table, API and CloudWatch logs separately
 
 ## Area 2
-> Include notes here about each of the links
+> **_Beginner Level_**
+
+### [Why docker?:](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23) (10 min)
+
+There has been shifts thought the era of computers and in future we are more likely to shift to another technology as it happens. Docker is all about speed. Everyone in the industry would like to do things quickly which will give them enough time to spend on more important task or enhancement of the project. Docker makes it quicker to develop, build, test, deploy, update and recover the software. It includes almost all the software development cycle which it is why expected to bring the next computer shift in the world. A docker allows us to package the software and distribute it irrespective of the OS or the system we are using. It brings lots of flexibility in the whole process of software development.
+
+
+### [DevOps Docker Beginners Guide:](https://training.play-with-docker.com/ops-s1-hello/)(35 min)
+
+-	This DevOps beginners guide gives us brief insight into docker engine, containers, images and isolation 
+-	A container is an application abstraction, where containers run on application layer and the focus is not so too much interaction with hardware
+- This makes it boot faster and run the command and exit the container just like running command on normal terminal
+-	 Isolation allows users to quickly create separate, isolated test copies of an application or service and have them run side-by-side without interfering with one another
+-	We can run container with the command `docker container run hello-world` where it will check if docker has an image with name ‘hello-world’. If not present it will download from ‘Docker Registry’ and run it. Also `pull` command can be used to download image.
+-	`docker container run alpine ls -l` command run alpine container and runs command `ls -l` in that container
+-	We can also instantiate another container with same image with command like `docker container run alpine /bin/sh` where `docker container run -it alpine /bin/sh` will give you interactive shell where we can type command for that perticular instance
+-	The command `docker container ls -a` will give us list of containers we instantiated before where we can select particular ‘Container ID’ and use it to access files or application stored or running on that container
+
