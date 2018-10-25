@@ -10,15 +10,15 @@ The note in this section would implement the "record visit" function, separately
 - LAMP - provide interface to add record for a website
 - DynamoDB with Node.js - local-hosted  
 
-##### Launch a VM
+### Launch a VM
 
 - Amazon Linux 2 AMI (HVM), SSD Volume Type - ami-0922553b7b0369273
 
-##### Use S3 service to build a 
+### Use S3 service to build a 
 
 Step skipped
 
-##### Use LAMP server to record visits of a website
+### Use LAMP server to record visits of a website
 
 1. Follow the installation instruction to install `php, apache` and the relevant services
 
@@ -39,7 +39,7 @@ Step skipped
    touch interface.php
    ```
 
-   Allow other domain to access the script
+   Allow some other domains to access the script
 
    ```php
    <?php
@@ -173,25 +173,6 @@ Step skipped
 
 The site which is using the service: https://zhengxiangyue.github.io/resumeGeneral/
 
-
-
-### Record PV and UV for my resume site 
-
-- S3 - Javascript + Files
-- EC2 VM - LAMP
-
-#### Background
-
-Say I have a pure front page service like github.io. I sent some my resume link to several companies and I would like to know how many companies actually see my resume and maybe where they located. Instead using some service like google analytics, I could record some of the information with the help of EC2  or S3 service.
-
-#### Presumption about the S3 and EC2 VM
-
-- S3 service may have http based interface for me to update the data file. The data would be stored as file.
-
-#### Steps
-
-1. Create the bucket
-2. Create an Amazon Cognito identity pool
 
 ## Area 2
 > Include notes here about each of the links
