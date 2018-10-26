@@ -83,5 +83,12 @@ need to find the most time-consuming part and use that as our Mapper. Then the h
 will get increased.
 
 
-## Area 2
-> Include notes here about each of the links
+## Docker and Containers
+
+### Docker
+- Docker is a software that can package code and its dependencies together so the application can run on different
+environments very easily.
+- Docker can run container images inside of it. Each container image is isolated from each other so it is very helpful for security and testing.
+- Docker Store is a registry of container images. It stores all available container images in it. Users can pull image they need and runs it in their own container.
+- Compared to VM, each VM has its own memory and OS while containers all share the same kernal with each other. Container
+only focus on the OS and application, not so much about the hardware. So it is much faster to start up a container than VM.
