@@ -57,7 +57,7 @@ In Amazon ML, dataset is actually stored in S3. In order to avoid changing or mo
  a datasource that contains the data location of out input data. Amazon ML uses the datasource for operations like ML model
   training and evaluation.
 
-Amazon provides a great user interface to evaluate results. It also interprets the [AUC metric](https://gwdistsys18.github.io/) to tell you if the quality of the ML model is adequate for most machine
+Amazon provides a great user interface to evaluate results. It also interprets the [AUC metric](https://docs.aws.amazon.com/machine-learning/latest/dg/binary-model-insights.html#measuring-ml-model-accuracy) to tell you if the quality of the ML model is adequate for most machine
 learning applications. You can change threshold to make model meet some specific requirement.
 
 ![Alt text](https://github.com/dongyh1995/dist-sys-practice/raw/master/Screenshots/ML_Evaluation.png)
