@@ -125,6 +125,77 @@ Simple Storage Service (S3) is storage service provided by Amazon which in highl
 -	Now simply test working of your application with website url created 
 -	To destroy the application we need to delete S3 bucket, Cognito user pool, Lambda function, IAM Role, DynamoDB table, API and CloudWatch logs separately
 
+### [Building a modern web application:](https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/?trk=gs_card) (150 min)
+-	We will be creating a web application using several different services of AWS, where application will be hosted on frontend web server and it will be connected to backend database
+-	Create environment with Cloud9 AWS service by the name “MythicalMysfitsIDE” with default settings
+-	Clone the Mythical Mysfits workshop repository with command `git clone https://github.com/aws-samples/aws-modern-application-workshop.git` and change directory to “aws-modern-application-workshop”
+-	Create an S3 bucket with CLI command `aws s3 mb s3://mythical-mysfits-bucket-name` and configure it with `aws s3 website s3://YOUR_BUCKET_NAME --index-document index.html` command
+-	By default, buckets are private and we need to change the policy to public with command `aws s3api put-bucket-policy --bucket mythical-mysfits-bucket-name --policy file://~/environment/aws-modern-application-workshop/module-1/aws-cli/website-bucket-policy.json`
+-	Now we need to add content to S3 bucket using command `aws s3 cp ~/environment/aws-modern-application-workshop/module-1/web/index.html s3://REPLACE_ME_BUCKET_NAME/index.html `
+-	We can test our configuration by typing following url ‘http://REPLACE_ME_BUCKET_NAME.s3-website-REPLACE_ME_YOUR_REGION.amazonaws.com’ with required values
+-	We will create microservice architecture using AWS Fargate
+-	We need to deploy cloud formation template with command `aws cloudformation create-stack --stack-name MythicalMysfitsCoreStack --capabilities CAPABILITY_NAMED_IAM --template-body file://~/environment/aws-modern-application-workshop/module-2/cfn/core.yml` 
+-	It will create IAM Role, Security Group, Amazon VPC and few other settings 
+-	Next, we will create a docker image by running command `docker build . -t REPLACE_ME_AWS_ACCOUNT_ID.dkr.ecr.REPLACE_ME_REGION.amazonaws.com/mythicalmysfits/service:latest` we can get account ID by `aws sts get-caller-identity` command
+-	Test the service by running command `docker run -p 8080:8080 REPLACE_ME_WITH_DOCKER_IMAGE_TAG` where tag will be found just after installation of image
+-	We further need to push the docker image to Amazon ECR by first creating repo using `aws ecr create-repository --repository-name mythicalmysfits/service` and then `$(aws ecr get-login --no-include-email)` which will automatically log us in
+-	Push the image using `docker push REPLACE_ME_WITH_DOCKER_IMAGE_TAG` check it using `aws ecr describe-images --repository-name mythicalmysfits/service`
+-	Command `aws ecs create-cluster --cluster-name MythicalMysfits-Cluster` will create fargate cluster and `aws logs create-log-group --log-group-name mythicalmysfits-logs` will create Cloudwatch Logs group
+-	Change the values in task-defintion.json to register an ECS task definition and execute `aws ecs register-task-definition --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/task-definition.json` which will register a task
+-	Create Network load balancer with `aws elbv2 create-load-balancer --name mysfits-nlb --scheme internet-facing --type network --subnets REPLACE_ME_PUBLIC_SUBNET_ONE REPLACE_ME_PUBLIC_SUBNET_TWO` and target group with `aws elbv2 create-target-group --name MythicalMysfits-TargetGroup --port 8080 --protocol TCP --target-type ip --vpc-id REPLACE_ME --health-check-interval-seconds 10 --health-check-path / --health-check-protocol HTTP --healthy-threshold-count 3 --unhealthy-threshold-count 3`  commands
+-	Going forward create load balancer listener with `aws elbv2 create-listener --default-actions TargetGroupArn=REPLACE_ME,Type=forward --load-balancer-arn REPLACE_ME --port 80 --protocol TCP` command
+-	Create a service linked role using `aws iam create-service-linked-role --aws-service-name ecs.amazonaws.com`
+-	Replace the indicated value in service-definition.JSON file and run command `aws ecs create-service --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/service-definition.json` also test the service using web browser
+-	Replace myfitsApiEndpoint value in index.html with NLB URL  and upload the file using `aws s3 cp ~/environment/aws-modern-application-workshop/module-2/web/index.html s3://INSERT-YOUR-BUCKET-NAME/index.html` command
+-	 We need to create CI/CD pipeline for that cerate a bucket using command `aws s3 mb s3://mythical-mysfits-artifacts-bucket-name` to store temporary artifacts
+-	Modify artifacts-bucket-policy.json with ARN and newly created bucket name and run command `aws s3api put-bucket-policy --bucket mythical-mysfits-artifacts-bucket-name --policy file://~/environment/aws-modern-application-workshop/module-2/aws-cli/artifacts-bucket-policy.json` 
+-	Create code commit repo with `aws codecommit create-repository --repository-name MythicalMysfitsService-Repository` 
+-	Replace the values from the file code-build-project.json and run `aws codebuild create-project --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/code-build-project.json` command 
+-	Update the code-pipeline.json and create pipeline in codepipeline by running `aws codepipeline create-pipeline --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/code-pipeline.json` 
+-	Update ecr-policy.json  and run `aws ecr set-repository-policy --repository-name mythicalmysfits/service --policy-text file://~/environment/aws-modern-application-workshop/module-2/aws-cli/ecr-policy.json` 
+-	Run following command to configure git with Cloud9 IDE and clone repository
+
+```
+git config --global user.name "REPLACE_ME_WITH_YOUR_NAME"
+git config --global user.email REPLACE_ME_WITH_YOUR_EMAIL@example.com
+git config --global credential.helper '!aws codecommit credential-helper $@'
+git config --global credential.UseHttpPath true
+cd ~/environment/
+git clone https://git-codecommit.REPLACE_REGION.amazonaws.com/v1/repos/MythicalMysfitsService-Repository
+cp -r ~/environment/aws-modern-application-workshop/module-2/app/* ~/environment/MythicalMysfitsService-Repository/
+
+```
+-	Now push the changes using git commands
+-	Its time to create DynamoDB table with command `aws dynamodb create-table --cli-input-json file://~/environment/aws-modern-application-workshop/module-3/aws-cli/dynamodb-table.json`
+-	`aws dynamodb describe-table --table-name MysfitsTable` will give the details of table and `aws dynamodb scan --table-name MysfitsTable` will scan table 
+-	Add the data using JSON file with command `aws dynamodb batch-write-item --request-items file://~/environment/aws-modern-application-workshop/module-3/aws-cli/populate-dynamodb.json`
+-	Commit the changes and update website content  in S3 with `aws s3 cp --recursive ~/environment/aws-modern-application-workshop/module-3/web/ s3://your_bucket_name_here/` 
+-	Next step will be adding user pool using `aws cognito-idp create-user-pool --pool-name MysfitsUserPool --auto-verified-attributes email` command
+-	Create user pool client using `aws cognito-idp create-user-pool-client --user-pool-id REPLACE_ME --client-name MysfitsUserPoolClient` command
+-	Create VPC link for REST API using` aws apigateway create-vpc-link --name MysfitsApiVpcLink --target-arns REPLACE_ME_NLB_ARN` CLI command
+-	Update api-swagger.json file and run `aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body file://~/environment/aws-modern-application-workshop/module-4/aws-cli/api-swagger.json --fail-on-warnings` 
+-	Deploy the API using `aws apigateway create-deployment --rest-api-id REPLACE_ME_WITH_API_ID --stage-name prod` 
+-	Now overwrite the exiting code base with command `cd ~/environment/MythicalMysfitsService-Repository/` and `cp -r ~/environment/aws-modern-application-workshop/module-4/app/* .`
+-	Update index.html and run command `aws s3 cp --recursive ~/environment/aws-modern-application-workshop/module-4/web/ s3://YOUR-S3-BUCKET/`
+-	Now new functionality will be added in our website
+-	In the last part of the project we have to create CodeCommit repo by using `aws codecommit create-repository --repository-name MythicalMysfitsStreamingService-Repository` command and clone it to your IDE 
+-	Copy streaming service code base using following command
+
+```
+cd ~/environment/MythicalMysfitsStreamingService-Repository/
+cp -r ~/environment/aws-modern-application-workshop/module-5/app/streaming/* .
+cp ~/environment/aws-modern-application-workshop/module-5/cfn/* .
+```
+-	`pip install requests -t .` will install dependencies 
+-	The line from streamProcessor.py file needs to be replaced with our ApiEndpoint and push the changes
+-	Create S3 bucket for lambda function code package and use `sam package --template-file ./real-time-streaming.yml --output-template-file ./transformed-streaming.yml --s3-bucket replace-with-your-bucket-name` command 
+-	Deploy the stack using `aws cloudformation deploy --template-file /home/ec2-user/environment/MythicalMysfitsStreamingService-Repository/cfn/transformed-streaming.yml --stack-name MythicalMysfitsStreamingStack --capabilities CAPABILITY_IAM` command
+-	Update the index.html and push new site to S3 using `aws s3 cp ~/environment/aws-modern-application-workshop/module-5/web/index.html s3://YOUR-S3-BUCKET/` command
+-	Your app is up and running with all expected functionality
+-	To clean up delete all resource and `aws cloudformation delete-stack --stack-name STACK-NAME-HERE` command will delete the stack
+
+
+
 ## Docker and Containers
 > **_Beginner Level_**
 
