@@ -53,6 +53,25 @@ Virtualization is known as an act of emulating a physically realized object wher
 -	Type your public dns of your instance to web browser to test the server
 -	We can create a file under /var/www/html/ directory and try to access it through public dns generated
 
+### S3 versus an EC2 VM (20 min)
+
+Amazon Elastic Cloud Compute (EC2) provides a scalable and elastic computer facility as a cloud web service. It is highly scalable service where as per the requirement we can easily scale up the capacity, at same time, it also elastic i.e. we can reduce the computing power as per the change of requirement. This service provides high configurational facility with various option of preexisting setups. However, EC2 is designed for providing processing power and ideally it recommended to be used as computing service. 
+
+> Serving the content on EC2 :
+-	We will be needed an additional service called EBS which provides storage capacity to EC2 instance
+-	We will have to pay for whole block of EBS even if it is not in use fully
+-	Multiple EBS volume can be attached to one instance
+-	 It also provides instance storage which is recommended for temporary storage which changes quickly such as buffer, caches an scratch data etc 
+
+Simple Storage Service (S3) is storage service provided by Amazon which in highly scalable in nature. It provided infrastructure and hardware to maintain and store data. It provides unlimited storage capacity where the limit of storage is very high which is hard to achieve. S3 supports various format which makes it easier for anyone to store multiple types of files. 
+
+> Serving the content on S3:
+-	It is highly scalable service
+-	We need to pay according to size of the data we have stored i.e. pay as you go
+-	It provided high reliability as data is duplicated to various servers
+-	 Uptime of the servers is also very high 
+-	It provides object level security apart from user level security 
+
 
 ### [Introduction to Amazon DynamoDB:](https://awseducate.qwiklabs.com/focuses/23?parent=catalog) (20 min)
 -	DynamoDB is NoSQL database service provided by AWS
