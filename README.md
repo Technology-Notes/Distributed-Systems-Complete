@@ -15,7 +15,7 @@ Before we go ahead and try to understand what AWS is and what services it offers
 **DynamoDB**: It’s a NoSQL database provided by AWS as a service <br>
 
 
-## Area 1
+## Cloud Web Apps
 > **_Beginner Level_**
 
 ### [Launching a VM:](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/) (24 min)
@@ -125,7 +125,7 @@ Simple Storage Service (S3) is storage service provided by Amazon which in highl
 -	Now simply test working of your application with website url created 
 -	To destroy the application we need to delete S3 bucket, Cognito user pool, Lambda function, IAM Role, DynamoDB table, API and CloudWatch logs separately
 
-## Area 2
+## Docker and Containers
 > **_Beginner Level_**
 
 ### [Why docker?:](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23) (10 min)
