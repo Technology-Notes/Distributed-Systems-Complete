@@ -2,11 +2,9 @@ Distributed Systems Practice
 
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
-## Cloud Web Applications
+# Cloud Web Applications
 
 ### Virtualization
-
-VMware
 
 - Two different level of privilege to run on computers (Software)
   - Operating system
@@ -34,14 +32,14 @@ The note in this section would implement the "record visit" function, separately
 
 - LAMP - provide interface to add record for a website
 
-### Launch a VM
+#### Launch a VM
 
 - Amazon Linux 2 AMI (HVM), SSD Volume Type - ami-0922553b7b0369273
 
-### Use S3 service to store the records
+#### Use S3 service to store the records
 No permission. Skipped
 
-### Use LAMP server to record visits of a website
+#### Use LAMP server to record visits of a website
 
 1. Follow the installation instruction to install `php, apache` and the relevant services
 
