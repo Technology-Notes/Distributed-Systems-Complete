@@ -108,7 +108,7 @@ Simple Storage Service (S3) is storage service provided by Amazon which in highl
 -	This proves that the part of the data requested was successfully shown on the browser which serves as the Client-Server model and it could be considered as a form of microservice architecture where we are using RESTful API and format of the API is JSON
 
 
-### [Building a serverless web application:](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/?trk=gs_card) (1.50 hours) 
+### [Building a serverless web application:](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/?trk=gs_card) (90 min) 
 
 -	We are basically using various services offered by AWS to host a complete serverless web app on cloud
 -	The services used in the application are DynamoDB, AWS Lambda, API Gateway, S3, Cognito
