@@ -34,21 +34,20 @@ The note in this section would implement the "record visit" function, separately
 
 - LAMP - provide interface to add record for a website
 
-##### Launch a VM
+### Launch a VM
 
 - Amazon Linux 2 AMI (HVM), SSD Volume Type - ami-0922553b7b0369273
 
-##### Use S3 service to store the records
-
+### Use S3 service to store the records
 No permission. Skipped
 
-##### Use LAMP server to record visits of a website
+### Use LAMP server to record visits of a website
 
 1. Follow the installation instruction to install `php, apache` and the relevant services
 
 2. In **Security Group**, add In **bound Rule** for http/https service
 
-3. It works
+3. Start server. It works
 
    ![Screen Shot 2018-10-24 at 5.08.03 PM](static/1.png)
 
@@ -63,7 +62,7 @@ No permission. Skipped
    touch interface.php
    ```
 
-   Allow other domain to access the script
+   Allow some other domains to access the script
 
    ```php
    <?php
@@ -106,7 +105,7 @@ No permission. Skipped
        private static $dbName = 'website_visit' ;
        private static $dbHost = 'localhost' ;
        private static $dbUsername = 'root';
-       private static $dbUserPassword = 'root';
+       private static $dbUserPassword = '********';
    
        private static $cont  = null;
    
@@ -196,7 +195,6 @@ No permission. Skipped
      - Both use http connections
 
 The site which is using the service: https://zhengxiangyue.github.io/resumeGeneral/
-
 And the site simply show the records: https://http://ec2-54-172-123-139.compute-1.amazonaws.com/show.php
 
 Unfortunately, I do not have permission to create either `DynamoDB` with `Node.js` or  `S3 `with` AWS SDK`, which may also be used as backend script and database.
