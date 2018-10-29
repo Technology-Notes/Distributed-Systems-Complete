@@ -1,4 +1,5 @@
-# Distributed Systems Practice
+Distributed Systems Practice
+
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
 ## Cloud Web Applications
@@ -6,9 +7,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 The note in this section would implement the "record visit" function, separately,  using
 
-- S3 with AWS SDK
 - LAMP - provide interface to add record for a website
-- DynamoDB with Node.js - local-hosted  
 
 ##### Launch a VM
 
@@ -173,26 +172,91 @@ Step skipped
 
 The site which is using the service: https://zhengxiangyue.github.io/resumeGeneral/
 
+And the site simply show the records: https://http://ec2-54-172-123-139.compute-1.amazonaws.com/show.php
 
+Unfortunately, I do not have permission to create either `DynamoDB with Node.js` or  `S3 with AWS SDK`, which may also be used as backend script and database.
 
-### Record PV and UV for my resume site 
+# Big Data and Machine Learning
 
-- S3 - Javascript + Files
-- EC2 VM - LAMP
+- The solution to manage large amount of data is to use more machines, a distributed system
 
-#### Background
+- A distributed system take less time to process data. But challenges are
 
-Say I have a pure front page service like github.io. I sent some my resume link to several companies and I would like to know how many companies actually see my resume and maybe where they located. Instead using some service like google analytics, I could record some of the information with the help of EC2  or S3 service.
+  - high chances of system failure
+  - High programming complexity
 
-#### Presumption about the S3 and EC2 VM
+- Hadoop is a framework that allows for distributed processing of large data sets across clusters of commodity computers using simple programming models
 
-- S3 service may have http based interface for me to update the data file. The data would be stored as file.
+  - high chances of system failure
+  - High bandwidth problem
+  - High programming complexity
 
-#### Steps
+- 4 key characteristics of Hadoop
 
-1. Create the bucket
-2. Create an Amazon Cognito identity pool
+  - Economical
+    - Ordinary computers can be used for data processing
+  - Reliable
+    - Stores copies of the data on different machines and is resistant to hardware failure
+  - Scalable
+    - Can follow both horizontal and vertical scaling
+  - Flexible
+    - Can store as much of the data and decide to use it later
 
-## Area 2
-> Include notes here about each of the links
+- Hadoop ecosystem
 
+  - HDFS
+
+    - A storage layer for Hadoop
+    - Suitable for the distributed storage and processing
+    - Hadoop provides a command line interface to interact with HDFS
+    - Streaming access to file system data
+    - Provides file permissions and authentication
+
+  - HBASE
+
+    - Stores data in HDFS
+    - A NoSQL database or non-relational database
+    - Mainly used when you need random, real-time, read/write access to your Big Data
+    - Provides support to high volume of data and high throughput
+    - The table can have thousands of columns
+
+  - Sqoop
+
+    - A tool designed to transfer data between Hadoop and relational database servers
+    - It is used to import data from relational databases such as, Oracle and MySQL to HDFS and export data from HDFS to relational databases
+
+  - Flume
+
+    - A distributed service for ingesting streaming data
+    - Ideally suited for event data from multiple systems
+
+  - Spark
+
+    - Provides 100 times faster performance as compared to MapReduce
+    - Apache Spark
+      - Spark Core and Resilient Distributed Datasets(RDDs)
+      - Spark SQL
+      - Spark Streaming
+      - Machine Learning Library
+      - GraphX
+
+  - MapReduce
+
+    - Based on the map and reduce programming model
+    - An extensive and mature fault tolerance framework
+
+  - Pig
+
+    - An dataflow system
+    - Converts the scripts to Map-Reduce code
+
+  - Impala
+
+    - High performance SQL engine runs on Hadoop cluster
+    - Ideal for interactive analysis
+    - Very low latency - measured in milliseconds
+    - Supports a dialect of SQL
+
+  - Hive
+
+    - For data processing and extract transform load(ETL)
