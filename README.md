@@ -3,6 +3,31 @@ Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
 ## Cloud Web Applications
+
+### Virtualization
+
+VMware
+
+- Two different level of privilege to run on computers (Software)
+  - Operating system
+    - Use instructions
+    - Access memory
+    - Avoid the applications either maliciously or accidentally
+  - Applications
+    - Crashes won't take out the whole machine
+- Hardware mechanism called Kernel mode Supervisor mode: ring 0
+- If run multiple virtual machines on operating system and then run applications on top of that
+  - The operating system is running on **user mode**
+    - It will try to issue instructions and access things that it doesn't have permissions
+    - The hardware provides easy-virtualized instructions
+- Hypervisor runs on ring 0, the guest OS traps into the operating system
+  - The performance of software emulation is not great
+    - More instructions
+    - Need to provides protections between domains
+
+### Practice
+
+>
 > I want to know how many companies actually see my online resume. Thanks to the tutorial I could build a small service for my resume page, which is a pure front end page like github.io, to record the visit history
 
 The note in this section would implement the "record visit" function, separately,  using
@@ -13,9 +38,9 @@ The note in this section would implement the "record visit" function, separately
 
 - Amazon Linux 2 AMI (HVM), SSD Volume Type - ami-0922553b7b0369273
 
-##### Use S3 service to build a 
+##### Use S3 service to store the records
 
-Step skipped
+No permission. Skipped
 
 ##### Use LAMP server to record visits of a website
 
@@ -174,25 +199,19 @@ The site which is using the service: https://zhengxiangyue.github.io/resumeGener
 
 And the site simply show the records: https://http://ec2-54-172-123-139.compute-1.amazonaws.com/show.php
 
-Unfortunately, I do not have permission to create either `DynamoDB with Node.js` or  `S3 with AWS SDK`, which may also be used as backend script and database.
+Unfortunately, I do not have permission to create either `DynamoDB` with `Node.js` or  `S3 `with` AWS SDK`, which may also be used as backend script and database.
 
 # Big Data and Machine Learning
 
 - The solution to manage large amount of data is to use more machines, a distributed system
-
 - A distributed system take less time to process data. But challenges are
-
   - high chances of system failure
   - High programming complexity
-
 - Hadoop is a framework that allows for distributed processing of large data sets across clusters of commodity computers using simple programming models
-
   - high chances of system failure
   - High bandwidth problem
   - High programming complexity
-
 - 4 key characteristics of Hadoop
-
   - Economical
     - Ordinary computers can be used for data processing
   - Reliable
@@ -201,37 +220,26 @@ Unfortunately, I do not have permission to create either `DynamoDB with Node.js`
     - Can follow both horizontal and vertical scaling
   - Flexible
     - Can store as much of the data and decide to use it later
-
 - Hadoop ecosystem
-
   - HDFS
-
     - A storage layer for Hadoop
     - Suitable for the distributed storage and processing
     - Hadoop provides a command line interface to interact with HDFS
     - Streaming access to file system data
     - Provides file permissions and authentication
-
   - HBASE
-
     - Stores data in HDFS
     - A NoSQL database or non-relational database
     - Mainly used when you need random, real-time, read/write access to your Big Data
     - Provides support to high volume of data and high throughput
     - The table can have thousands of columns
-
   - Sqoop
-
     - A tool designed to transfer data between Hadoop and relational database servers
     - It is used to import data from relational databases such as, Oracle and MySQL to HDFS and export data from HDFS to relational databases
-
   - Flume
-
     - A distributed service for ingesting streaming data
     - Ideally suited for event data from multiple systems
-
   - Spark
-
     - Provides 100 times faster performance as compared to MapReduce
     - Apache Spark
       - Spark Core and Resilient Distributed Datasets(RDDs)
@@ -239,24 +247,45 @@ Unfortunately, I do not have permission to create either `DynamoDB with Node.js`
       - Spark Streaming
       - Machine Learning Library
       - GraphX
-
   - MapReduce
-
     - Based on the map and reduce programming model
     - An extensive and mature fault tolerance framework
-
   - Pig
-
     - An dataflow system
     - Converts the scripts to Map-Reduce code
-
   - Impala
-
     - High performance SQL engine runs on Hadoop cluster
     - Ideal for interactive analysis
     - Very low latency - measured in milliseconds
     - Supports a dialect of SQL
-
   - Hive
-
     - For data processing and extract transform load(ETL)
+  - Cloudera
+    - Nera rea-time access
+    - Users do not need SQL or programming skills
+    - A fully integrated data processing platform
+  - Oozie is a workflow or coordination system used to manage the Hadoop jobs
+  - Hue
+    - Web interface for analyzing data with Hadoop
+- Review 4 steps to process big data
+  - Ingest
+    - The data is transferred or ingested into hadoop from various sources such as
+      - Relational databases
+      - systems
+      - Local files
+    - `Scqop` transfers from RDB management system to HDFS
+    - `Flume` transfers event data
+  - Processing
+    - Data stored in distributed file system `HDFS` and the NoSQL distributed data HBase
+    - `Spark` and `MapReduce` perform the data processing
+  - Analyze
+    - Frameworks such as `Pig`, `Hive` and `Impala`
+    - Converts data using map reduce, then analyze it
+    - Hive is 
+      - base on map reduce programming 
+      - Most suitable for structured data
+  - Access
+    - `Hue`, `cloudera search`
+      - Hue is the web interface
+      - Clouderas provides a text interface for exploring data
+
