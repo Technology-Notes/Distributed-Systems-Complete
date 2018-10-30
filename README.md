@@ -82,7 +82,7 @@ Save multiple versions of a same object
 >Thus EC2 EBS storage requirement is reduced considerably
 >Price wise S3 is 4-5 times less cheaper.
 
-***Amazon DynamoDB**-- is a fast and flexible NoSQL database service for all applications.
+**Amazon DynamoDB**-- is a fast and flexible NoSQL database service for all applications.
 >created an Amazon DynamoDB table
 >Entered data into an Amazon DynamoDB table
 *i.e by adding sequential items* plus edited the table data.
@@ -92,31 +92,33 @@ Save multiple versions of a same object
 
 ## Deploy a Node.js Web App
 >learn how to deploy a high-availability Node.js web app using AWS Elastic Beanstalk and Amazon DynamoDB
->
-### Serverless and Edge Computing:
 
-## Intro to AWS lambda
+## Serverless and Edge Computing:
+
+### Intro to AWS lambda
 >errors
-##QwikLab: Intro to Amazon API Gateway - 35 min
+
+## QwikLab: Intro to Amazon API Gateway - 35 min
 *https://developer.spotify.com/documentation/web-api/*  was good example to understand RESTFUL API.
 
-##Build a serverless web App
+## Build a serverless web App
 #Host a static website
 http://wildrydes-akshay-gupta.s3-website-us-west-2.amazonaws.com(s3 stattic host end point)
-#Manage users
+# Manage users
 
 Pool Id us-west-2_QwfIuQsvA
 607gktk0nr9leupbrn5c6nhsiu
 
-#Serverless Service Backend
+# Serverless Service Backend
 Amazon Resource Name (ARN)
 	arn:aws:dynamodb:us-west-2:566965401352:table/Rides
-##Deploy Rest API
+## Deploy Rest API
+
 auth token: eyJraWQiOiJuTnA4NUVcL2tnS1Q3VmkxZ0kyRW5xVjlaZEdpTEFSYW5KenV0N01nNzd0ST0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxMGRkZWM3Ni0xOWU3LTQ1YjctYmNjNC1jOTlmYmZjMjA3ZjYiLCJhdWQiOiI2MDdna3RrMG5yOWxldXBicm41YzZuaHNpdSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJldmVudF9pZCI6ImY3ZmQxMDE2LWRiMDAtMTFlOC1iNWIyLTc5YzdiNTZkMjQ1ZiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNTQwNzY1Nzg0LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9Rd2ZJdVFzdkEiLCJjb2duaXRvOnVzZXJuYW1lIjoiYWtzaGF5Lmd1cHRhMDcxMkBnbWFpbC5jb20iLCJleHAiOjE1NDA3NjkzODQsImlhdCI6MTU0MDc2NTc4NCwiZW1haWwiOiJha3NoYXkuZ3VwdGEwNzEyQGdtYWlsLmNvbSJ9.Wf8mpVtwtbODlFQA8tQyhGC0yz6I-z4xD8yFmrfSggs30s5mJL8YiiRxWg03ZuOmsjBco5XMMduIqu0va7T4FpTYSrCAq9m1uAoCrOfUbuBD3MQFFGuJ2geJgi8tMoEmWtaLz32LBHBNERMq3-6MmMqkT3tRqLyb7GI0_FyNIvHvQok_gZUWquR98Ny9FKn4pkYf7ApbZgw9jqWlIHDZAT8EKVQYslTk32dkuvYgugO1lj-aHWDY5zl7Q0D-TLPHOLSI2CarNi7e4VhwcliiXktYCmZnI_qieCBFOcq8HndBVpgSkPXOkAK4AUvujBdUK3SekGZcXMyDjgYDyGMfdA
 >arn:aws:lambda:us-west-2:566965401352:function:RequestUnicorn
 >https://2x01cqllu1.execute-api.us-west-2.amazonaws.com/prod(deployed api)
 
-##Build a Modern Web Application in python
+## Build a Modern Web Application in python
 **Goal:**
 : *To create a website that enables visitors to a adopt a fantasy creature.*(www.mythicalmysfits.com)
 >*host the weapp on a front-end web server*
@@ -134,16 +136,17 @@ pic
 >Capture User Clicks-*capture user analysi using AWS lambda/kenesis Firehose*
 >create the required infrastructure components, which includes a fully managed CI/CD stack utilizing AWS CodeCommit, CodeBuild, and CodePipeline. Finally, you will complete the development tasks required all within your own browser using the cloud-based IDE, AWS Cloud9.
 
->Modue1-(static hosting)
-1.Cloud 9 created
+> Modue1-(static hosting)
+>> Cloud 9 created
 mythical-mysfits-bucket01(S3 bucket creaated)
 aws s3 mb s3://mythical-mysfits-bucket-02
-2.basic static site created
+>> basic static site created
+---------------
 >module 2(host your app on web server)
 *creating microservice hosted with aws fargatevto integrate website with backend*
 **Fargate** is reliable for long running process for web/mobile and PaaS platform
->>Module 2a *Setup Core Infrastructure*
->>Deploy Cloud Formation Templates
+>> Module 2a *Setup Core Infrastructure*
+>>> Deploy Cloud Formation Templates
 
     An Amazon VPC - a network environment that contains four subnets (two public and two private) in the 10.0.0.0/16 private IP space, as well as all the needed Route Table configurations.
     Two NAT Gateways (one for each public subnet) - allows the containers we will eventually deploy into our private subnets to communicate out to the Internet to download necessary packages, etc.
@@ -151,7 +154,8 @@ aws s3 mb s3://mythical-mysfits-bucket-02
     A Security Group - Allows your Docker containers to receive traffic on port 8080 from the Internet through the Network Load Balancer.
     IAM Roles - Identity and Access Management Roles are created. These will be used throughout the workshop to give AWS services or resources you create access to other AWS services like DynamoDB, S3, and more.
 cloud finished provisioning all of the core networking and security resources as described above.
->>Module 2B: Deploy A Service With AWS Fargate
+
+>> Module 2B: Deploy A Service With AWS Fargate
 *creating Docker image that will contain all of the code and configuration required to run mythical mysts backend as a microservice API created with Flask*
 --creating Docker image using cloud 9 and pushing it in Elastic Container Registery(to make it available when we create our service using Fargate).
 cd ~/environment/aws-modern-application-workshop/module-2/app *create docker image *
@@ -170,15 +174,18 @@ Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits
 >>>Replace the API Endpoint
 >>Module 2C: Automate Deployments using AWS Code Services*will automatically deliver all of the code changes that you make to your code base to the service you created during the last module.*
 >>>creating and testing  CI/CD Pipeline
+---------------
 >Module 3: Store Mysfit Information*will create a table in Amazon DynamoDB, a managed and scalable NoSQL database service on AWS with super fast performance*
 >>adding a No SQ Databasee To Mythical Mysfits
 >>commiting real code change
 >>updating website content in S3
+----------------
 >Module 4: Setup User Registration*To enable registration and authentication of website users, we will create a User Pool in AWS Cognito - a fully managed user identity management service. *
 **To make sure that only registered users are authorized to like or adopt mysfits on the website, we will deploy an REST API with Amazon API Gateway to sit in front of our NLB. Amazon API Gateway is also a managed service, and provides commonly required REST API capabilities out of the box like SSL termination, request authorization, throttling, API stages and versioning, and much more.**
 >>added user poool for website Users
 >>added a new rest api with amazon API gateway
 >>Updated the Mythical Mysfits Website
+-------------------
 >Module 5: Capture User Behavior *in order to make use of the site it is a ggod practice to analyze user response*
 **following instructions are required to implement it**
 1. create streaming service code
