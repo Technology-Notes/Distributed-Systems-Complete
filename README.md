@@ -2,10 +2,10 @@
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
 # Cloud Web Applications
-=======
-##CLOUD BEGINNER
+
+## CLOUD BEGINNER
 ----------------
-###AWS Tutorial: Launch a VM - 1hr
+### AWS Tutorial: Launch a VM 
 ![]()
 ![]()
 ![]()
@@ -13,7 +13,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ![]()
 ![]()
 ---------------------------------
-###Introduction to Amazon Simple Storage Service S3
+### Introduction to Amazon Simple Storage Service S3
 new to S3? watch this [intro to S3](https://www.youtube.com/watch?v=77lMCiiMilo).
 ---------------------------------
 > **Use cases** of S3
@@ -45,11 +45,10 @@ new to S3? watch this [intro to S3](https://www.youtube.com/watch?v=77lMCiiMilo)
 }
 so that each object inside the bucket can publicly shared.
 >**Use bucket versioning**
-========
 Save multiple versions of a same object
 "Action": "s3:GetObjectVersion" -- different versions of the same object can be accessed through this policy.
 
-## CLOUD iNTERMEDIATE
+## CLOUD Intermediate
 ### Virtual Machines, Websites, and Databases:
 (https://www.youtube.com/watch?v=GIdVRB5yNsk)describes virtualization and why it needds more and more implimentation everyday.
 ======================
@@ -72,7 +71,7 @@ Save multiple versions of a same object
 >exit
 >verify membership *groups*
 
-###On your own: Compare the performance, functionality, and price when serving web content from S3 versus an EC2 VM 
+### On your own: Compare the performance, functionality, and price when serving web content from S3 versus an EC2 VM 
 **S3 vs EC2**
 
 
@@ -190,7 +189,7 @@ Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits
 **Conclusion**: Using AWS CLI, A serverless system with multiple modules was managed.
 
 ---------------------------------------------------
-#Big Data and Machine Learning
+# Big Data and Machine Learning
 
 ## Beginner
 ### Intro to Hadoop
@@ -203,7 +202,7 @@ Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits
 
 >here program goes into data instead of vice versa(conventional approach(rdbms)-overloadig)
 >hadoop ecosystem comprises of 12 components(which can be classified under Data Ingestion, Data Analysis, Data Processing,Data Exploration,Workflow System, No SQl)
-###analyze BigData With Hadoop
+### analyze BigData With Hadoop
 *launching functional Hadoop cluster using Amazon EMR*
 ![]()
 >added a S3 bucket in config file of the cluster
