@@ -82,6 +82,7 @@ Save multiple versions of a same object
 >Price wise S3 is 4-5 times less cheaper.
 
 **Amazon DynamoDB**-- is a fast and flexible NoSQL database service for all applications.
+
 >created an Amazon DynamoDB table
 >Entered data into an Amazon DynamoDB table*i.e by adding sequential items* plus edited the table data.
 >Queried an Amazon DynamDB table*using scan/query* we can easily find data. It's certain that query is faster than scaning
