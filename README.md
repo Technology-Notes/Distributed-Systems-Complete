@@ -89,18 +89,41 @@ Save multiple versions of a same object
 
 ## Deploy a Node.js Web App
 >learn how to deploy a high-availability Node.js web app using AWS Elastic Beanstalk and Amazon DynamoDB
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unh_vs_h.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/ins.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/Mon.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/S3.PNG)
+
 
 ## Serverless and Edge Computing:
 
 ### Intro to AWS lambda
->errors
+>![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/AWS_lambda.PNG)
 
 ## QwikLab: Intro to Amazon API Gateway - 35 min
 *https://developer.spotify.com/documentation/web-api/*  was good example to understand RESTFUL API.
 
+
 ## Build a serverless web App
 #Host a static website
 http://wildrydes-akshay-gupta.s3-website-us-west-2.amazonaws.com(s3 stattic host end point)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/app_arch.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/static_web_hosting_S3.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/static_bp.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/2.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/3.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/webapp_awslambda.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/lambdalog_webapp.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/authentication.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/APcognito_verification.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/api_method.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/lambda_requestunicorn.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/method_requestcard.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/authorized.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unicorn%20arrived.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/cognito_usergroup.PNG)
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unicorn_dynamo.PNG)
+
 # Manage users
 
 Pool Id us-west-2_QwfIuQsvA
@@ -115,7 +138,8 @@ auth token: eyJraWQiOiJuTnA4NUVcL2tnS1Q3VmkxZ0kyRW5xVjlaZEdpTEFSYW5KenV0N01nNzd0
 >arn:aws:lambda:us-west-2:566965401352:function:RequestUnicorn
 >https://2x01cqllu1.execute-api.us-west-2.amazonaws.com/prod(deployed api)
 
-## Build a Modern Web Application in python
+# Build a Modern Web Application in python
+
 **Goal:**
 : *To create a website that enables visitors to a adopt a fantasy creature.*(www.mythicalmysfits.com)
 >*host the weapp on a front-end web server*
@@ -124,10 +148,11 @@ auth token: eyJraWQiOiJuTnA4NUVcL2tnS1Q3VmkxZ0kyRW5xVjlaZEdpTEFSYW5KenV0N01nNzd0
 >*collect and analyze user behavior*
 >*gathers insight for fututre analysis*
 
-#Application architecture
+## Application architecture
 
-pic
-#Modules
+![Application Architecture](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/P1.PNG)
+
+## Modules
 
 >Create Static website-*building static website i.e storing static objects in S3 *
 >Build Dynamic Website-*hosting application logic on a web server-using API backend microservice deployed(as a container)--aws fargate*
@@ -135,7 +160,7 @@ pic
 >Add User Registration-*API Gateway/Amazon Cognito*
 >Capture User Clicks-*capture user analysi using AWS lambda/kenesis Firehose*
 >create the required infrastructure components, which includes a fully managed CI/CD stack utilizing AWS CodeCommit, CodeBuild, and CodePipeline. Finally, you will complete the development tasks required all within your own browser using the cloud-based IDE, AWS Cloud9.
-![Application Architecture](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/P1.PNG)
+
 
 >Modue1-(static hosting)
 ![architecture](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/F2.1.PNG)
