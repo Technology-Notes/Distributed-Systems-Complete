@@ -216,10 +216,10 @@ Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits
 ![]()
 >added a S3 bucket in config file of the cluster
 ![]()
->added necessary steps to be executed *defining schema and table for sample log data in S3 *
+>added necessary steps to be executed *defining schema and table for sample log data in S3*
 ![]()
 ![]()
-> OS_request *analyzed data using a HiveQl script and wrote results back to S3*
+>OS_request *analyzed data using a HiveQl script and wrote results back to S3*
 ![]()
 ![]()
 
