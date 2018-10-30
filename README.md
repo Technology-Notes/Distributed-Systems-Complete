@@ -165,7 +165,7 @@ git clone https://git-codecommit.REPLACE_REGION.amazonaws.com/v1/repos/MythicalM
 cp -r ~/environment/aws-modern-application-workshop/module-2/app/* ~/environment/MythicalMysfitsService-Repository/
 
 ```
--	Now push the changes using git commands
+-	Now push the changes using git push command
 -	Its time to create DynamoDB table with command `aws dynamodb create-table --cli-input-json file://~/environment/aws-modern-application-workshop/module-3/aws-cli/dynamodb-table.json`
 -	`aws dynamodb describe-table --table-name MysfitsTable` will give the details of table and `aws dynamodb scan --table-name MysfitsTable` will scan table 
 -	Add the data using JSON file with command `aws dynamodb batch-write-item --request-items file://~/environment/aws-modern-application-workshop/module-3/aws-cli/populate-dynamodb.json`
