@@ -195,10 +195,12 @@ Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits
 
 **Conclusion**: Using AWS CLI, A serverless system with multiple modules was managed.
 
----------------------------------------------------
+============================================
+
 # Big Data and Machine Learning
 
 ## Beginner
+---------------------------------------------
 ### Intro to Hadoop
 >Hadoop is the solution to complexities arised due to use of distributed systems.
 >Four Key characteristics are:
