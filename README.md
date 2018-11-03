@@ -24,6 +24,8 @@ chmod 777 file.txt    // allow everyone to read, write, and execute file
 ssh -i file [user@]hostname    // here, -i means selecting a file from which the identity for RSA is read.
 ```
 
+
+
 [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog) (time: 25 min)
 
 Notes: In this lab, I learned the basic usage of **S3** by finishing the tasks one by one. Amazon Simple Storage Service (Amazon S3) is storage for the Internet. Users can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web. Following the instructions, I have created a bucket in S3, added 2 pictures to my bucket, managed access permisson on pictures, created a Bucket Policy for permisson control, and tried to use bucked versioning.
@@ -31,6 +33,8 @@ Notes: In this lab, I learned the basic usage of **S3** by finishing the tasks o
 > Intermediate Level
 
 [Video: Virtualization](https://www.youtube.com/watch?v=GIdVRB5yNsk) (time: 20 min)
+
+
 
 [AWS Tutorial: Install a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html) (time: 45min)
 
@@ -42,6 +46,8 @@ The second step is to test the LAMP Server via creating a PHP file in the Apache
 
 The second step is to secure the database server because the default installation of the MariaDB server should be disabled or removed for production servers.
 
+
+
 [QwikLab: Intro to DynamoDB](https://awseducate.qwiklabs.com/focuses/23?parent=catalog) (time: 20min)
 
 In this lecture, I learned about **Amazon DynamoDB**. It is a fast and flexible NoSQL database service. It's also a fully managed database and supports both document and key-value data models.
@@ -50,7 +56,63 @@ In this lecture, I tried to create a table in Amazon DynamoDB, and added and edi
 
 
 
-[AWS Tutorial: Deploy a Scalable Node.js Web App](https://aws.amazon.com/getting-started/projects/deploy-nodejs-web-app/?trk=gs_card) (time: )
+[AWS Tutorial: Deploy a Scalable Node.js Web App](https://aws.amazon.com/getting-started/projects/deploy-nodejs-web-app/?trk=gs_card) (time: 60min)
+
+In this lecture, I tried to deploy a Node.js application with DynamoDB to Elastic Beanstalk. Elastic Beanstalk can us quickly deploy and manage applications in the AWS Cloud without worrying about the infrastructure that runs those applications. Here is the deployment architecture for this lecture.
+
+![Elastic_Beanstalk](images/Elastic_Beanstalk.png)
+
+
+
+The first step is to **lauch an Elastic Beanstalk environment** via the Elastic Beanstalk console. Elastic Beanstalk will create the environment with the following resources:
+
+- EC2 instance -- the configured virtual machine to run web apps
+
+- Instance security group -- configured to allow ingress on port 80
+
+- Load balancer -- configured to distribute request to the instance running the application and eliminate the need to expose the intance directly to the internet
+
+- Load balancer security group -- configured to allow ingress on port 80
+
+- Auto Scaling group -- configured to replace an instance if it is terminated or becomes unavailable
+
+- Amazon S3 bucket -- store the source code, logs, and other artifacts that are created when using Elastic Beanstalk
+
+- Amazon CloudWatch alarms -- monitor the load on the instances and are triggered if the load is too high or too low
+
+- AWS CloudFormation stack -- lauch the resource in the environment and propagate configuration changes
+
+- Domain name -- routes to the web app
+
+
+
+The second step is to **add permissions** to the environment instance. For this lecture, the sample application uses instance permissions to write data to a DynamoDB table, and to send notifications to an Amazon SNS topic with the SDK for JavaScript in Node.js.
+
+The third step is to **deploy the sample application** via uploading the application source bundle to Elastic Beanstalk. This web app will collect the name and email entered by user and store it to default DynamoDB.
+
+To create our own DynamoDB, the fourth step is to **create a new DynamoDB table** and **reupload the application's configuration files**. To make the configurations, we need to change the signup email and the STARTUP_SIGNUP_TABLE to our own name. When redeploying the application,  the new DynamoDB table will store the information entered by users.
+
+The finally step is to **configure the environment for high availability** via configuring the auto scaling group with a higher minimum instance count.
+
+In a word, this lecture helps me to know the basic framework of Elastic Beanstalk and the basic steps to deploy the web apps and database on the Internet.
+
+
+
+[QwikLab: Intro to AWS Lambda](https://awseducate.qwiklabs.com/focuses/36?parent=catalog) (time: )
+
+
+
+[QwikLab: Intro to Amazon API Gateway](https://awseducate.qwiklabs.com/focuses/21?parent=catalog) (time: )
+
+
+
+[AWS Tutorial: Build a Serverless Web Application](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/?trk=gs_card) (time: )
+
+
+
+> Bring it together
+
+[AWS Tutorial: Build a Modern Web Application](https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/?trk=gs_card) (time: )
 
 ## Area 2
 
