@@ -98,7 +98,64 @@ In a word, this lecture helps me to know the basic framework of Elastic Beanstal
 
 
 
-[QwikLab: Intro to AWS Lambda](https://awseducate.qwiklabs.com/focuses/36?parent=catalog) (time: )
+[QwikLab: Intro to AWS Lambda](https://awseducate.qwiklabs.com/focuses/36?parent=catalog) (time: 70min)
+
+This lecture introduces AWS Lambda. AWS Lambda is a compute service that runs  developer's code in response to events and automatically manages the compute resources for developer, making it easy to build application that respond quickly to new information. AWS Lambda starts running the code within milliseconds of an event such as an image upload, in-app activity, website click, or output from a connected device. AWS Lambda can also be used  to create new back-end services where compute resources are automatically triggered based on custom requests. 
+
+In this lecture, I tried to create an AWS Lambda function, configure an S3 bucket as a Lambda Event Source, then trigger a Lambda function by uploading an object to Amazon S3. Here is the application flow for AWS Lambda in this lecture:
+
+![Lambda](images/Lambda.png)
+
+
+
+1. A user uploads an object to the source bucket in Amazon S3.
+
+2. Amazon S3 detects the object-created event.
+
+3. Amazon S3 publishes the object-created event to AWS Lambda by invoking the Lambda function and passing event data as a function parameter.
+
+4. AWS Lambda executes the Lambda function.
+
+5. From the event data it receives, the Lambda function knows the source bucket name and object key name. The lambda function reads the object and creates a thumbnail using graphics libraries, then saves the thumbnail to the target bucket.
+
+The highlight of this lecture is creating an AWS Lambda function that reads an image from Amazon S3, resizes the image and then stores the new image in Amazon S3. Here we use a pre-written function: 
+
+```python
+import boto3
+import os
+import sys
+import urllib
+from PIL import Image
+import PIL.Image
+
+s3_client = boto3.client('s3')
+
+def resize_image(image_path, resized_path):
+    with Image.open(image_path) as image:
+        image.thumbnail((128,128))
+        image.save(resized_path)
+
+def handler(event, context):
+    for record in event['Records']:
+        bucket = record['s3']['bucket']['name']
+        key = record['s3']['object']['key']
+        raw_key = urllib.parse.unquote_plus(key)
+        download_path = '/tmp/{}'.format(key)
+        upload_path = '/tmp/resized-{}'.format(key)
+
+        s3_client.download_file(bucket, raw_key, download_path)
+        resize_image(download_path, upload_path)
+        s3_client.upload_file(upload_path,
+             '{}-resized'.format(bucket),
+             'thumbnail-{}'.format(raw_key),
+             ExtraArgs={'ContentType': 'image/jpeg'})
+```
+
+As the above code shows, when being called, the python function `handler` will download the image, resize the image using function `resize_image`, and upload the resized image to the *-resized* bucket in Amazon S3.
+
+The AWS Lambda function can be **triggered** automatically by activities. Here we need to configure a S3 trigger to active the AWS Lambda function.
+
+Another interesting place is the **monitoring and logging** in AWS Lambda function. We can monitor AWS Lambda functions to identify problems and view log files to assist in debugging.
 
 
 
