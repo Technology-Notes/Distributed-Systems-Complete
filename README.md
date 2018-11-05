@@ -118,10 +118,10 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 1-11.  A portion of the feature list  
 ![11](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/11.part%20of%20the%20feature%20list.png)
 
-1-12.  Using putty + Xming to launch X applications on windows  
+1-12.  Using putty + Xming to launch X applications on windows - This experiment can also be done on windows using VMware + putty + Xming  
 ![12](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/12.successfully%20launched%20using%20putty%2Bxming.png)
 
-1-13. Use pingall to confirm availability  
+1-13. Use pingall to confirm availability - the command line should be `ovsk` instead of `ovs`  
 ![13](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/13%20pingall%20results.png)
 
 1-14.  Login page of opendaylight dlux  
@@ -171,8 +171,3 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 - Make the object public
 - Create a bucket policy
 - Upload a newer version and explore versioning
-
-
-should be ovsk.
-putty + Xming also works.
-sudo mn --topo linear,3 --mac --controller=remote,ip=192.168.111.128,port=6633 --switch ovsk, protocols=OpenFlow13
