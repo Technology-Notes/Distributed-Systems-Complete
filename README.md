@@ -85,7 +85,9 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 - Much faster than linux native technology stacks
 
 ### Experiments:
-1. 
+1. List 
+https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/1.List%20all%20devices%20using%20the%20ip%20command.png
+
 
 ## Area 2: Cloud Web Applications
 ### Launch an VM
