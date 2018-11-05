@@ -94,6 +94,39 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 3. Check the IP address assigned to this interface  
 ![3](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/3.%20check%20the%20ip%20address%20assigned%20to%20ens38.png)
 
+4. Edit the configuration file  
+![4](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/4.edit%20configuration%20file.png)
+
+5. Log into linux on windows using ssh  
+![5](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/5.Windows%20logged%20into%20linux%20using%20ssh.png)
+
+6.  Install the jre
+![6](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/6.installing%20jre.png)
+
+7.  Making up Java environment variable
+![7](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/7.java%20env.png)
+
+8.  Uncompressing ODL
+![8](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/8.uncompressed%20opennetvm.png)
+
+9.  Java 11 does not support this anymore :( switching to java 8
+![8](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/9.switching%20to%20java%208%20because%20java%2011%20no%20longer%20supports%20this.png)
+
+10.  
+
+11.  
+
+12.  
+
+13.  
+
+14.  
+
+15.  
+
+16.  
+
+
 ## Area 2: Cloud Web Applications
 ### Launch an VM
 - Launch an instance in the EC2 console.
