@@ -143,8 +143,20 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 2-2.  uname -a  
 ![19](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/21-uname%20-a.png)
 
+2-3.  Hello world example  
+![20](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/22.hello.png)
 
+2-4.  OnVM manager view  
+![21](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/23.onvm%20manager.png)
 
+2-5.  Simple test, system working  
+![22](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/24.go-tester.png)
+
+2-6.  Ping successful, bridge NF working (1)  
+![23](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/25.ping%20complete.png)
+
+2-7.  Ping successful, bridge NF working (2)  
+![24](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/26.NF%20.png)
 
 ## Area 2: Cloud Web Applications
 ### Launch an VM
