@@ -58,6 +58,14 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ### OpenNetVM
 - Platform for efficient packet processing in VMs and lightweight containers
 - Highly optimized to reach ~70Gbps
+- NF Manager -> Host's user space
+- NFs run inside docker containers
+- NUMA-aware processing
+- Zero-copy data transfer between NFs
+- No interrupts using DPDK poll-mode driver
+- Scalable RX and TX threads in manager and NFs
+- SDN-enabled NF Manager directs flows to NFs
+- Fast enough to run software-based router, 38Gbps
 
 ### Packet processing in linux
 - Lots of extra layers
@@ -70,17 +78,6 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 - Regular function to transmit packets.
 - Don't have native support for virtualization.
 
-### OpenNetVM:
-NF Manager -> Host's user space
-NFs run inside docker containers
- - NUMA-aware processing
- - Zero-copy data transfer between NFs
- - No interrupts using DPDK poll-mode driver
- - Scalable RX and TX threads in manager and NFs
- - SDN-enabled NF Manager directs flows to NFs
-
-Fast enough to run software-based router, 38Gbps
-
 ## Area 2: Cloud Web Applications
 ### Launch an VM
 - Launch an instance in the EC2 console.
@@ -88,7 +85,7 @@ Fast enough to run software-based router, 38Gbps
 - Connect to the instance
 - Terminate the instance
 
-### Storage:
+### Storage
 - Create a bucket
 - Upload the file to a bucket
 - Make the object public
