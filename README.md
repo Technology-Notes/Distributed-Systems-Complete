@@ -100,16 +100,16 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 5. Log into linux on windows using ssh  
 ![5](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/5.Windows%20logged%20into%20linux%20using%20ssh.png)
 
-6.  Install the jre
+6.  Install the jre  
 ![6](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/6.installing%20jre.png)
 
-7.  Making up Java environment variable
+7.  Making up Java environment variable  
 ![7](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/7.java%20env.png)
 
-8.  Uncompressing ODL
+8.  Uncompressing ODL  
 ![8](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/8.uncompressed%20opennetvm.png)
 
-9.  Java 11 does not support this anymore :( switching to java 8
+9.  Java 11 does not support this anymore :( switching to java 8  
 ![8](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/9.switching%20to%20java%208%20because%20java%2011%20no%20longer%20supports%20this.png)
 
 10.  
