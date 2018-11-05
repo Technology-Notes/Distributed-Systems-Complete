@@ -78,6 +78,15 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 - Regular function to transmit packets.
 - Don't have native support for virtualization.
 
+### Fast I/O
+- Zero-copy packet forwarding
+- Amortized system call overhead
+- Compatible with libpcap and other standard libraries
+- Much faster than linux native technology stacks
+
+### Experiments:
+1. 
+
 ## Area 2: Cloud Web Applications
 ### Launch an VM
 - Launch an instance in the EC2 console.
@@ -92,9 +101,6 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 - Create a bucket policy
 - Upload a newer version and explore versioning
 
-
-
-Fast I/O: netmap:
 
 should be ovsk.
 putty + Xming also works.
