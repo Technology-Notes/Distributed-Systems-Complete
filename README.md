@@ -87,7 +87,12 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ### Experiments:
 1. List all devices using the ip command  
 ![1](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/1.List%20all%20devices%20using%20the%20ip%20command.png)
+  
+2. Configure the network interface  
+![2](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/2.sudo%20dhclient%20ens38.png)
 
+3. Check the IP address assigned to this interface  
+![3](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment/3.%20check%20the%20ip%20address%20assigned%20to%20ens38.png)
 
 ## Area 2: Cloud Web Applications
 ### Launch an VM
