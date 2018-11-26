@@ -367,7 +367,7 @@ options ndots:0
 
 
 ### [Kubernetes vs Swarm:]( https://www.youtube.com/watch?v=L8xuFG49Fac) (4 min)
--  Swarm can enable to run containers in cluster
+- Swarm can enable to run containers in cluster
 - it can do redeployment with 0 downtime
 - it manages your container in production
 - kubernetes is orchestration system for docker and we can use it for non-docker environment too
@@ -377,7 +377,7 @@ options ndots:0
 
 ### [kubernetes in 5 min:]( https://www.youtube.com/watch?v=PH-2FfFD2PU) (5 min)
 
--We can enforce desire state management using kubernetes
+- We can enforce desire state management using kubernetes
 - API rest within kubernetes cluster service 
 - It is a system which helps us deploy desired configuration across our system
 - kubelet process runs in all the host or workers which helps communicating with kubernetes
@@ -398,8 +398,8 @@ the scheduling and execution of application containers within and across compute
 - We use API endpoint for communication with outside world
 
 ### Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them - 80 min 
--I followed the instructions and created EC2 instances
--I successfully installed kubernetes cluster on EC2 instance by following the kubernetes installation steps
+- I followed the instructions and created EC2 instances
+- I successfully installed kubernetes cluster on EC2 instance by following the kubernetes installation steps
 - Cluster of containers is advantages in a way that failure of one instance does not affect the system
 - We define the configuration .yml file which defines the behavior of the system
 - I have terminated the instance after the completion of above steps
@@ -412,7 +412,7 @@ the scheduling and execution of application containers within and across compute
 - Navigate to AWSCloudFormation to launch EC2 cluster
 - Create task definition and configure application load balancer to deploy the monolithic app
 - We need to create three repositories and build and tag images for all microservices 
--We need to write a task definition with given configuration and repeat step 3 times
+- We need to write a task definition with given configuration and repeat step 3 times
 - We then configure the target groups and listener rules
 - Through cluster select your cluster and configure the service
 - We then update listener rulers to re-route traffic to the Microservices
@@ -425,11 +425,11 @@ the scheduling and execution of application containers within and across compute
 > **_Beginner Level_** 
 
 ### [Big Data and Hadoop:](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be) (20 min)
--Before year 2000 amount of data was less and data computation was dependent on available computers
+- Before year 2000 amount of data was less and data computation was dependent on available computers
 - data started growing rapidly in uncontrolled manner without given enough computation power to process it
--Distributed system showed us a way to solve this problem where task divided to many computers takes less time
+- Distributed system showed us a way to solve this problem where task divided to many computers takes less time
 - There are still few problems associated with distributed system which can be overcome by using Hadoop technology
--Hadoop is reliable, scalable, economical and flexible 
+- Hadoop is reliable, scalable, economical and flexible 
 - It has many components where HDFS is a storage layer for Hadoop
 - HBase is NoSQL DB which stores data in HDFS
 - Sqoop is a tool which transfers data from RDBM to HDFS and vice versa
@@ -441,7 +441,7 @@ the scheduling and execution of application containers within and across compute
 - HIVE is usually used for data processing and ETL
 - Cloudera search can be used by non-technical user to access the data in Hadoop and HBase
 - Oozie is a coordination system used to manage the Hadoop jobs
--Hue stands for Hadoop user experience which is web interface for Hadoop
+- Hue stands for Hadoop user experience which is web interface for Hadoop
 - Data is ingested using Sqoop and Flume 
 - Data is processed by MapReduce and Spark and stored using HBase and HDFS
 - Impala, Hive and Pig is used for analysis of data
@@ -450,7 +450,7 @@ the scheduling and execution of application containers within and across compute
 
 ### [Analyze Big Data with Hadoop:](https://awseducate.qwiklabs.com/focuses/19?parent=catalog) (40 min)
 
--Create an S3 bucket with name hadoop-{any number}
+- Create an S3 bucket with name hadoop-{any number}
 - Launch an EMR cluster with instance 2 and select S3 bucket which we have just created
 - Select proceed without EC2 keypair and keep the permission custom
 - Create a cluster with mentioned configuration
