@@ -215,3 +215,249 @@ There has been shifts thought the era of computers and in future we are more lik
 -	We can also instantiate another container with same image with command like `docker container run alpine /bin/sh` where `docker container run -it alpine /bin/sh` will give you interactive shell where we can type command for that perticular instance
 -	The command `docker container ls -a` will give us list of containers we instantiated before where we can select particular ‘Container ID’ and use it to access files or application stored or running on that container
 
+### [What are containers:]( https://www.youtube.com/watch?v=EnJ7qX9fkcU) (18 min)
+-	A process can run inside OS which share many things such as memory, RAM etc
+-	Container provides an isolated environment i.e a sandbox for a process and isolate it from other processes 
+-	We can run one process per container where life cycle of process and container in which it is running is tightly couple
+- It shows a parent child relationship with the help of the concept of image layering 
+- We can create a snapshot of an image and add some more feature to shared image to create new snapshot
+- Any (large) number of instances of containers can be made which includes all the prerequisite to run a process
+- Containers doesn’t need to install dependencies separately for every instance  
+- Docker host pull or push from image and other required files from registry which is replicated in image cache of docker
+- Client can pull, create, run, commit etc to docker host with the help of host of daemon 
+- Client can create a network virtualization in docker which can provide a functionality to processes to interact with each other
+- Volume can be created to provide persistent storage area which remains active even after end of container instance 
+- Also, to store a data we can send the data to network socket
+
+
+### [Container vs VM:] (https://www.youtube.com/watch?v=L1ie8negCjc)(10 min)
+
+- Over the physical infrastructure there exists a hypervisor which gives a base to run multiple OS 
+- Virtual hardware layer i.e.  limited number of NICS and Storage to which VM interacts
+- We can size the VM where we are not bound by physical infrastructure 
+- Docker is hosted by OS and container have its own dependencies with it as a docker files
+- NIC, storage, size, kernel modules etc.  are provided via docker
+- Containers provides abstraction by dividing OS itself whereas VM lies between physical module and OS 
+- Sizing is fixed in container technology 
+- Containers are fast as it contains minimum number of drivers and technology to run an instance
+
+
+### [Docker Intro:]( https://training.play-with-docker.com/beginner-linux/) (30 min)
+
+-	This tutorial video will guide on how to use simple docker command and build-ship-run workflow
+-	`git clone https://github.com/dockersamples/linux_tweet_app` command will clone  a repository which we will be using later in the tutorial
+-	`docker container run alpine hostname` will run hostname command inside alpine container
+-	`docker container ls --all` will list all containers 
+-	We can run ubuntu container inside alpine linux docker using `docker container run --interactive --tty --rm ubuntu bash` command which will also open interactive mode
+-	Below command will start MySQL container
+```
+docker container run \
+ --detach \
+ --name mydb \
+ -e MYSQL_ROOT_PASSWORD=my-secret-pw \
+ mysql:latest
+
+```
+-	We can check the status of our containers by using commands like `docker container logs` and `docker container top`
+-	`docker exec -it mydb sh` command will give us shell inside already running MySQL container
+-	We can check the version number from shell by using `mysql --user=root --password=$MYSQL_ROOT_PASSWORD --version` command and exit the shell using `exit` command
+-	We need to go to directory linux_tweet_app which we have downloaded using git command at very beginning also set the dockerid by using `export DOCKERID=<your docker id>` command
+-	`docker image build --tag $DOCKERID/linux_tweet_app:1.0 .` will build docker image with name and version mentioned in the command
+-	 Below command will the run the container which we have just build
+```
+docker container run \
+ --detach \
+ --publish 80:80 \
+ --name linux_tweet_app \
+ $DOCKERID/linux_tweet_app:1.0
+```
+-	We can check that the website will be up and running and to terminate use `docker container rm --force linux_tweet_app` command
+-	We can modify image or files while running the app which using bind mount functionality by running following command
+```
+docker container run \
+ --detach \
+ --publish 80:80 \
+ --name linux_tweet_app \
+ --mount type=bind,source="$(pwd)",target=/usr/share/nginx/html \
+ $DOCKERID/linux_tweet_app:1.0
+```  
+-	We can change the index.html and check the website or even update the image file using `docker image build --tag $DOCKERID/linux_tweet_app:2.0 .`  and check the website by refreshing the browser 
+-	The changes will be applied even while its in running mode
+-	We can upload our image by login into docker using `docker image push $DOCKERID/linux_tweet_app:1.0` command
+-	We can find our uploaded images at `https://hub.docker.com/r/<your docker id>/ `
+
+## [Doing more with docker images:]( https://training.play-with-docker.com/ops-s1-images/) (50 min)
+-	Let’s start by running interactive shell in ubuntu `docker container run -ti ubuntu bash`
+-	`apt-get install -y figlet` will install figlet on the system 
+-	`docker container ls -a` will list all running containers and `docker container diff <container id>` will tell us difference between current container and changes made in the container
+-	` docker container commit CONTAINER_ID` will commit the changes and will create image locally
+-	`docker image tag <IMAGE_ID> ourfiglet` will add tag the image with name and we can check that from command `docker image ls`
+-	To check container lets run `docker container run ourfiglet figlet hello` command and you will get the output
+-	Create a file named index.js and add below lines into that
+```
+var os = require("os");
+var hostname = os.hostname();
+console.log("hello from " + hostname);
+```
+-	 Create another file named Dockerfile and add below details
+```
+FROM alpine
+RUN apk update && apk add nodejs
+COPY . /app
+WORKDIR /app
+CMD ["node","index.js"]
+
+```
+-	` docker image build -t hello:v0.1 .`  we can create our own image from 
+-	` docker container run hello:v0.1` can be used to check if the container is working
+-	We can add one line to index.js file by command ` echo "console.log(\"this is v0.2\");" >> index.js` and build new image using ` docker image build -t hello:v0.2 .`
+-	Now we will pull image with ` docker image pull alpine` and inspect with ` docker image inspect alpine`
+-	` docker image inspect --format "{{ json .RootFS.Layers }}" alpine` will get the list of layers 	
+-	Now ` docker image inspect --format "{{ json .RootFS.Layers }}" <image ID>` will gives us more layers where sha256 code is same which is because new image is created from same alpine image
+
+### [Lightboard VM vs containers:]( https://training.play-with-docker.com/ops-s1-swarm-intro/) (10 min)
+-	Containers can be run inside virtual machine
+-	Disk image of virtual machine includes user space program, kernel , inti systems, applications  etc. 
+-	The size includes application and dependencies could be around hundreds of megabytes to tons of gigabyte 
+-	In container size can range from tens of megabytes to gigabytes i.e. it is small
+-	Size of the container could increase depending upon the process or application it has to serve
+-	 If application needs user space tools and some other required files, we can create a new image based on existing image with new added requirements to create a new container 
+-	Security in VMs is high as compared to security in containers
+-	Boot time is usually high in VMs which can be improved using EFI and advance INIT systems 
+-	In container setting up the sandbox is like kernel operation which makes it very fast to start a container
+
+### [Docker networking:](https://training.play-with-docker.com/docker-networking-hol/) (50 min)
+-	` docker network ls` command will list all the network establish with docker
+-	` docker info` will give important information and list network driver plugin
+-	By default, bridge docker container comes with bridge network `brctl show` will list the bridged on docker host, where, `ip a` can also show us the details of the bridge 
+-	 Bridge network is default network i.e unless we specify all new containers will be connected to bridge network
+-	We can create new container in sleep mode by ` docker run -dt ubuntu sleep infinity` command and verify by `docker ps`
+-	`brctl show` will have new interface under bridge network which can also be seen by ` docker network inspect bridge`
+-	Let’s check if container respond to the ping by `ping -c5 <ip address>`
+-	` docker exec -it yourcontainerid /bin/bash` will start the bash inside container
+-	We can redirect request using ` docker run --name web1 -d -p 8080:80 nginx` command which will transfer traffic from docker post 8080 to post 80 inside of container
+-	Now we will initialize swarm by ` docker swarm init --advertise-addr $(hostname -i)` and it will output a command will should be run into other terminal to activate the swarm
+-	` docker network create -d overlay overnet` command will create a overlay service which we can check by running `docker network ls` command
+```
+docker service create --name myservice \
+--network overnet \
+--replicas 2 \
+ubuntu sleep infinity
+``` 
+-	Above command will start a service on two nodes and overnet network will be available in second terminal 
+-	Open bash in your container and run below command where nameserver 127.0.0.11 will send DNS queries to embedded DNS resolver 
+```
+cat /etc/resolv.conf
+search ivaf2i2atqouppoxund0tvddsa.jx.internal.cloudapp.net
+nameserver 127.0.0.11
+options ndots:0
+```  
+-	To remove everything run ` docker service rm myservice` and `docker kill container id`
+-	Also remove both the nodes by `docker swarm leave --force` on both nodes
+
+
+### [Swam mode introduction:] (https://training.play-with-docker.com/ops-s1-swarm-intro/) (40 min)
+-	Swarm mode tell docker that many docker engines will be running and we need to coordinate operation between them. Usually, 3 or more manager nodes for several worker nodes are required in order to maintain high availability and scalability.
+-	 ` docker swarm init --advertise-addr $(hostname -i)` will initialize a node as a manager
+-	`docker node ls` will list the manager and worker nodes and show swarm members
+-	` cat docker-stack.yml` download the github file and cat into the file using this command where services and its configuration ae mentioned
+-	Deploy the services by 	` docker stack deploy --compose-file=docker-stack.yml voting_stack` command and check it by `docker stack ls` as stack is multiple services stacked together for deployment
+-	` docker stack services voting_stack` this will give us details of each service and ` docker service ps voting_stack_vote` will list the vote service
+-	` docker service scale voting_stack_vote=5` command will scale an application by 5 vote service
+
+
+### [Kubernetes vs Swarm:]( https://www.youtube.com/watch?v=L8xuFG49Fac) (4 min)
+-  Swarm can enable to run containers in cluster
+- it can do redeployment with 0 downtime
+- it manages your container in production
+- kubernetes is orchestration system for docker and we can use it for non-docker environment too
+- Kubernetes have far more features and widely used tool as compared to built-in docker swarm
+- Swarm is less powerful still very featureful
+
+
+### [kubernetes in 5 min:]( https://www.youtube.com/watch?v=PH-2FfFD2PU) (5 min)
+
+-We can enforce desire state management using kubernetes
+- API rest within kubernetes cluster service 
+- It is a system which helps us deploy desired configuration across our system
+- kubelet process runs in all the host or workers which helps communicating with kubernetes
+- the desired configuration is mentioned in .yaml file which is feeded to kubernetes 
+- file is given to API and kubernetes cluster service will decide how to schedule pods in the environment
+- if one worker goes down which will disturb the configuration which kubernetes will maintain by reconfiguring the whole system with available workers
+
+### [Learn more about kubernetes on your own:]( https://kubernetes.io/) (40 min)
+
+- Kubernetes is a production-grade, open-source platform that orchestrates 
+the scheduling and execution of application containers within and across computer clusters.
+- It contains master which manages the cluster and node which  is  physical computer which serves as worker machine
+- Kubernetes gives a single DNS name for a set of containers, and can balance load across all containers
+- To deploy containerized application over kubernetes cluster we need to create Kubernetes Deployment configuration
+- Deployment controller monitors instances and if one of the instance goes down it replaces it. This provides a self-healing mechanism to address machine failure or maintenance
+- We can use kubernetes command line interface called kubectl for deployment 
+- Pods running in kubernetes will be in private mode and by default visible by only other pods
+- We use API endpoint for communication with outside world
+
+### Install Docker on a cluster of EC2 VMs and use Kubernetes to orchestrate them - 80 min 
+-I followed the instructions and created EC2 instances
+-I successfully installed kubernetes cluster on EC2 instance by following the kubernetes installation steps
+- Cluster of containers is advantages in a way that failure of one instance does not affect the system
+- We define the configuration .yml file which defines the behavior of the system
+- I have terminated the instance after the completion of above steps
+
+### [AWS Tutorial: Break a Monolith Application into Microservices:]( https://aws.amazon.com/getting-started/projects/break-monolith-app-microservices-ecs-docker-ec2/?trk=gs_card) (1.5 Hours)
+- We will deploy a monolithic node.js application to a Docker container, then decouple the application into microservices without any downtime
+- Install CLI and docker have text editor ready on your computer
+- Download the project and create repo in AWS ECR
+- Build the image and tag it to push it in AWS ECR
+- Navigate to AWSCloudFormation to launch EC2 cluster
+- Create task definition and configure application load balancer to deploy the monolithic app
+- We need to create three repositories and build and tag images for all microservices 
+-We need to write a task definition with given configuration and repeat step 3 times
+- We then configure the target groups and listener rules
+- Through cluster select your cluster and configure the service
+- We then update listener rulers to re-route traffic to the Microservices
+- Validate the deployment using appropriate links
+- To clean up we must turn off the process and delete listener and target groups which we have created
+- We then delete the CloudFormation Stack and deregister the task definition
+- Finally delete all repositories which we have created 
+
+## Big Data and Machine Learning 
+> **_Beginner Level_** 
+
+### [Big Data and Hadoop:](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be) (20 min)
+-Before year 2000 amount of data was less and data computation was dependent on available computers
+- data started growing rapidly in uncontrolled manner without given enough computation power to process it
+-Distributed system showed us a way to solve this problem where task divided to many computers takes less time
+- There are still few problems associated with distributed system which can be overcome by using Hadoop technology
+-Hadoop is reliable, scalable, economical and flexible 
+- It has many components where HDFS is a storage layer for Hadoop
+- HBase is NoSQL DB which stores data in HDFS
+- Sqoop is a tool which transfers data from RDBM to HDFS and vice versa
+- Streaming data or events data can be used instead of Sqoop
+- Spark is open source cluster computing framework which is used for processing data
+- Hadoop Map Reduce also process the data and commonly used framework
+- Pig is used to 	converting script to analyze the data
+- Impala is also can be used for analysis of the data which has low latency 
+- HIVE is usually used for data processing and ETL
+- Cloudera search can be used by non-technical user to access the data in Hadoop and HBase
+- Oozie is a coordination system used to manage the Hadoop jobs
+-Hue stands for Hadoop user experience which is web interface for Hadoop
+- Data is ingested using Sqoop and Flume 
+- Data is processed by MapReduce and Spark and stored using HBase and HDFS
+- Impala, Hive and Pig is used for analysis of data
+- We can access the data using Hue and Cloudera Search
+
+
+### [Analyze Big Data with Hadoop:](https://awseducate.qwiklabs.com/focuses/19?parent=catalog) (40 min)
+
+-Create an S3 bucket with name hadoop-{any number}
+- Launch an EMR cluster with instance 2 and select S3 bucket which we have just created
+- Select proceed without EC2 keypair and keep the permission custom
+- Create a cluster with mentioned configuration
+- In steps, add steps with type Hive Program and name it process log
+- Select S3 location as `s3://us-west-2.elasticmapreduce.samples/cloudfront/code/Hive_CloudFront.q`
+- And Input location as `s3://us-west-2.elasticmapreduce.samples`
+- Output should be S3 bucket which we have created and click add
+- Simply go to bucket we have created and click OS request folder to download the file in it
+- File will have access request by OS
+- Terminate your EMR cluster and end the lab
