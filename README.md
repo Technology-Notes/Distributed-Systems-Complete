@@ -215,6 +215,8 @@ There has been shifts thought the era of computers and in future we are more lik
 -	We can also instantiate another container with same image with command like `docker container run alpine /bin/sh` where `docker container run -it alpine /bin/sh` will give you interactive shell where we can type command for that perticular instance
 -	The command `docker container ls -a` will give us list of containers we instantiated before where we can select particular ‘Container ID’ and use it to access files or application stored or running on that container
 
+>**_Intermediate Level_**
+
 ### [What are containers:]( https://www.youtube.com/watch?v=EnJ7qX9fkcU) (18 min)
 -	A process can run inside OS which share many things such as memory, RAM etc
 -	Container provides an isolated environment i.e a sandbox for a process and isolate it from other processes 
@@ -286,7 +288,7 @@ docker container run \
 -	We can upload our image by login into docker using `docker image push $DOCKERID/linux_tweet_app:1.0` command
 -	We can find our uploaded images at `https://hub.docker.com/r/<your docker id>/ `
 
-## [Doing more with docker images:]( https://training.play-with-docker.com/ops-s1-images/) (50 min)
+### [Doing more with docker images:]( https://training.play-with-docker.com/ops-s1-images/) (50 min)
 -	Let’s start by running interactive shell in ubuntu `docker container run -ti ubuntu bash`
 -	`apt-get install -y figlet` will install figlet on the system 
 -	`docker container ls -a` will list all running containers and `docker container diff <container id>` will tell us difference between current container and changes made in the container
