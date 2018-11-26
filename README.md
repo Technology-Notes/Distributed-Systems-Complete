@@ -230,7 +230,7 @@ There has been shifts thought the era of computers and in future we are more lik
 - Also, to store a data we can send the data to network socket
 
 
-### [Container vs VM:] (https://www.youtube.com/watch?v=L1ie8negCjc)(10 min)
+### [Container vs VM:](https://www.youtube.com/watch?v=L1ie8negCjc)(10 min)
 
 - Over the physical infrastructure there exists a hypervisor which gives a base to run multiple OS 
 - Virtual hardware layer i.e.  limited number of NICS and Storage to which VM interacts
@@ -356,7 +356,7 @@ options ndots:0
 -	Also remove both the nodes by `docker swarm leave --force` on both nodes
 
 
-### [Swam mode introduction:] (https://training.play-with-docker.com/ops-s1-swarm-intro/) (40 min)
+### [Swarm mode introduction:](https://training.play-with-docker.com/ops-s1-swarm-intro/) (40 min)
 -	Swarm mode tell docker that many docker engines will be running and we need to coordinate operation between them. Usually, 3 or more manager nodes for several worker nodes are required in order to maintain high availability and scalability.
 -	 ` docker swarm init --advertise-addr $(hostname -i)` will initialize a node as a manager
 -	`docker node ls` will list the manager and worker nodes and show swarm members
