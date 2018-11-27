@@ -323,6 +323,34 @@ The final module is about the interacting between the users and my website and t
 
 In conclusion, via the experiences from module 1 to module 5, I have built a modern application on top of AWS. I have mastered the usage of some AWS technologies mentioned above. I have learnt to use AWS resrouces not only by the AWS CLI but the AWS consoles. In addition, I am only very familiar with Python, but in this tutorial I feel the greatness of this language: the powerful extensive support libraries make me do all the thing I want!
 
+
+
 ## Area 2
 
-> Include notes here about each of the links
+> Beginner Level
+
+
+
+> Intermediate Level
+
+
+
+## Area 3 Docker and Containers
+
+> Beginner Level
+
+[Video: Why Docker?](https://www.youtube.com/watch?v=RYDHUTHLf8U&t=0s&list=PLBmVKD7o3L8tQzt8QPCINK9wXmKecTHlM&index=23) (time: 20 min)
+
+This video introduces the benefits of Docker. When talking about docker, we need to know container first. As I learned in the Aera 1, a container is a set of software that packages up code and all its dependencies so the application can run quickly and reliably from one computing environment to another. A Docker container image is a typical container. The Docker can reduce the infrastructure and maintenance costs of supporting the application portfolio. I also learn the differences between containers and virtual machines, they have similar resource isolation and allocation benefits, but function differently. Containers virtualize the operation system instead of hardware, containers are more portable and efficient. The following is the detailed comparison between container and vm:
+
+![docker-containerized-appliction](images/docker-containerized-appliction.png)
+
+Containers are an abstraction at the app layer that packages code and dependencies together. Multiple containers can run on the same machine and share the OS kernel with other containers, each running as isolated processes in user space. Containers take up less space than VMs (container images are typically tens of MBs in size), can handle more applications and require fewer VMs and Operating systems.
+
+![vm](images/vm.png)
+
+Virtual machines (VMs) are an abstraction of physical hardware turning one server into many servers. The hypervisor allows multiple VMs to run on a single machine. Each VM includes a full copy of an operating system, the application, necessary binaries and libraries - taking up tens of GBs. VMs can also be slow to boot.
+
+
+
+[Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/) (time: min)
