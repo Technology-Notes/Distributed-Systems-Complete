@@ -141,8 +141,6 @@ The AWS Lambda function can be **triggered** automatically by activities. Here w
 
 Another interesting place is the **monitoring and logging** in AWS Lambda function. We can monitor AWS Lambda functions to identify problems and view log files to assist in debugging.
 
-
-
 [QwikLab: Intro to Amazon API Gateway](https://awseducate.qwiklabs.com/focuses/21?parent=catalog) (time: 30min)
 
 In this lecture, I created a simple FAQ micro-service. The micro-service will return a JSON object containing a random question and answer pair using an **Amazon API Gateway** endpoint that invokes an **AWS Lambda function**. Here is the architecture pattern for this micro-service:![api_gateway_micro_service](images/api_gateway_micro_service.png)
@@ -169,13 +167,161 @@ The last useful tip is about RESTful API, which refers to architectures that fol
 
 In this lecture, the steps follow the RESTful model. Clients send requests to backend Lambda function (server). The logic of service is encapsulated within the Lambda function and it is providing a uniform interface for clients to use.
 
+[AWS Tutorial: Build a Serverless Web Application](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/?trk=gs_card) (time: 90min)
+
+In this tutorial, I experienced the power of AWS by building a serverless web application which enables users to request unicorn rides from the Wild Rydes fleet. This application presents users with HTML based user interface for indicating the location where they would like to be picked up and will interface on the backend with a RESTful web service to submit the request and dispatch a nearby unicorn. The application also provides facilities for users to register with the service and log in before requesting rides.
+
+In this tutorial, I tried to use **AWS Lambda** to simulate the backend and response to the user requests, use **Amazon API Gateway** to interface user and backend, use **Amazon S3** to store the static website files,  use **Amazon DynamoDB** to store the histories of user request, and use **Amazon Cognito** to create and authenticate the user accounts. 
+
+![Serverless_Web_App_LP](images/Serverless_Web_App_LP.png)
+
+The above picture shows the architecture and steps of this application. Here is the summary of the four steps:
+
+1. Amazon S3 hosts static web resources including HTML, CSS, Javascript, and image files which are loaded in the user's browser.
+
+2. Amazon Cognito provider user management and authentication functions to secure the backend API.
+
+3. Amazon DynamoDB provides a persistence layer where data can be stored by the API's Lambda function.
+
+4. Javascript executed in the browser sends and receives data from a public backend API built using Lambda and API Gateway.
+
+In the first step, I learned that the Amazon S3 can be used not only to store the data but to be a website hosting.
+
+In the second step, I tried to create an Amazon Cognito user pool to manage the users' account of this application. When users visit the website they will first register a new user account. After users submit their registration, Amazon Cognito will send a confirmation email with a verification code to the address they provided. To confirm their account, users will return to the site and enter their email address and the verification code they received. After users have a confirmed account, they will be able to sign in. When users sign in, they enter their username (or email) and password. A JavaScript function then communicates with Amazon Cognito, authenticates using the Secure Remote Password protocol (SRP), and receives back a set of JSON Web Tokens (JWT). The JWTs contain claims about the identity of the user and will be used to authenticate against the RESTful API which is built with Amazon API Gateway.
+
+The following is the function code for register and signin. We call `aws-cognito-sdk.min.js` and `amazon-cognito-identity.min.js` to achieve the Amazon Cognito.
+
+```javascript
+function register(email, password, onSuccess, onFailure) {
+        var dataEmail = {
+            Name: 'email',
+            Value: email
+        };
+        var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
+
+        userPool.signUp(email, password, [attributeEmail], null,
+            function signUpCallback(err, result) {
+                if (!err) {
+                    onSuccess(result);
+                } else {
+                    onFailure(err);
+                }
+            }
+        );
+    }
+
+function signin(email, password, onSuccess, onFailure) {
+  var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails({
+    Username: email,
+    Password: password
+  });
+
+  var cognitoUser = createCognitoUser(email);
+  cognitoUser.authenticateUser(authenticationDetails, {
+    onSuccess: onSuccess,
+    onFailure: onFailure
+  });
+}
+```
+
+In the third and fourth step, I tried to use AWS Lambda and Amazon DynamoDB to build a backend process for handling requests for the web application, and use Amazon API Gateway to expose the Lambda function as a RESTful API. 
+
+The following code is the important part of the Lambda function. In this function, we not only return the information of a unicorn to the client but record the request history to Amazon DynamoDB.
+
+```
+exports.handler = (event, context, callback) => {
+    if (!event.requestContext.authorizer) {
+      errorResponse('Authorization not configured', context.awsRequestId, callback);
+      return;
+    }
+
+        // omit some code...
+
+    recordRide(rideId, username, unicorn).then(() => {
+        callback(null, {
+            statusCode: 201,
+            body: JSON.stringify({
+                RideId: rideId,
+                Unicorn: unicorn,
+                UnicornName: unicorn.Name,
+                Eta: '30 seconds',
+                Rider: username,
+            }),
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+        });
+    }).catch((err) => {
+        console.error(err);
+        errorResponse(err.message, context.awsRequestId, callback)
+    });
+};
 
 
-[AWS Tutorial: Build a Serverless Web Application](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/?trk=gs_card) (time: )
+function findUnicorn(pickupLocation) {
+    console.log('Finding unicorn for ', pickupLocation.Latitude, ', ', pickupLocation.Longitude);
+    return fleet[Math.floor(Math.random() * fleet.length)];
+}
+
+function recordRide(rideId, username, unicorn) {
+    return ddb.put({
+        TableName: 'Rides',
+        Item: {
+            RideId: rideId,
+            User: username,
+            Unicorn: unicorn,
+            UnicornName: unicorn.Name,
+            RequestTime: new Date().toISOString(),
+        },
+    }).promise();
+}
+```
+
+Another interesting point in the fourth step is that we create a cognito user pools authorizer. Amazon API Gateway can use the JWT tokens returned by Cognito User pools to authenicate API calls. After that, we deploy the API Gateway to trigger the Lambda function.
 
 > Bring it together
 
-[AWS Tutorial: Build a Modern Web Application](https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/?trk=gs_card) (time: )
+[AWS Tutorial: Build a Modern Web Application](https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/?trk=gs_card) (time: 240min)
+
+In this Tutorial, I tried to build a sample website called Mythical Mysfits that enables visitors to adopt a fantasy creature as pet. This project can be implemented in 5 modules and I will analyze the technologies in each modules step by step.
+
+1. Create Static Website. Build a static website, using **Amazon Simple Storage Service** (S3) that serves static content (images, static text, etc.) for the website.
+
+2. Build Dynamic Website. Host the application logic on a web server, using an API backend microservice deployed as a container through **AWS Fargate**.
+
+3. Store Mysfit Data. Externalize all of the mysfit data and persist it with a managed NoSQL database provided by **Amazon DynamoDB**.
+
+4. Add User Registration. Enable users to registration, authentication, and authorization so that Mythical Mysfits visitors can like and adopt myfits, enabled through **AWS API Gateway** and its integration with **Amazon Cognito**.
+
+5. Capture User Clicks. Capture user behavior with a clickstream analysis microservice that will record and analyze clicks on the website using **AWS Lambda** and **Amazon Kinesis Firehose**. 
+
+![Mythical_module1_architecture](images/Mythical_module1_architecture.png)
+
+The topic of Module 1 is to upload the static web content. I host the static content of the website on **Amazon S3**. The detail steps is similar with the tutorial before which includes uploading static website files, changing the access permission of the contents, and publishing the website content to S3. Besides, I use **AWS Cloud9** as a command-line tool to deal with these tasks.
+
+![Mythical_module2_architecture](images/Mythical_module2_architecture.png)
+
+The Module 2 contains something new technologies. In this module, I create a new miroservice hosted using **AWS Fargate** so that my website can integrate with an application backend. AWS Fargate is a deployment option in **Amazon Elastic Container Service (ECS)** that allows user to deploy containers without having to manage any clusters or server. The reason to choose Fargate is that it's a great choice for building long-running processes such as microservices backends for web and mobile and PaaS platforms. With Fargate, we get the control of containers and the flexibility to choose when they run without worring about provisioning or scaling servers.
+
+Before we can create our service, the first step is to create the core infrastructure environment that the service will use, including the networking infrastructure in **Amazon VPC**, and the **AWS Identity and Access Management Roles** that will define the permission that ECS and the containers will have on top of AWS. To achieve this task, we use **AWS CloudFormation**. AWS CloudFormation is a service that can programmatically provision AWS resources that we declare within JSON or YAML files called CloudFormation Templates, enabling the common best practice of infrastructure as code.  
+
+The second step is to create a Docker container image that contains all of the code and configuration required to run the Mythical Mysfits backend as a microservice API created with Flask. In this step, I use **Cloud9** to build the Docker container image and then push it to the **Amazon Elastic Container Registry (ECR)**, where it will be available to pull when I create the service using Fargate. One thing need to noted here is that I should provision a **Network Load Balancer (NLB)** to sit in front of my service tier, rather than directly expose my backend service to the internet. This would enable my frontend website code to communicate with a single DNS name while my backend service would be free to elastically scale in-and-out based on demand or if failures occur and new containers need to be provisioned. After this step, the user can see my Mythical website which is retrieving JSON data from my Flask API running within a Docker container deployed to AWS Fargate.
+
+The last step is for optimizing. I create a working CI/CD pipeline to deliver changes to that service automatically whenever I update my code repository, I can quickly move new application features from conception to available for my Mythical Mysfits users.
+
+![Mythical_module3_architecture](images/Mythical_module3_architecture.png)
+
+In Module 3, I create a table in **Amazon DynamoDB** which is mentioned in previous tutorial. Rather than have all of the Mysfits be stored in a static JSON file, I store them in a database to make the websites future more extensible scalable. The key step is to update the code of operating the DynamoDB to the CI/CD pipeline. The request is formed using the AWS Python SDK called boto3. This SDK is a powerful yet simple way to interact with AWS services via Python code. It enables the developers to use service client definitions and functions that have great symmetry with the AWS APIs and CLI commands they have already been executing as part of this workshop. When finishing this module, the user can see the new polulation of Mysfits loading from my DynamoDB table and how the Filter functionality is working.
+
+![Mythical_module4_architecture](images/Mythical_module4_architecture.png)
+
+The Module 4 contains some familiar technologies I learned in the previous tutorials. The topic in this module is setup user registration. In order to add some more critical aspects to the Mythical Mysfits website, like allowing users to vote for their favorite mysfit and adopt a mysfit, I need to first have users register on the website. To enable registration and authentication of website users, I need to create a User Pool in **AWS Cognito** - a fully managed user identity management service. Then, to make sure that only registered users are authorized to like or adopt mysfits on the website, I need to deploy an REST API with **Amazon API Gateway** to sit in front of the NLB. The detailed steps is similar to the previous tutorial of AWS Cognito and Amazon API Gateway, the only key need attention is to configure an API Gateway VPC Link that enables API Gateways APIs to directly integrate with backend web services that are privately hosted inside a VPC. After this module, the users can register, login, view mysfits profiles, like, and adopt mysfits.
+
+![Mythical_module5_architecture](images/Mythical_module5_architecture.png)
+
+The final module is about the interacting between the users and my website and the user action data collection. It would be easy for me to analyze user actions taken on the website that lead to data changes in my backend - when mysfits are adopted or liked. But understanding the actions my users are taking on the website before a decision to like or adopt a mysfit could help me design a better user experience in the future that leads to mysfits getting adopted even faster. To help gather these insights, I implement the ability for the website frontend to submit a tiny request, each time a mysfit profile is clicked by a user, to a new microservice API I create. Those records are processed in real-time by a serverless code function, aggregated, and stored for any future analysis that I may want to perform. In this module, I use several technologies. Some of them are new: **AWS Kinesis Firehose delivery stream**, Kinesis Firehose is a highly available and managed real-time streaming service that accepts data records and automatically ingests them into several possible storage destinations within AWS, such as Amazon S3 bucket, or Amazon Redshift data warehouse cluster. Kinesis Firehose also enables all of the records received by the stream to be automatically delivered to a serverless function created with AWS Lambda This means that code I've written can perform any additional processing or transformations of the records before they are aggregated and stored in the configured destination. Others are familiar: **Amazon S3 bucket**, a new bucket is created in S3 where all of the processed click event records are aggregated into files and stored as objects; **AWS Lambda function**, AWS Lambda enables developers to write code functions that only contain what their logic requires and have their code be deployed, invoked, made highly reliable, and scaled without having to manage infrastructure whatsoever. Here, a Serverless code function is defined using **AWS SAM**. It will be deployed to AWS Lambda, written in Python, and then process and enrich the click records that are received by the delivery stream; **IAM Roles**, Kinesis Firehose requires a service role that allows it to deliver received records as events to the created Lambda function as well as the processed records to the destination S3 bucket. The Amazon API Gateway API also requires a new role that permits the API to invoke the PutRecord API within Kinesis Firehose for each received API request.
+
+In conclusion, via the experiences from module 1 to module 5, I have built a modern application on top of AWS. I have mastered the usage of some AWS technologies mentioned above. I have learnt to use AWS resrouces not only by the AWS CLI but the AWS consoles. In addition, I am only very familiar with Python, but in this tutorial I feel the greatness of this language: the powerful extensive support libraries make me do all the thing I want!
 
 ## Area 2
 
