@@ -353,4 +353,18 @@ Virtual machines (VMs) are an abstraction of physical hardware turning one serve
 
 
 
-[Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/) (time: min)
+[Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/) (time: 50min)
+
+In this guide, I learnt the basic of how container work, how the Docker engine executes and isolates containers from eachother via some command line scripts.
+
+![Docker_1](images/Docker_1.svg)
+
+First, I execute the script `docker run hello-world` which means run the container named *hello-world*. Enssentially, the Docker engine running in my terminal tried to find an image named hello-world, if there are no images stored locally, the Docker engine goes to its default Docker register, which is **Docker Store**, to look for an image named *hello-world*. It finds the image there, pulls it down, and then runs it in a container.
+
+![Docker_2](images/Docker_2.svg)
+
+Second, I execute the command `docker container run alpine ls -l`, which means that I execute the command `ls -l` inside the container which name is *alpine*. Another similar script is `socker container run alpine echo "hello from alpine"`.
+
+![Docker_3](images/Docker_3.svg)
+
+The third is about Docker container isolation. In the steps above I ran several commands via container instances with the help of `docker container run`. The `docker container ls -a` command showed us that there were several containers listed. Why are there so many containers listed if they are all from the alpine image? This is a critical security concept in the world of Docker containers. Even though each docker container run command used the same alpine image, each execution was a separate, isolated container. Each container has a separate filesystem and runs in a different namespace; by default a container has no way of interacting with other containers, even those from the same image. 
