@@ -325,13 +325,63 @@ In conclusion, via the experiences from module 1 to module 5, I have built a mod
 
 
 
-## Area 2
+## Area 2 Big Data and Machine Learning
 
 > Beginner Level
+
+[Video: Hadoop Intro](https://www.youtube.com/watch?v=jKCj4BxGTi8&feature=youtu.be) (time: 30min)
+
+This video gives an overview on how the Big Data has evolved follwing with what is Hadoop, Hadoop key characteristics, Hadoop ecosystem components and Big Data processing. Firstly, I learn that Hadoop is a framework that allows for distributed processing of large data sets across clusters of commodity computers using simple programming models. Secondly, I learn that Hadoop has four key characteristics: economical *-- ordinary computers can be used for data processing*, reliable *-- Stores copies of the data on different machines and is resistant to hardware failure* , scalable *-- can follow both horizontal and vertical scaling*, and flexible *-- can store as much of the data and decide to use it later*. 
+
+![Hadoop_ecosystem](images/Hadoop_ecosystem.png)
+
+Thirdly, I learn the components of Hadoop ecosystem and their function. The **Hadoop distributed file system (HDFS)** is the storage layer for Hadoop and is suitable for the distributed storage and processing. The **HBase** is a NoSQL database or non-relational database which store the data in HDFS and is mainly used when we need random, real-time, read/wirte access to our big data. The **Sqoop** is a tool designed to transfer data between Hadoop and relational database servers and it is used to import data from relational database such as, Oracle and MySQL to HDFS and export data from HDFS to relational database. The **Flume** is a distributed service for ingeting streaming data and is ideally suited for event data from multiple system. The **Hadoop MapReduce** is the original Hadoop processing engine which is primarily java based and is based on the map and reduce programming model. The **Spark** is an open-source cluster computing framework which supports machine learning, business intelligence, streaming, and batch processing. Besides, the Spark can provide up to 100 times faster performance as compared to MapReduce. For data analysis, there are **Pig, Impala, and Hive**. For data exploration, the **Cloudera Search** enables non-technical users to search and explore data stored in or ingested into Hadoop and HBase. The **Hue** is an acronym for Hadoop user experience. The **Oozie** is a workflow or coordination system used to manage the Hadoop jobs.
+
+Finally, I learn the four stages of big data, they are **Ingest, Processing, Analyze, and Access**.
+
+
+
+[QwikLab: Analyze Big Data with Hadoop](https://awseducate.qwiklabs.com/focuses/19?parent=catalog)
 
 
 
 > Intermediate Level
+
+[QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
+
+
+
+[QwikLab: Intro to Amazon Redshift](https://awseducate.qwiklabs.com/focuses/28?parent=catalog)
+
+
+
+[Video: Short AWS Machine Learning Overview](https://www.youtube.com/watch?v=soG1B4jMl2s)
+
+
+
+[AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
+
+
+
+[QwikLab: Intro to Amazon Machine Learning](https://awseducate.qwiklabs.com/focuses/27?parent=catalog)
+
+
+
+[AWS Tutorial: Build a Machine Learning Model](https://aws.amazon.com/getting-started/projects/build-machine-learning-model/?trk=gs_card)
+
+
+
+[Video Tutorial: Overview of AWS SageMaker](https://www.youtube.com/watch?v=ym7NEYEx9x4&index=12&list=RDMWhrLw7YK38)
+
+
+
+[AWS Tutorial: AWS SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html)
+
+
+
+> Bring it all together
+
+[Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card)
 
 
 
