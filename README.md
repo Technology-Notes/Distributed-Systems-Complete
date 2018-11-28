@@ -228,7 +228,7 @@ In the third and fourth step, I tried to use AWS Lambda and Amazon DynamoDB to b
 
 The following code is the important part of the Lambda function. In this function, we not only return the information of a unicorn to the client but record the request history to Amazon DynamoDB.
 
-```
+```javascript
 exports.handler = (event, context, callback) => {
     if (!event.requestContext.authorizer) {
       errorResponse('Authorization not configured', context.awsRequestId, callback);
@@ -323,9 +323,7 @@ The final module is about the interacting between the users and my website and t
 
 In conclusion, via the experiences from module 1 to module 5, I have built a modern application on top of AWS. I have mastered the usage of some AWS technologies mentioned above. I have learnt to use AWS resrouces not only by the AWS CLI but the AWS consoles. In addition, I am only very familiar with Python, but in this tutorial I feel the greatness of this language: the powerful extensive support libraries make me do all the thing I want!
 
-
-
-## Area 2 Big Data and Machine Learning
+## Area 2 Big Data and Machine Learning
 
 > Beginner Level
 
@@ -339,15 +337,11 @@ Thirdly, I learn the components of Hadoop ecosystem and their function. The **Ha
 
 Finally, I learn the four stages of big data, they are **Ingest, Processing, Analyze, and Access**.
 
-
-
 [QwikLab: Analyze Big Data with Hadoop](https://awseducate.qwiklabs.com/focuses/19?parent=catalog) (time: 45min)
 
 In this lab, I have a glimpse of Hadoop with **Amazon EMR**, which is a managed service that makes it fast, easy, and cost-effictive to run Apache Hadoop and Spark to process vast amount of data. Amazon EMR also supports powerful and proven Hadoop tools such as Presto, Hive, Pig, HBase, and more.
 
 In this lab, I deploy a fully functional Hadoop cluster to analyze log data by lauching an Amazon EMR cluster. Then I use HiveQL script to process sample log data stored in an Amazon S3 bucket. **HiveQL** is a SQL-like scripting language for data warehousing and analysis. Here I use HiveQL to read the log files from Amazon S3 and parse the files using the Regular Expression Serializer/Deserializer, and then write the parsed results to a Hive table, then submit the HiveQL query against the data to retrieve the information I want, finally write the query results to my Amazon S3 output bucket.
-
-
 
 > Intermediate Level
 
@@ -355,19 +349,13 @@ In this lab, I deploy a fully functional Hadoop cluster to analyze log data by l
 
 I have finished this lab before in Area 1: Cloud web apps.
 
-
-
 [QwikLab: Intro to Amazon Redshift](https://awseducate.qwiklabs.com/focuses/28?parent=catalog) (time: 50min)
 
 In this lab, I experience the **Amazon Redshift**. Amazon Redshift is a fast, fully managed data warehouse that makes it simple and cost-effective to analyze all the data using standard SQL and the existing BI tools. After creating and lauching the Amazon Redshift by following instructions, I learn to use **Pgweb** to retrieve data from Amazon Redshift. Pgweb provides a friendly SQL interface to Redshift. When I connect to Amazon Redshift database via Pgweb, I try to create a table in Amazon Redshift database via SQL query, then I import data from Amazon S3 to Redshift database, then I execute the SQL query to retrieve data from Redshift database. The lab is finish now.
 
-
-
 [Video: Short AWS Machine Learning Overview](https://www.youtube.com/watch?v=soG1B4jMl2s) (time: 15min)
 
 In this video, I learn something basic about machine learning. Firstly, machine learning can be divided to three layers. The first layer is called the frameworks layer, which is for those who are expert in building and training their own machine learning models. The second layer is called platforms layer, which makes it easy for developers and data scientists to build train and deploy models. The third layer is application layer, which is for the developers that want to make calls to API to add machine learning services to their applications. 
-
-
 
 [AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card) (time: 60min)
 
@@ -389,8 +377,6 @@ Finally, here is what I've done in this tutorial. I created and lauched the Amaz
 
 ![Amazon_EMR_output](images/Amazon_EMR_output.png)
 
-
-
 [QwikLab: Intro to Amazon Machine Learning](https://awseducate.qwiklabs.com/focuses/27?parent=catalog) (time: 55min)
 
 In this lab, I learnt the basic steps of machine learning via **Amazon Machine Learning (Amazon ML)**, which is a robust machine learning platform that allows software developers to train predictive models and use them to create predictive applications. Here, I built out a simple Amazon ML model that be used to predict whether or not a customer would like a restaurant. The results of the prediction is based on a datasource of customer reviews. Here is the architecture of this lab:
@@ -404,8 +390,6 @@ The first step is to use Amazon S3 to store the data of customer reviews. The se
 As we can see, the rows represent the *true values* and the columns represent the *predicted values*. The result cells are colored as dark blue which means the correction is very high but not perfect. Anyway, with this ML model, I can generate predictions (here I use real-time prediction) according to the input user data. For example, taking age as under_19, gender as male, budget as under_20, price as over_50, and cuisine_type as Continental, I can get the prediction results is `dislike`:
 
 ![Machine_learning_prediction_results](images/Machine_learning_prediction_results.png)
-
-
 
 [AWS Tutorial: Build a Machine Learning Model](https://aws.amazon.com/getting-started/projects/build-machine-learning-model/?trk=gs_card) (time: 30min)
 
@@ -423,21 +407,31 @@ Step 5: Use the ML Model to Generate Prediction. In last lab, I used real-time p
 
 The above is all I learnt from this tutorial.
 
+[Video Tutorial: Overview of AWS SageMaker](https://www.youtube.com/watch?v=ym7NEYEx9x4&index=12&list=RDMWhrLw7YK38) + [AWS Tutorial: AWS SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html) (time: 90min)
 
+The video tutorial and word tutorial introduce the same contents which is about **Amazon SageMaker**. From these two tutorial, I learnt that the Amazon SageMaker provides machine learning service for the data scientists and developers to quickly and easily build and train machine learning models, and then directly deploy them into a production-ready hosted environment. Compared with Amazon ML which is mentioned in last tutorial, Amazon SageMaker follows the similar work flow: generate example data (include fetch data, clean data, and transform data), train a model (include training the model and evaluating the model), and deploy the model. However, as I  tried to use Amazon SageMaker by following the tutorial, I learnt that the Amazon SageMaker is more flexible and powerful than Amazon ML. Here is my learning steps:
 
-[Video Tutorial: Overview of AWS SageMaker](https://www.youtube.com/watch?v=ym7NEYEx9x4&index=12&list=RDMWhrLw7YK38)
+Firstly, I did some preparation jobs. I created an Amazon S3 bucket to store the model training data and the output data. Then I created an Amazon SageMaker Notebook instance, which is a machine learning EC2 compute instance running the Jupyter Notebook App. In a word, the SageMaker notebook provide an IDE for the data training control.
 
+Secondly, I began the job of model training and deploying. Step one is to download the raw dataset to the notebook instance, review the data, transform it, and upload the training data to my S3 bucket. Next step is training the model. Here I can choose different training algorithm for my model and I use the K-means algorithm provided by Amazon SageMaker. To train a model, Amazon SageMaker provides the *CreateTrainingJob* API. I can use both high-level Python library provided by Amazon SageMaker and low-level AWS SDK for Python to call this API. Obviously the high-level libray need less codes than the low-level SDK for developers. After model training, I needed to deploy the model to get predictions. There are two ways:
 
+- Set up a persistent endpoint to get one prediction at a time, using Amazon SageMaker hosting services.
 
-[AWS Tutorial: AWS SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html)
+- Get predictions for an entire dataset, using Amazon SageMaker batch transform.
+
+Here I choose to set up a persistent endpoint to get one prediction at a time. The same way, I can use both high-level and low-level method for this job. I use high-level Phtyon library this time because it provides the `deploy` method that does all the task I need.
+
+Finally, I had a model that is deployed in Amazon SageMaker. To validate the model, I used the `predict` method provided by high-level Python library and got the clusters that I need:
+
+![SageMaker_model_validate_output](images/SageMaker_model_validate_output.png)
+
+In addition, the tutorial gives some instructions about how to integrate Amazon SageMaker endpoints into internet-facing application. The simplest method is creating a Lambda function that calls Amazon SageMaker `InvokeEndpoint` API then calling the Lambda function from the target application.
 
 
 
 > Bring it all together
 
-[Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card)
-
-
+[Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card) (time: )
 
 ## Area 3 Docker and Containers
 
@@ -454,8 +448,6 @@ Containers are an abstraction at the app layer that packages code and dependenci
 ![vm](images/vm.png)
 
 Virtual machines (VMs) are an abstraction of physical hardware turning one server into many servers. The hypervisor allows multiple VMs to run on a single machine. Each VM includes a full copy of an operating system, the application, necessary binaries and libraries - taking up tens of GBs. VMs can also be slow to boot.
-
-
 
 [Lab: DevOps Docker Beginners Guide](https://training.play-with-docker.com/ops-s1-hello/) (time: 50min)
 
