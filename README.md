@@ -363,11 +363,31 @@ In this lab, I experience the **Amazon Redshift**. Amazon Redshift is a fast, fu
 
 
 
-[Video: Short AWS Machine Learning Overview](https://www.youtube.com/watch?v=soG1B4jMl2s)
+[Video: Short AWS Machine Learning Overview](https://www.youtube.com/watch?v=soG1B4jMl2s) (time: 15min)
+
+In this video, I learn something basic about machine learning. Firstly, machine learning can be divided to three layers. The first layer is called the frameworks layer, which is for those who are expert in building and training their own machine learning models. The second layer is called platforms layer, which makes it easy for developers and data scientists to build train and deploy models. The third layer is application layer, which is for the developers that want to make calls to API to add machine learning services to their applications. 
 
 
 
-[AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card)
+[AWS Tutorial: Analyze Big Data with Hadoop](https://aws.amazon.com/getting-started/projects/analyze-big-data/?trk=gs_card) (time: 60min)
+
+The steps in this tutorial are similar to the  steps in **QwikLab: Analyze Big Data with Hadoop** mentioned before. However, I learnt more details about Cluster, Nodes, and Amazon EMR in this tutorial.
+
+As above note mentioned,  **Amazon EMR** is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data. The central component of Amazon EMR is **cluster**. A cluster is a collection of Amazon Elastic Compute Cloud (Amazon EC2) instances. Each instance in the cluster is called a **node**. Each node has a role within the cluster, referred to as the node type. Amazon EMR also installs different software components on each node type, giving each node a role in a distributed application like Apache Hadoop. The node can be classified to master node (a node that manages the cluster), core node ( a node with software components that run tasks and store data in the HDFS), and task node (a node with software components that only run tasks).
+
+The next knowledge I've learnt is the Amazon EMR architecture. Amazon EMR service architecture consists of several layers, each of which provides certain capabilities and functionality to the cluster. They are listed as follows:
+
+- **Storage**, includes the different file systems. Example: HDFS, EMR file system, local file system.
+
+- **Cluster Resource Management**, is responsible for managing cluster resources and scheduling the jobs for processing data. Example: YARN (Yet Another Resource Negotiator).
+
+- **Data Processing Frameworks**, is the engine used to process and analyze data. Example: Hadoop MapReduce, Apache Spark.
+
+- **Applications and Programs**. Amazon EMR supports many application, such as Hive, Pig, and the Spark Streaming library to provide capabilities such as using higher-level languages to create processing workloads, leveraging machine learning algorighms, making stream processing applications, and building data warehouses.
+
+Finally, here is what I've done in this tutorial. I created and lauched the Amazon EMR cluster. Then, I used HiveQL to read the log files from Amazon S3 and parsed the files using the Regular Expression Serializer/Deserializer, and then wrote the parsed results to a Hive table, then submitted the HiveQL query against the data to retrieve the information I want, finally wrote the query results to my Amazon S3 output bucket and downloaded locally. The results are as follows:
+
+![Amazon_EMR_output](images/Amazon_EMR_output.png)
 
 
 
