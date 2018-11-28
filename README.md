@@ -407,7 +407,21 @@ As we can see, the rows represent the *true values* and the columns represent th
 
 
 
-[AWS Tutorial: Build a Machine Learning Model](https://aws.amazon.com/getting-started/projects/build-machine-learning-model/?trk=gs_card)
+[AWS Tutorial: Build a Machine Learning Model](https://aws.amazon.com/getting-started/projects/build-machine-learning-model/?trk=gs_card) (time: 30min)
+
+This tutorial goes on the topic of **Amazon ML** and the steps in this tutorial are same with those in last lab. However, when repeating the steps, I learnt something more about Amazon ML.
+
+Step 1: Prepare the data. Just upload the data source to S3.
+
+Step 2: Create a training datasource. I lauch the Amazon ML and import the data from S3. Here I need to establish a schema. A *schema* is the information Amzon ML needs to interpret the input data for an ML model, including names and their assigned data types, and the names of special attributes. There are two ways to provide Amazon ML with a schema. One is providing a separate schema file, the other is allowing Amazon ML to infer the attribute types and create a scheme automatically. In this tutorial, I ask Amazon ML to infer the schema because the attribute name has been provided in the source file.
+
+Step 3: Create a ML Model. This step will done by Amazon ML.
+
+Step 4: Review the ML Model's Predictive Performance and Set a Score Threshold. In this step, I can see the detailed information of accuration of this ML model. Besides, I can fine-tune the ML model performance metrics by adjusting the score threshold. Adjusting this value changes the level of confidence that the model must have in a prediction before it considers the prediction to be positive. It also changes how many false negatives and false positives I am willing to tolerate in my future predictions.
+
+Step 5: Use the ML Model to Generate Prediction. In last lab, I used real-time prediction. A real-time prediction is a prediction for a single observation that Amazon ML generates on demand. Real-time predictions are ideal for mobile apps, websites, and other applications that need to use results interactively. An in this tutorial, I tried a different method: batch prediction. A batch prediction is a set of predictions for a group of observations. Amazon ML processes the records in a batch prediction together, so processing can take some time. Use batch predictions for applications that require predictions for set of observations or predictions that don't use results interactively.
+
+The above is all I learnt from this tutorial.
 
 
 
