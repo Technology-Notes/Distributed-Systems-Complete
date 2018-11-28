@@ -391,7 +391,19 @@ Finally, here is what I've done in this tutorial. I created and lauched the Amaz
 
 
 
-[QwikLab: Intro to Amazon Machine Learning](https://awseducate.qwiklabs.com/focuses/27?parent=catalog)
+[QwikLab: Intro to Amazon Machine Learning](https://awseducate.qwiklabs.com/focuses/27?parent=catalog) (time: 55min)
+
+In this lab, I learnt the basic steps of machine learning via **Amazon Machine Learning (Amazon ML)**, which is a robust machine learning platform that allows software developers to train predictive models and use them to create predictive applications. Here, I built out a simple Amazon ML model that be used to predict whether or not a customer would like a restaurant. The results of the prediction is based on a datasource of customer reviews. Here is the architecture of this lab:
+
+![Machine_learning_lab_architecture](images/Machine_learning_lab_architecture.png)
+
+The first step is to use Amazon S3 to store the data of customer reviews. The second step is to create a datasource by import the data in S3 to a Amazon ML instance. When choosing *rating* as target variable, I can create the ML model and then evaluate it. By the way, the process of creating a ML model involves **evaluation** of the generated model. The datasource used to create the model is actually split into two different data sets. The first, which consists of 70% of the data, is used to train the model. The second, which consists of 30% of the data, is used to evaluate the model. When ML model is created, I can see the results as follows:
+
+![Machine_learning_model_results](images/Machine_learning_model_results.png)
+
+As we can see, the rows represent the *true values* and the columns represent the *predicted values*. The result cells are colored as dark blue which means the correction is very high but not perfect. Anyway, with this ML model, I can generate predictions (here I use real-time prediction) according to the input user data. For example, taking age as under_19, gender as male, budget as under_20, price as over_50, and cuisine_type as Continental, I can get the prediction results is `dislike`:
+
+![Machine_learning_prediction_results](images/Machine_learning_prediction_results.png)
 
 
 
