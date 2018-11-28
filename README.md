@@ -343,6 +343,10 @@ Finally, I learn the four stages of big data, they are **Ingest, Processing, Ana
 
 [QwikLab: Analyze Big Data with Hadoop](https://awseducate.qwiklabs.com/focuses/19?parent=catalog)
 
+In this lab, I have a glimpse of Hadoop with **Amazon EMR**, which is a managed service that makes it fast, easy, and cost-effictive to run Apache Hadoop and Spark to process vast amount of data. Amazon EMR also supports powerful and proven Hadoop tools such as Presto, Hive, Pig, HBase, and more.
+
+In this lab, I deploy a fully functional Hadoop cluster to analyze log data by lauching an Amazon EMR cluster. Then I use HiveQL script to process sample log data stored in an Amazon S3 bucket. **HiveQL** is a SQL-like scripting language for data warehousing and analysis. Here I use HiveQL to read the log files from Amazon S3 and parse the files using the Regular Expression Serializer/Deserializer, and then write the parsed results to a Hive table, then submit the HiveQL query against the data to retrieve the information I want, finally write the query results to my Amazon S3 output bucket.
+
 
 
 > Intermediate Level
