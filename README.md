@@ -341,7 +341,7 @@ Finally, I learn the four stages of big data, they are **Ingest, Processing, Ana
 
 
 
-[QwikLab: Analyze Big Data with Hadoop](https://awseducate.qwiklabs.com/focuses/19?parent=catalog)
+[QwikLab: Analyze Big Data with Hadoop](https://awseducate.qwiklabs.com/focuses/19?parent=catalog) (time: 45min)
 
 In this lab, I have a glimpse of Hadoop with **Amazon EMR**, which is a managed service that makes it fast, easy, and cost-effictive to run Apache Hadoop and Spark to process vast amount of data. Amazon EMR also supports powerful and proven Hadoop tools such as Presto, Hive, Pig, HBase, and more.
 
@@ -353,9 +353,13 @@ In this lab, I deploy a fully functional Hadoop cluster to analyze log data by l
 
 [QwikLab: Intro to S3](https://awseducate.qwiklabs.com/focuses/30?parent=catalog)
 
+I have finished this lab before in Area 1: Cloud web apps.
 
 
-[QwikLab: Intro to Amazon Redshift](https://awseducate.qwiklabs.com/focuses/28?parent=catalog)
+
+[QwikLab: Intro to Amazon Redshift](https://awseducate.qwiklabs.com/focuses/28?parent=catalog) (time: 50min)
+
+In this lab, I experience the **Amazon Redshift**. Amazon Redshift is a fast, fully managed data warehouse that makes it simple and cost-effective to analyze all the data using standard SQL and the existing BI tools. After creating and lauching the Amazon Redshift by following instructions, I learn to use **Pgweb** to retrieve data from Amazon Redshift. Pgweb provides a friendly SQL interface to Redshift. When I connect to Amazon Redshift database via Pgweb, I try to create a table in Amazon Redshift database via SQL query, then I import data from Amazon S3 to Redshift database, then I execute the SQL query to retrieve data from Redshift database. The lab is finish now.
 
 
 
