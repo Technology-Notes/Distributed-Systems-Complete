@@ -463,3 +463,5 @@ the scheduling and execution of application containers within and across compute
 - Simply go to bucket we have created and click OS request folder to download the file in it
 - File will have access request by OS
 - Terminate your EMR cluster and end the lab
+
+## [Technical Report Link on Hadoop](https://www.linkedin.com/pulse/unveiling-hadoop-basics-sarthak-poshattiwar/)
