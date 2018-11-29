@@ -431,7 +431,90 @@ In addition, the tutorial gives some instructions about how to integrate Amazon 
 
 > Bring it all together
 
-[Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card) (time: )
+[Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card) (time: 150min)
+
+This project is very interesting and practical. In this project, I tried  to build a serverless app *wildrydes* to process real-time data streams of *unicorns*. The background of this project is that I am building the infrastructure for a fictional ride-sharing company. I need to enable operations personnel at a fictional Wild Rydes headquarters to monitor the health and status of their unicorn fleet. Each unicorn is equipped with a sensor that reports its location and vital signs. In this project, I learnt to use AWS to build applications to process and visualize this data in real-time. I used **AWS Lambda** to process real-time streams, **Amazon DynamoDB** to persist records in a NoSQL database, **Amazon Kinesis Data Analytics** to aggregate data, **Amazon Kinesis Data Firehose** to archive the raw data to **Amazon S3**, and **Amazon Athena** to run ad-hoc queries against the raw data. Here is the architecture of this project:
+
+![Serverless_real_time_data_processing_app_architecture](images/Serverless_real_time_data_processing_app_architecture.png)
+
+Also, this project is broken up into four modules:
+
+1. **Build a data stream** with Kinesis
+
+2. **Aggregate data** via Kinesis Data Analytics application
+
+3. **Process streaming data** into DynamoDB
+
+4. **Store  & query data** using Kinesis Data Firehose.
+
+According to the instructions of this project, I finished this workshop step by step.
+
+Before start, I did some preparation jobs: Launch an AWS Cloud9 IDE and set up the command line clients which are related with this project (one is called *producer*, the other is *consumer*).
+
+![Serverless_real_time_data_processing_app_m1](images/Serverless_real_time_data_processing_app_m1.png)
+
+The first step is building a data stream. As the picture shows, I need to create an **Amazon Kinesis Data Streams** to collect the unicorn data. The real-time data will be shown on the Unicorn-Dashboard. Although I don't know the detail contents in clients *producer* and *consumer*, I know that the *producer* will send the unicorn data and the *consumer* will receive the unicorn data. Here I also need to create an **Amazon Cognito identity pool** to grant unauthenticated users access to read from my Kinesis stream. The real-time data can be shown as follows: (I create 3 unicorns):
+
+![Serverless_m1_unicorn_data](images/Serverless_m1_unicorn_data.png)
+
+
+
+![Serverless_real_time_data_processing_app_m2](images/Serverless_real_time_data_processing_app_m2.png)
+
+The second step is to aggregate the data. As the above picture shows, I create an **Amazon Kinesis Data Analytics application** to aggregate sensor data from the unicorn fleet in real-time. The application reads from the Amazon Kinesis stream, calculate the total distance traveled, and other summary information for each unicorn currently on a Wild Ryde and output these aggregate statistics to an Amazon Kinesis stream every minute. In step one, I have create a source stream, and here, I create another Amazon Kinesis stream as detination stream. The key work in this step is creating the Kinesis data analytics application. How to use this application to aggregate the data? I learnt that SQL is a good tool. I use SQL queries to produce the information I need. The aggregated data are shown as follows:
+
+![Serverless_m2_aggregate_data](images/Serverless_m2_aggregate_data.png)
+
+![Serverless_real_time_data_processing_app_m3](images/Serverless_real_time_data_processing_app_m3.png)
+
+In step three, I tried to use **AWS Lambda** to process data from the Amazon Kinesis stream created earlier. As the above picture shows, I create and configure a Lambda function to read from the stream and write records to an Amazon DynamoDB table as they arrive. The following code segment of the Lambda function read the data from Kinesis stream:
+
+```javascript
+function buildRequestItems(records) {
+  return records.map((record) => {
+    const json = Buffer.from(record.kinesis.data, 'base64').toString('ascii');
+    const item = JSON.parse(json);
+
+    return {
+      PutRequest: {
+        Item: item,
+      },
+    };
+  });
+}
+```
+
+The following code segment of the Lambda function write the data records to the DynamoDB:
+
+```javascript
+function batchWrite(requestItems, attempt = 0) {
+  const params = {
+    RequestItems: {
+      [tableName]: requestItems,
+    },
+  };
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      dynamoDB.batchWrite(params).promise()
+        .then(function(data) {
+          if (data.UnprocessedItems.hasOwnProperty(tableName)) {
+            return batchWrite(data.UnprocessedItems[tableName], attempt + 1);
+          }
+        })
+        .then(resolve)
+        .catch(reject);
+    }, delay);
+  });
+}
+```
+
+Another thing need to note is that I need to grant the proper IAM role for my Lambda function to have the permission of reading or writing data.
+
+![Serverless_real_time_data_processing_app_m4](images/Serverless_real_time_data_processing_app_m4.png)
+
+Finally, we come to the last step: store and query data. In my opinion, this step is similar to step three with a different method. Here, I create an **Amazon Kinesis Data Firehose** to deliver data from Kinesis stream to Amazon S3, then use **Amazon Athena** to run queries against the raw data in S3. Amazon Athena is an interactive query service that allows user to query data from Amazon S3, without the need for clusters or data warehouses, so I write SQL queries again to query the data I want in S3.
+
+In a word, serverless applications don't require user to provision, scale, and manage any servers. In this project, I use Amazon Kinesis to process, aggregate data rather than a backend server, which is amazing. I really learnt so much from this project.
 
 ## Area 3 Docker and Containers
 
