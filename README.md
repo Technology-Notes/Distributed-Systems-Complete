@@ -86,9 +86,31 @@ will get increased.
 ## Docker and Containers
 
 ### Docker
+
 - Docker is a software that can package code and its dependencies together so the application can run on different
 environments very easily.
 - Docker can run container images inside of it. Each container image is isolated from each other so it is very helpful for security and testing.
 - Docker Store is a registry of container images. It stores all available container images in it. Users can pull image they need and runs it in their own container.
 - Compared to VM, each VM has its own memory and OS while containers all share the same kernal with each other. Container
 only focus on the OS and application, not so much about the hardware. So it is much faster to start up a container than VM.
+
+### Container
+
+- Runtime definition. Container is like a sandbox for process. It provides isolation between different containers  running on one machine. Container process and container's lifecycle are tightly coupled.
+- Container image. Image is a binary representation. Containr image is layered in a tree strcuture, which starts from most basic(scratch/OS) to most specific(application). Container is like a template that allows you to create specific container.
+- Docker file. Docker file is used to create image file. Each line in docker file represents a layer in image tree. Use this way to create container image, then use this image to instantiate specific container.
+- Combine these together. When you type the command 'docker container run my_app', first it pulls the container image you need from the registry to your image cache running inside your docker host. Then it configures networking and storage you need to run containers. Networking allows different containers communicate with each other while storage is used to store persistant states. After setting up the process namespace and cgroups, then your container is finally running inside docker host.
+
+### Networking and Orchestration
+
+#### Networking
+
+- Docker’s networking subsystem is pluggable, using drivers. Several drivers exist by default, and provide core networking functionality.
+- Every clean installation of Docker comes with a pre-built network called bridge. The bridge network is the default network for new containers. This means that unless you specify a different network, all new containers will be connected to the bridge network.
+- The overlay network driver creates a distributed network among multiple Docker daemon hosts.
+
+#### Swarm
+
+- Swarm Mode tells Docker that you will be running many Docker engines and you want to coordinate operations across all of them. Swarm mode combines the ability to not only define the application architecture, like Compose, but to define and maintain high availability levels, scaling, load balancing, and more. With all this functionality, Swarm mode is used more often in production environments than it’s more simplistic cousin, Compose.
+- Most production swarms have at least three manager nodes in them and many worker nodes. Three managers is the minimum to have a true high-availability cluster with quorum. Picture below shows the basic structure of swarm.
+![Alt text](https://github.com/dongyh1995/dist-sys-practice/raw/master/Screenshots/swarm.png)
