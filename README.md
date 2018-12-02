@@ -92,3 +92,8 @@ environments very easily.
 - Docker Store is a registry of container images. It stores all available container images in it. Users can pull image they need and runs it in their own container.
 - Compared to VM, each VM has its own memory and OS while containers all share the same kernal with each other. Container
 only focus on the OS and application, not so much about the hardware. So it is much faster to start up a container than VM.
+### Container
+- Runtime definition. Container is like a sandbox for process. It provides isolation between different containers  running on one machine. Container process and container's lifecycle are tightly coupled.
+- Container image. Image is a binary representation. Containr image is layered in a tree strcuture, which starts from most basic(scratch/OS) to most specific(application). Container is like a template that allows you to create specific container.
+- Docker file. Docker file is used to create image file. Each line in docker file represents a layer in image tree. Use this way to create container image, then use this image to instantiate specific container.
+- Combine these together. When you type the command 'docker container run my_app', first it pulls the container image you need from the registry to your image cache running inside your docker host. Then it configures networking and storage you need to run containers. Networking allows different containers communicate with each other while storage is used to store persistant states. After setting up the process namespace and cgroups, then your container is finally running inside docker host.
