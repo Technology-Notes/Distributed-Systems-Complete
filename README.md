@@ -7,6 +7,10 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
     
 - Docker and Containers
     - [x] Beginner Level
+    - [x] Intermediate Level
+    
+- Cloud Web Apps
+    - [x] Beginner Level
     - [ ] Intermediate Level
 
 ## Big Data and Machine Learning
@@ -124,3 +128,22 @@ only focus on the OS and application, not so much about the hardware. So it is m
 - Kubernetes and Swarm both allow you to manage a cluster of server that runs one or more servies. Compared to Swarm, Kubernetes is more popular because it has far more features.
 
 ### Projects: Bring it all together
+
+- Break a Monolith Application into Microservices
+    - Containerize the Monolith. Download project to local computer, build the container image and then push it to the AWS ECR.
+    - Deploy the Monolith. Launch ECS to instantiate a managed cluster of EC2 compute instances and deploy your image as a container running on the cluster.
+    - Break the Monolith. Break the application into several interconnected services and push each service's image to an ECR repository.
+    - Deploy Microservices. Configure ALB and listener rules and deploy three services onto your cluster.
+    
+## Cloud Web Apps
+
+### Launch a VM
+
+- Amazon Elastic Compute Cloud (EC2) is the Amazon Web Service you use to create and run virtual machines in the cloud.
+- A key pair is used to securely access your Linux instance using SSH. AWS stores the public part of the key pair which is just like a house lock. The key pair is also required if you want yo access your VM through SSH.
+
+### Intro to S3
+
+- Amazon S3 is storage for the Internet. You can use Amazon S3 to store and retrieve any mount of data at any time.
+- You can make your bucket public or private in the permission tab of S3 Management Console.
+- A bucket policy is a set of permissions associated with an S3 bucket. It can be used to control access to whole bucket or to specific directories within a bucket.
