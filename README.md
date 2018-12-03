@@ -3,7 +3,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 
 # Cloud Web Applications
 
-## CLOUD BEGINNER
+## ********************** CLOUD BEGINNER **********************
 ----------------
 ### AWS Tutorial: Launch a VM 
 
@@ -28,7 +28,7 @@ new to S3? watch this [intro to S3](https://www.youtube.com/watch?v=77lMCiiMilo)
 3. S3 One Zone-*Infrequent Access* for long-lived, but less frequently accessed data.
 4. Amazon Glacier for *long-term archive*.
 
->**reliable**- use ssl and management policies
+>**reliable**- use SSL and management policies
 
 >**flexibility**- to use as much storage as required
 
@@ -59,21 +59,21 @@ so that each object inside the bucket can publicly shared.
 Save multiple versions of a same object
 "Action": "s3:GetObjectVersion" -- different versions of the same object can be accessed through this policy.
 
-## CLOUD Intermediate
+## ********************** CLOUD INTERMEDIATE **********************
 
 ### Virtual Machines, Websites, and Databases:
-(https://www.youtube.com/watch?v=GIdVRB5yNsk)describes virtualization and  why it needs more and more implimentation everyday.
->This video talks about the growing demand of distributed environment and the evolution of vartulization.
+(https://www.youtube.com/watch?v=GIdVRB5yNsk)describes virtualization and  why it needs more and more implementation everyday.
+>This video talks about the growing demand of distributed environment and the evolution of virtualization.
 ======================
 ### Install a Lamp Web Server on Amazon Linux2
 
-** This tutorial guided me to install lamp i.e apache web server with PHP and MariaDB on amazon linux 2 instance.**
+** This tutorial guided me to install lamp i.e. apache web server with PHP and MariaDB on amazon linux 2 instance.**
 
 The main parts of the procedure are described below:
 
 >ran linux instance
 
->establisihing connection through putty
+>establishing connection through putty
 
 >*ID instance*- i-093bd0ab14b25df00
 
@@ -108,7 +108,7 @@ The main parts of the procedure are described below:
 **USE CASES**
 >To host static website
 
->Depoly dynamic PHP application that reads and writes information to database.
+>Deploy dynamic PHP application that reads and writes information to database.
 
  
 ### On your own: Compare the performance, functionality, and price when serving web content from S3 versus an EC2 VM 
@@ -119,17 +119,17 @@ The main parts of the procedure are described below:
 
 >It is highly available and by defaults it is duplicated across availability zone.
 
->Also S3 storage is much cheaper than EBS- block storage. By serving the static contents from S3, one can save on IOPs of the EC2 as the request for S3 static links isnt served through EC2.
+>Also S3 storage is much cheaper than EBS- block storage. By serving the static contents from S3, one can save on IOPs of the EC2 as the request for S3 static links is not served through EC2.
 
 >Also it create a highly available environment, the static content which often are media files which consumes much higher storage need not be stored in all the EC2 instances
 
 >Thus EC2 EBS storage requirement is reduced considerably
 
->Price wise S3 is 4-5 times less cheaper.
+>Price wise S3 is 4-5 times less cheap.
 
 ### Intro to DynamoDB
 
-> **Amazon DynamoDB** is a fast and flexible NoSQL database service for all applications that need consistent,single-digit
+> **Amazon DynamoDB** is a fast and flexible NoSQL database service for all applications that need consistent, single-digit
  millisecond latency at any scale.
 
 > It is fully managed database and supports both document and key-value data models.
@@ -137,7 +137,8 @@ The main parts of the procedure are described below:
 Following things were learned in this tutorial:
 
 > Create Amazon DynamoDB table:
-1. Here, I crreated a table named music. The table make use of Primary key and Sort Key to uniquely identify each item in a Dynamo DB table.
+
+1. Here, I created a table named music. The table make use of Primary key and Sort Key to uniquely identify each item in a Dynamo DB table.
 2. After adding table name, primary key*e.g. artist which is string* with the usage of add sort key to finally create a table.
 
 > Enter data into an Amazon DynamoDB table:
@@ -151,7 +152,7 @@ Following things were learned in this tutorial:
 > Query an Amazon DynamoDB table:
 
 1. Query can be done by using **query** or **scan**.
-2. query is a faster option as it is based on priary eeys and is fully indexed.
+2. query is a faster option as it is based on primary keys and is fully indexed.
 
 > Delete an Amazon DynamoDB table:
 1. Simply click Delete table to delete it.
@@ -189,11 +190,11 @@ Main learning:
 
 ### Intro to AWS lambda
 
-> AWS lambda that is called everytime it is needded make the network serverless. It runs code only according to the response of the user and automatically manages the resources.
+> AWS lambda that is called every time it is needed make the network serverless. It runs code only according to the response of the user and automatically manages the resources.
 
-> It is used as a backe-end service where computing resources are automatically triggered based on custom request.
+> It is used as a back-end service where computing resources are automatically triggered based on custom request.
 
-> **Following image shows the sucessfull deployment of AWS Lambda.**
+> **Following image shows the successfull deployment of AWS Lambda.**
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/AWS_lambda.PNG)
 
 ##  Intro to Amazon API Gateway
@@ -201,7 +202,7 @@ Main learning:
 Amazon API gateway is an interface between multiple backend services to multiple client request.
 
 **Main learning:**
-> create a simple FAQ micro-service which returns a JSON object containg a random question and answerr pair using Amazon API Gateway endpoint that invokes an AWS Lambda functon.
+> create a simple FAQ micro-service which returns a JSON object containing a random question and answer pair using Amazon API Gateway endpoint that invokes an AWS Lambda function.
 
 > That would involve-- * creating aws lambda function, api gateway endpoints, debugging api gateway and lambda  function with amazon cloud watch*
 
@@ -295,15 +296,15 @@ auth token: eyJraWQiOiJuTnA4NUVcL2tnS1Q3VmkxZ0kyRW5xVjlaZEdpTEFSYW5KenV0N01nNzd0
 **Goal:**
 : *To create a website that enables visitors to a adopt a fantasy creature.*(www.mythicalmysfits.com)
 
->*host the weapp on a front-end web server*
+>*host the web application on a front-end web server*
 
->*connnect to backend database*
+>*connect to backend database*
 
 >*user authentication*
 
 >*collect and analyze user behavior*
 
->*gathers insight for fututre analysis*
+>*gathers insight for future analysis*
 
 ## Application architecture
 
@@ -315,7 +316,7 @@ auth token: eyJraWQiOiJuTnA4NUVcL2tnS1Q3VmkxZ0kyRW5xVjlaZEdpTEFSYW5KenV0N01nNzd0
 ## Modules
 The project has been divided into following modules:
 
->Create Static website-*building static website i.e storing static objects in S3 *
+>Create Static website-*building static website i.e. storing static objects in S3 *
 
 >Build Dynamic Website-*hosting application logic on a web server-using API backend microservice deployed(as a container)--aws fargate*
 
@@ -325,21 +326,21 @@ The project has been divided into following modules:
 
 >Capture User Clicks-*capture user analysi using AWS lambda/kenesis Firehose*
 
->create the required infrastructure components, which includes a fully managed CI/CD stack utilizing AWS CodeCommit, CodeBuild, and CodePipeline. Finally, you will complete the development tasks required all within your own browser using the cloud-based IDE, AWS Cloud9.
+>create the required infrastructure components, which includes a fully managed CI/CD stack utilizing AWS Code Commit, Code Build, and Code Pipeline. Finally, you will complete the development tasks required all within your own browser using the cloud-based IDE, AWS Cloud9.
 
 
 >Modue1-(static hosting)
 ![architecture](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/F2.1.PNG)
 
 >>Cloud 9 created
-mythical-mysfits-bucket01(S3 bucket creaated)
+mythical-mysfits-bucket01(S3 bucket created)
 aws s3 mb s3://mythical-mysfits-bucket-02
 
 >>basic static site created
 ---------------
 >module 2(host your app on web server)
 ![]()
-*creating microservice hosted with aws fargatevto integrate website with backend*
+*creating microservice hosted with aws fargate to integrate website with backend*
 **Fargate** is reliable for long running process for web/mobile and PaaS platform
 
 >>Module 2a *Setup Core Infrastructure*
@@ -365,7 +366,7 @@ getting
     "UserId": "566965401352", 
     "Arn": "arn:aws:iam::566965401352:root"
 }
-after bulding docker image 
+after building docker image 
 we get(image tags that are required later) 
 Successfully built 18bcefda98c8
 Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits/service:latest
@@ -387,7 +388,7 @@ Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits
 
 >>adding a No SQ Databasee To Mythical Mysfits
 
->>commiting real code change
+>>committing real code change
 
 >>updating website content in S3
 ----------------
@@ -396,7 +397,7 @@ Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits
 ![architecture](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/F4.PNG)
 **To make sure that only registered users are authorized to like or adopt mysfits on the website, we will deploy an REST API with Amazon API Gateway to sit in front of our NLB. Amazon API Gateway is also a managed service, and provides commonly required REST API capabilities out of the box like SSL termination, request authorization, throttling, API stages and versioning, and much more.**
 
->>added user poool for website Users
+>>added user pool for website Users
 
 >>added a new rest api with amazon API gateway
 
@@ -410,7 +411,7 @@ Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits
 1. create streaming service code
 2. update the lambda function package and code
 3. create the streaming Service Stack
-4. sending mysfit profile clicks to the created microervice
+4. sending mysfit profile clicks to the created micrsoervice
 
 **Conclusion**: Using AWS CLI, A serverless system with multiple modules was managed.
 
@@ -423,18 +424,18 @@ Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits
 ### Intro to Hadoop
 ![traditional vs Hadoop](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/hadoop1.PNG)
 
->Hadoop is the solution to complexities arised due to use of distributed systems.
+>Hadoop is the solution to complexities raised due to use of distributed systems.
 
 >Four Key characteristics are:
 1.Economical(any computer can be used)
-2.Reliable(reistant to hard ware failure )
+2.Reliable(rseistant to hard ware failure )
 3.Scalable(follows both horizontal and vertical scaling) 
-4.Flexible(slexibilty to use of structured/unstructured data)
+4.Flexible(flexibilty to use of structured/unstructured data)
 ![Hadoop Environment](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/Hadoop2.PNG)
 
->here program goes into data instead of vice versa(conventional approach(rdbms)-overloadig)
+>here program goes into data instead of vice versa(conventional approach(rdbms)-overloading)
 
->hadoop ecosystem comprises of 12 components(which can be classified under Data Ingestion, Data Analysis, Data Processing,Data Exploration,Workflow System, No SQl)
+>hadoop ecosystem comprises of 12 components(which can be classified under Data Ingestion, Data Analysis, Data Processing, Data Exploration, Workflow System, No SQl)
 ![Hadoop Stages](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/Hadoop3.PNG)
 
 ### analyze BigData With Hadoop
