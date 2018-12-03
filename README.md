@@ -131,6 +131,7 @@ The main parts of the procedure are described below:
 
 > **Amazon DynamoDB** is a fast and flexible NoSQL database service for all applications that need consistent,single-digit
  millisecond latency at any scale.
+
 > It is fully managed database and supports both document and key-value data models.
 
 Following things were learned in this tutorial:
@@ -164,8 +165,11 @@ Following things were learned in this tutorial:
 
 Main learning:
 > use of Elastic Beanstalk console to launch Elastic Beanstalk Environment and configuring the environment permissions(AmazonDynamoDBFullAccess, AmazonSNSFullAccess).
+
 >  Deploy source bundle gathered from github.
-> update application configuration files in the appliation source by changing values of NewSignupEmail & STARTUP_SIGNUP_TABLE in .ebextensions/options.config file.
+
+> Update application configuration files in the appliation source by changing values of NewSignupEmail & STARTUP_SIGNUP_TABLE in .ebextensions/options.config file.
+
 > Modified capacity of the environment using auto scaling group.
 
 > Hosting static resources in S3
@@ -186,6 +190,7 @@ Main learning:
 ### Intro to AWS lambda
 
 > AWS lambda that is called everytime it is needded make the network serverless. It runs code only according to the response of the user and automatically manages the resources.
+
 > It is used as a backe-end service where computing resources are automatically triggered based on custom request.
 
 > **Following image shows the sucessfull deployment of AWS Lambda.**
@@ -197,6 +202,7 @@ Amazon API gateway is an interface between multiple backend services to multiple
 
 **Main learning:**
 > create a simple FAQ micro-service which returns a JSON object containg a random question and answerr pair using Amazon API Gateway endpoint that invokes an AWS Lambda functon.
+
 > That would involve-- * creating aws lambda function, api gateway endpoints, debugging api gateway and lambda  function with amazon cloud watch*
 
 > **MICROSERVICE - ARCHITECTURE**
@@ -218,8 +224,9 @@ Create a simple serverless web application that enables users to request unicorn
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/app_arch.PNG)
 
 ### Manage users
-> create an Amazon Cognito user pool to manage your users' accounts. 
-> deploy pages that enable customers to register as a new user, verify their email address, and sign into the site.
+> Create an Amazon Cognito user pool to manage your users' accounts. 
+
+> Deploy pages that enable customers to register as a new user, verify their email address, and sign into the site.
 
 Pool Id: us-west-2_QwfIuQsvA
 607gktk0nr9leupbrn5c6nhsiu
@@ -231,8 +238,10 @@ Pool Id: us-west-2_QwfIuQsvA
 > To request a unicorn to be sent to location to user choice we need to invoke a service in the cloud i.e javascript which triggers aws lambda.
 
 > Create dynamo table to keep the record of rides information.
+
 > IAM roles for lambda- *to define with which servies aws lambda can interact*.
-> finally creating AWS lambda function that will process API requests from web application to dispatch a unicorn
+
+> Finally creating AWS lambda function that will process API requests from web application to dispatch a unicorn
 
 Amazon Resource Name (ARN)
 	arn:aws:dynamodb:us-west-2:566965401352:table/Rides
@@ -240,6 +249,7 @@ Amazon Resource Name (ARN)
 ### Deploy Rest API
 
 > Using Amazon API Gateway to expose lambda function.
+
 > Using (RESTful API -- *which would be public* & Amazon Cognito user pool) will then turn your statically hosted website into a dynamic web application by adding client-side JavaScript that makes AJAX calls to the exposed APIs.
 
 auth token: eyJraWQiOiJuTnA4NUVcL2tnS1Q3VmkxZ0kyRW5xVjlaZEdpTEFSYW5KenV0N01nNzd0ST0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxMGRkZWM3Ni0xOWU3LTQ1YjctYmNjNC1jOTlmYmZjMjA3ZjYiLCJhdWQiOiI2MDdna3RrMG5yOWxldXBicm41YzZuaHNpdSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJldmVudF9pZCI6ImY3ZmQxMDE2LWRiMDAtMTFlOC1iNWIyLTc5YzdiNTZkMjQ1ZiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNTQwNzY1Nzg0LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9Rd2ZJdVFzdkEiLCJjb2duaXRvOnVzZXJuYW1lIjoiYWtzaGF5Lmd1cHRhMDcxMkBnbWFpbC5jb20iLCJleHAiOjE1NDA3NjkzODQsImlhdCI6MTU0MDc2NTc4NCwiZW1haWwiOiJha3NoYXkuZ3VwdGEwNzEyQGdtYWlsLmNvbSJ9.Wf8mpVtwtbODlFQA8tQyhGC0yz6I-z4xD8yFmrfSggs30s5mJL8YiiRxWg03ZuOmsjBco5XMMduIqu0va7T4FpTYSrCAq9m1uAoCrOfUbuBD3MQFFGuJ2geJgi8tMoEmWtaLz32LBHBNERMq3-6MmMqkT3tRqLyb7GI0_FyNIvHvQok_gZUWquR98Ny9FKn4pkYf7ApbZgw9jqWlIHDZAT8EKVQYslTk32dkuvYgugO1lj-aHWDY5zl7Q0D-TLPHOLSI2CarNi7e4VhwcliiXktYCmZnI_qieCBFOcq8HndBVpgSkPXOkAK4AUvujBdUK3SekGZcXMyDjgYDyGMfdA
@@ -297,9 +307,13 @@ auth token: eyJraWQiOiJuTnA4NUVcL2tnS1Q3VmkxZ0kyRW5xVjlaZEdpTEFSYW5KenV0N01nNzd0
 
 ## Application architecture
 
+>The application architecture diagrams provide a structural representation of the services that make up Mythical Mysfits and how these services interact with each other
+
+> 
 ![Application Architecture](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/P1.PNG)
 
 ## Modules
+The project has been divided into following modules:
 
 >Create Static website-*building static website i.e storing static objects in S3 *
 
