@@ -71,7 +71,7 @@ Save multiple versions of a same object
 
 The main parts of the procedure are described below:
 
-> ran linux instance
+>ran linux instance
 
 >establisihing connection through putty
 
@@ -106,8 +106,8 @@ The main parts of the procedure are described below:
 >verify membership *groups*
 
 **USE CASES**
-> to host static website
-> Depoly dynamic PHP application that reads and writes information to database.
+>to host static website
+>Depoly dynamic PHP application that reads and writes information to database.
 
  
 ### On your own: Compare the performance, functionality, and price when serving web content from S3 versus an EC2 VM 
@@ -198,39 +198,45 @@ Amazon API gateway is an interface between multiple backend services to multiple
 > create a simple FAQ micro-service which returns a JSON object containg a random question and answerr pair using Amazon API Gateway endpoint that invokes an AWS Lambda functon.
 > That would involve-- * creating aws lambda function, api gateway endpoints, debugging api gateway and lambda  function with amazon cloud watch*
 
-> ** MICROSERVICE - ARCHITECTURE **
-![img]()
+> **MICROSERVICE - ARCHITECTURE**
+![img](https://github.com/agsrc/dist-sys-practice/blob/master/images/app_arch.PNG)
 
 *https://developer.spotify.com/documentation/web-api/*  was good example to understand RESTFUL API.
 
 
-## Build a serverless web App
+# Build a serverless web App
 
-**GOAL:**
-> Create a simple serverless web application that enables users to request unicorn rides from the WIld Rydes(*http://www.wildrydes.com/*) fleet.
-**User interface:**
-> indiactes user the location where they would be like to be picked up.
-> the application will provide user the facility to register with services and log in before requesting rides.
+> **GOAL:**
+Create a simple serverless web application that enables users to request unicorn rides from the WIld Rydes(*http://www.wildrydes.com/*) fleet.
 
+> **User interface:**
+1. Indicate user the location where they would be like to be picked up.
+2. The application will provide user the facility to register with services and log in before requesting rides.
 
-# Manage users
+> 1
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/app_arch.PNG)
+
+### Manage users
 > create an Amazon Cognito user pool to manage your users' accounts. 
 > deploy pages that enable customers to register as a new user, verify their email address, and sign into the site.
 
-Pool Id us-west-2_QwfIuQsvA
+Pool Id: us-west-2_QwfIuQsvA
 607gktk0nr9leupbrn5c6nhsiu
 
-# Serverless Service Backend
+### Serverless Service Backend
+
 > use AWS Lambda and Amazon DynamoDB to build a backend process for handling requests for your web application.
+
 > To request a unicorn to be sent to location to user choice we need to invoke a service in the cloud i.e javascript which triggers aws lambda.
-> create dynamo table to keep the record of rides information.
+
+> Create dynamo table to keep the record of rides information.
 > IAM roles for lambda- *to define with which servies aws lambda can interact*.
 > finally creating AWS lambda function that will process API requests from web application to dispatch a unicorn
 
 Amazon Resource Name (ARN)
 	arn:aws:dynamodb:us-west-2:566965401352:table/Rides
 
-## Deploy Rest API
+### Deploy Rest API
 
 > Using Amazon API Gateway to expose lambda function.
 > Using (RESTful API -- *which would be public* & Amazon Cognito user pool) will then turn your statically hosted website into a dynamic web application by adding client-side JavaScript that makes AJAX calls to the exposed APIs.
@@ -242,8 +248,7 @@ auth token: eyJraWQiOiJuTnA4NUVcL2tnS1Q3VmkxZ0kyRW5xVjlaZEdpTEFSYW5KenV0N01nNzd0
 >https://2x01cqllu1.execute-api.us-west-2.amazonaws.com/prod(deployed api)
 
 **Whole process is described through the series of screenshots**
-> 1
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/app_arch.PNG)
+
 > 2
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/static_web_hosting_S3.PNG)
 > 3
