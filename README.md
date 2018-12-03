@@ -6,6 +6,8 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## CLOUD BEGINNER
 ----------------
 ### AWS Tutorial: Launch a VM 
+>** Following are the main processes done after entering the amazon EC2 console**
+
 ![launched instance](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/L1.PNG)
 ![pair key ](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l2.PNG)
 ![connection through putty](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l3.PNG)
@@ -18,6 +20,7 @@ new to S3? watch this [intro to S3](https://www.youtube.com/watch?v=77lMCiiMilo)
 2. S3 Standard-*Infrequent Access*
 3. S3 One Zone-*Infrequent Access* for long-lived, but less frequently accessed data.
 4. Amazon Glacier for *long-term archive*.
+
 >**reliable**- use ssl and management policies
 
 >**flexibility**- to use as much storage as required
@@ -53,8 +56,13 @@ Save multiple versions of a same object
 
 ### Virtual Machines, Websites, and Databases:
 (https://www.youtube.com/watch?v=GIdVRB5yNsk)describes virtualization and  why it needs more and more implimentation everyday.
+>This video talks about the growing demand of distributed environment and the evolution of vartulization.
 ======================
 ### Install a Lamp Web Server on Amazon Linux2
+
+** This tutorial guided me to install lamp i.e apache web server with PHP and MariaDB on amazon linux 2 instance.**
+
+The main parts of the procedure are described below:
 
 > ran linux instance
 
@@ -80,17 +88,21 @@ Save multiple versions of a same object
 
 >Use the systemctl command to configure the Apache web server to start at each system boot. *sudo systemctl enable httpd*
 
->*sudo systemctl is-enabled httpd* (enable verification)
+>*sudo systemctl is-enabled httpd* (**enable verification**)
 
 >added inbound rules
 
 >sudo usermod -a -G apache ec2-user- *Add your user (in this case, ec2-user) to the apache group. *
 
-
 >exit
 
 >verify membership *groups*
 
+**USE CASES**
+> to host static website
+> Depoly dynamic PHP application that reads and writes information to database.
+
+ 
 ### On your own: Compare the performance, functionality, and price when serving web content from S3 versus an EC2 VM 
 
 **S3 vs EC2**
@@ -107,13 +119,33 @@ Save multiple versions of a same object
 
 >Price wise S3 is 4-5 times less cheaper.
 
-**Amazon DynamoDB**-- is a fast and flexible NoSQL database service for all applications.
+### Intro to DynamoDB
 
->created an Amazon DynamoDB table
+> **Amazon DynamoDB** is a fast and flexible NoSQL database service for all applications that need consistent,single-digit
+ millisecond latency at any scale.
+> It is fully managed database and supports both document and key-value data models.
 
->Entered data into an Amazon DynamoDB table*i.e by adding sequential items* plus edited the table data.
+Following things were learned in this tutorial:
 
->Queried an Amazon DynamDB table*using scan/query* we can easily find data. It's certain that query is faster than scaning
+> Create Amazon DynamoDB table:
+1. Here, I crreated a table named music. The table make use of Primary key and Sort Key to uniquely identify each item in a Dynamo DB table.
+2. After adding table name, primary key*e.g. artist which is string* with the usage of add sort key to finally create a table.
+
+> Enter data into an Amazon DynamoDB table:
+1. we can add unlimited data into dynamoDB where attribute(*has a field/value*) is the fundamental or smallest entity.
+2. The entry of data is only dependent on primary/sort keys.
+3. Using **items** tab we can create items and append required attributes.
+
+> Modifying Existing data
+1. Using **Psy**, we can change field values.
+
+> Query an Amazon DynamoDB table:
+
+1. Query can be done by using **query** or **scan**.
+2. query is a faster option as it is based on priary eeys and is fully indexed.
+
+> Delete an Amazon DynamoDB table:
+1. Simply click Delete table to delete it.
 
 
 ## Deploy a Node.js Web App
