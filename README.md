@@ -150,12 +150,13 @@ Following things were learned in this tutorial:
 
 ## Deploy a Node.js Web App
 
->learn how to deploy a high-availability Node.js web app using AWS Elastic Beanstalk and Amazon DynamoDB
-
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unh_vs_h.PNG)
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/ins.PNG)
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/Mon.PNG)
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/S3.PNG)
+> **GOALS**:
+1. learn how to deploy a high-availability Node.js web app using AWS Elastic Beanstalk and Amazon DynamoDB.
+2. Use Amazon Simple Notification Service (SNS) to configure push notifications for the app.
+![M1](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unh_vs_h.PNG)
+![M2](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/ins.PNG)
+![M3](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/Mon.PNG)
+![M4](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/S3.PNG)
 
 
 ## Serverless and Edge Computing:
