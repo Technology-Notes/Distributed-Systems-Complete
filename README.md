@@ -8,11 +8,11 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ### AWS Tutorial: Launch a VM 
 > **Following are the main processes done after entering the amazon EC2 console**
 
-![launched instance](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/L1.PNG)
+launched instance: ![launched instance](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/L1.PNG)
 
-![pair key ](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l2.PNG)
+pair key: ![pair key ](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l2.PNG)
 
-![connection through putty](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l3.PNG)
+connection through putty: ![connection through putty](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l3.PNG)
 ---------------------------------
 ### Introduction to Amazon Simple Storage Service S3
 new to S3? watch this [intro to S3](https://www.youtube.com/watch?v=77lMCiiMilo).
@@ -155,10 +155,10 @@ Following things were learned in this tutorial:
 > **GOALS**:
 1. learn how to deploy a high-availability Node.js web app using AWS Elastic Beanstalk and Amazon DynamoDB.
 2. Use Amazon Simple Notification Service (SNS) to configure push notifications for the app.
-![M1](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unh_vs_h.PNG)
-![M2](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/ins.PNG)
-![M3](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/Mon.PNG)
-![M4](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/S3.PNG)
+M1:![M1](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unh_vs_h.PNG)
+M2:![M2](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/ins.PNG)
+M3:![M3](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/Mon.PNG)
+M4:![M4](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/S3.PNG)
 
 
 ## Serverless and Edge Computing:
