@@ -106,7 +106,8 @@ The main parts of the procedure are described below:
 >verify membership *groups*
 
 **USE CASES**
->to host static website
+>To host static website
+
 >Depoly dynamic PHP application that reads and writes information to database.
 
  
