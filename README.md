@@ -6,13 +6,18 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## CLOUD BEGINNER
 ----------------
 ### AWS Tutorial: Launch a VM 
+
 > **Following are the main processes done after entering the amazon EC2 console**
 
-launched instance: ![launched instance](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/L1.PNG)
+> launched instance:
+![launched instance](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/L1.PNG)
 
-pair key: ![pair key ](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l2.PNG)
+> pair key:
+![pair key ](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l2.PNG)
 
-connection through putty: ![connection through putty](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l3.PNG)
+connection through putty:
+![connection through putty](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l3.PNG)
+
 ---------------------------------
 ### Introduction to Amazon Simple Storage Service S3
 new to S3? watch this [intro to S3](https://www.youtube.com/watch?v=77lMCiiMilo).
@@ -155,42 +160,89 @@ Following things were learned in this tutorial:
 > **GOALS**:
 1. learn how to deploy a high-availability Node.js web app using AWS Elastic Beanstalk and Amazon DynamoDB.
 2. Use Amazon Simple Notification Service (SNS) to configure push notifications for the app.
-M1:![M1](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unh_vs_h.PNG)
-M2:![M2](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/ins.PNG)
-M3:![M3](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/Mon.PNG)
-M4:![M4](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/S3.PNG)
 
+Main learning:
+> use of Elastic Beanstalk console to launch Elastic Beanstalk Environment and configuring the environment permissions(AmazonDynamoDBFullAccess, AmazonSNSFullAccess).
+>  Deploy source bundle gathered from github.
+> update application configuration files in the appliation source by changing values of NewSignupEmail & STARTUP_SIGNUP_TABLE in .ebextensions/options.config file.
+> Modified capacity of the environment using auto scaling group.
+
+> Hosting static resources in S3
+![M4](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/S3.PNG)
+
+>Running instance states of two linux t2
+
+![M2](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/ins.PNG)
+
+> Monitoring
+![M3](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/Mon.PNG)
+
+> Using Multiple servers for reliability
+![M1](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unh_vs_h.PNG)
 
 ## Serverless and Edge Computing:
 
 ### Intro to AWS lambda
 
->![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/AWS_lambda.PNG)
+> AWS lambda that is called everytime it is needded make the network serverless. It runs code only according to the response of the user and automatically manages the resources.
+> It is used as a backe-end service where computing resources are automatically triggered based on custom request.
 
-## QwikLab: Intro to Amazon API Gateway - 35 min
+> **Following image shows the sucessfull deployment of AWS Lambda.**
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/AWS_lambda.PNG)
+
+##  Intro to Amazon API Gateway
+
+Amazon API gateway is an interface between multiple backend services to multiple client request.
+
+**Main learning:**
+> create a simple FAQ micro-service which returns a JSON object containg a random question and answerr pair using Amazon API Gateway endpoint that invokes an AWS Lambda functon.
+> That would involve-- * creating aws lambda function, api gateway endpoints, debugging api gateway and lambda  function with amazon cloud watch*
+
+> ** MICROSERVICE - ARCHITECTURE **
+![img]()
+
 *https://developer.spotify.com/documentation/web-api/*  was good example to understand RESTFUL API.
 
 
 ## Build a serverless web App
 
-# Host a static website
-	http://wildrydes-akshay-gupta.s3-website-us-west-2.amazonaws.com(s3 stattic host end point)
+**GOAL:**
+> Create a simple serverless web application that enables users to request unicorn rides from the WIld Rydes(*http://www.wildrydes.com/*) fleet.
+**User interface:**
+> indiactes user the location where they would be like to be picked up.
+> the application will provide user the facility to register with services and log in before requesting rides.
 
-	![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/app_arch.PNG)
+# 1. Host a static website
+> 1
+![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/app_arch.PNG)
+> 2
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/static_web_hosting_S3.PNG)
+> 3
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/static_bp.PNG)
+> 4
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/2.PNG)
+> 5 
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/3.PNG)
+> 6 
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/webapp_awslambda.PNG)
+> 7
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/lambdalog_webapp.PNG)
+> 8
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/authentication.PNG)
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/APcognito_verification.PNG)
+> 9
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/api_method.PNG)
+> 10
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/lambda_requestunicorn.PNG)
+> 11
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/method_requestcard.PNG)
+> 12 
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/authorized.PNG)
+> 13 
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unicorn%20arrived.PNG)
+> 14 
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/cognito_usergroup.PNG)
+> 15 
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unicorn_dynamo.PNG)
 
 # Manage users
