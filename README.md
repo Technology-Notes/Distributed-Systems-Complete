@@ -212,7 +212,36 @@ Amazon API gateway is an interface between multiple backend services to multiple
 > indiactes user the location where they would be like to be picked up.
 > the application will provide user the facility to register with services and log in before requesting rides.
 
-# 1. Host a static website
+
+# Manage users
+> create an Amazon Cognito user pool to manage your users' accounts. 
+> deploy pages that enable customers to register as a new user, verify their email address, and sign into the site.
+
+Pool Id us-west-2_QwfIuQsvA
+607gktk0nr9leupbrn5c6nhsiu
+
+# Serverless Service Backend
+> use AWS Lambda and Amazon DynamoDB to build a backend process for handling requests for your web application.
+> To request a unicorn to be sent to location to user choice we need to invoke a service in the cloud i.e javascript which triggers aws lambda.
+> create dynamo table to keep the record of rides information.
+> IAM roles for lambda- *to define with which servies aws lambda can interact*.
+> finally creating AWS lambda function that will process API requests from web application to dispatch a unicorn
+
+Amazon Resource Name (ARN)
+	arn:aws:dynamodb:us-west-2:566965401352:table/Rides
+
+## Deploy Rest API
+
+> Using Amazon API Gateway to expose lambda function.
+> Using (RESTful API -- *which would be public* & Amazon Cognito user pool) will then turn your statically hosted website into a dynamic web application by adding client-side JavaScript that makes AJAX calls to the exposed APIs.
+
+auth token: eyJraWQiOiJuTnA4NUVcL2tnS1Q3VmkxZ0kyRW5xVjlaZEdpTEFSYW5KenV0N01nNzd0ST0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxMGRkZWM3Ni0xOWU3LTQ1YjctYmNjNC1jOTlmYmZjMjA3ZjYiLCJhdWQiOiI2MDdna3RrMG5yOWxldXBicm41YzZuaHNpdSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJldmVudF9pZCI6ImY3ZmQxMDE2LWRiMDAtMTFlOC1iNWIyLTc5YzdiNTZkMjQ1ZiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNTQwNzY1Nzg0LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9Rd2ZJdVFzdkEiLCJjb2duaXRvOnVzZXJuYW1lIjoiYWtzaGF5Lmd1cHRhMDcxMkBnbWFpbC5jb20iLCJleHAiOjE1NDA3NjkzODQsImlhdCI6MTU0MDc2NTc4NCwiZW1haWwiOiJha3NoYXkuZ3VwdGEwNzEyQGdtYWlsLmNvbSJ9.Wf8mpVtwtbODlFQA8tQyhGC0yz6I-z4xD8yFmrfSggs30s5mJL8YiiRxWg03ZuOmsjBco5XMMduIqu0va7T4FpTYSrCAq9m1uAoCrOfUbuBD3MQFFGuJ2geJgi8tMoEmWtaLz32LBHBNERMq3-6MmMqkT3tRqLyb7GI0_FyNIvHvQok_gZUWquR98Ny9FKn4pkYf7ApbZgw9jqWlIHDZAT8EKVQYslTk32dkuvYgugO1lj-aHWDY5zl7Q0D-TLPHOLSI2CarNi7e4VhwcliiXktYCmZnI_qieCBFOcq8HndBVpgSkPXOkAK4AUvujBdUK3SekGZcXMyDjgYDyGMfdA
+
+>arn:aws:lambda:us-west-2:566965401352:function:RequestUnicorn
+
+>https://2x01cqllu1.execute-api.us-west-2.amazonaws.com/prod(deployed api)
+
+**Whole process is described through the series of screenshots**
 > 1
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/app_arch.PNG)
 > 2
@@ -244,22 +273,6 @@ Amazon API gateway is an interface between multiple backend services to multiple
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/cognito_usergroup.PNG)
 > 15 
 ![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unicorn_dynamo.PNG)
-
-# Manage users
-
-Pool Id us-west-2_QwfIuQsvA
-607gktk0nr9leupbrn5c6nhsiu
-
-# Serverless Service Backend
-Amazon Resource Name (ARN)
-	arn:aws:dynamodb:us-west-2:566965401352:table/Rides
-## Deploy Rest API
-
-auth token: eyJraWQiOiJuTnA4NUVcL2tnS1Q3VmkxZ0kyRW5xVjlaZEdpTEFSYW5KenV0N01nNzd0ST0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxMGRkZWM3Ni0xOWU3LTQ1YjctYmNjNC1jOTlmYmZjMjA3ZjYiLCJhdWQiOiI2MDdna3RrMG5yOWxldXBicm41YzZuaHNpdSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJldmVudF9pZCI6ImY3ZmQxMDE2LWRiMDAtMTFlOC1iNWIyLTc5YzdiNTZkMjQ1ZiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNTQwNzY1Nzg0LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9Rd2ZJdVFzdkEiLCJjb2duaXRvOnVzZXJuYW1lIjoiYWtzaGF5Lmd1cHRhMDcxMkBnbWFpbC5jb20iLCJleHAiOjE1NDA3NjkzODQsImlhdCI6MTU0MDc2NTc4NCwiZW1haWwiOiJha3NoYXkuZ3VwdGEwNzEyQGdtYWlsLmNvbSJ9.Wf8mpVtwtbODlFQA8tQyhGC0yz6I-z4xD8yFmrfSggs30s5mJL8YiiRxWg03ZuOmsjBco5XMMduIqu0va7T4FpTYSrCAq9m1uAoCrOfUbuBD3MQFFGuJ2geJgi8tMoEmWtaLz32LBHBNERMq3-6MmMqkT3tRqLyb7GI0_FyNIvHvQok_gZUWquR98Ny9FKn4pkYf7ApbZgw9jqWlIHDZAT8EKVQYslTk32dkuvYgugO1lj-aHWDY5zl7Q0D-TLPHOLSI2CarNi7e4VhwcliiXktYCmZnI_qieCBFOcq8HndBVpgSkPXOkAK4AUvujBdUK3SekGZcXMyDjgYDyGMfdA
-
->arn:aws:lambda:us-west-2:566965401352:function:RequestUnicorn
-
->https://2x01cqllu1.execute-api.us-west-2.amazonaws.com/prod(deployed api)
 
 # Build a Modern Web Application in python
 
