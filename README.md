@@ -6,10 +6,12 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ## CLOUD BEGINNER
 ----------------
 ### AWS Tutorial: Launch a VM 
->** Following are the main processes done after entering the amazon EC2 console**
+> **Following are the main processes done after entering the amazon EC2 console**
 
 ![launched instance](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/L1.PNG)
+
 ![pair key ](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l2.PNG)
+
 ![connection through putty](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l3.PNG)
 ---------------------------------
 ### Introduction to Amazon Simple Storage Service S3
