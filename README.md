@@ -116,3 +116,11 @@ only focus on the OS and application, not so much about the hardware. So it is m
 ![Alt text](https://github.com/dongyh1995/dist-sys-practice/raw/master/Screenshots/swarm.png)
 - A stack is a group of services that are deployed together: multiple containerized components of an application that run in separate instances. Each individual service can actually be made up of one or more containers, called tasks and then all the tasks & services together make up a stack. Picture below is a logical interpretation of how stacks, services and tasks are inter-related: 
 ![Alt text](https://github.com/dongyh1995/dist-sys-practice/raw/master/Screenshots/stack.png)
+
+#### Kubernetss
+
+- Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+- Kubernetes needs a yaml file to deploy and instantiate containers.
+- Kubernetes and Swarm both allow you to manage a cluster of server that runs one or more servies. Compared to Swarm, Kubernetes is more popular because it has far more features.
+
+### Projects: Bring it all together
