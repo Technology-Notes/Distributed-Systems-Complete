@@ -15,7 +15,7 @@
 
 > hadoop ecosystem comprises of 12 components(which can be classified under Data Ingestion, Data Analysis, Data Processing, Data Exploration, Workflow System, No SQl) 
 
-![Hadoop Stages](https://github.com/agsrc/dist-sys-practice/blob/master/Screenshots%20for%201st%20Report/Hadoop3.PNG
+![Hadoop Stages](https://github.com/agsrc/dist-sys-practice/blob/master/Screenshots%20for%201st%20Report/Hadoop3.PNG)
 
 ### analyze BigData With Hadoop
 
@@ -27,19 +27,19 @@
 
 >added necessary steps to be executed *defining schema and table for sample log data in S3*
 
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/hadoop2.2.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Screenshots%20for%201st%20Report/hadoop2.2.PNG)
 > Macro Instances
 
-![macro instances](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/hadoop2.3.PNG)
+![macro instances](https://github.com/agsrc/dist-sys-practice/blob/master/Screenshots%20for%201st%20Report/hadoop2.3.PNG)
 
 >OS_request *analyzed data using a HiveQl script and wrote results back to S3*
 
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/hadoop2.4.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Screenshots%20for%201st%20Report/hadoop2.4.PNG)
 ![](https://github.com/agsrc/dist-sys-practice/blob/master/Screenshots%20for%201st%20Report/hadoop2.5.PNG)
 
 > Terminating
 
-![Terminating](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/hadoop2.7.PNG)
+![Terminating](https://github.com/agsrc/dist-sys-practice/blob/master/Screenshots%20for%201st%20Report/hadoop2.7.PNG)
 ![]()
 
 
