@@ -57,7 +57,7 @@ echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
 ```
 http://my.public.dns.amazonaws.com/phpinfo.php
 ```
-![avatar](image/1-7.png)
+![avatar](image/1-8.png)
 
 ## Secure the Database Server
 - Start the MariaDB server.
