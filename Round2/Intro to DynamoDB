@@ -1,0 +1,15 @@
+# Introduction to AWS DynamoDB
+
+## Create a New Table
+- Click Create table
+- For Table name, Type: Music
+- For Primary key, type Artist and leave String selected
+- Select Add sort key
+- Clik Create
+
+## Add Data 
+- Click the Items tab, then click Create item
+- For Artist String, type: Pink Floyd
+- For Song String, type: Money
+- Click Append to create additional attribute
+![avatar]
