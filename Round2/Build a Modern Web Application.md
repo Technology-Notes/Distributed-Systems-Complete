@@ -1,7 +1,7 @@
 ## Create Static Website
 - Click Create Environment on the Cloud9 home page:
 - Name it MythicalMysfitsIDE
-![avatar]("/image/6-1.png")
+![avatar](image/6-1.png)
 >> In Cloud9, we can implement linux command
 - Clone The Mythical Mysfits Workshop Repository
 ```
@@ -21,13 +21,14 @@ aws s3api put-bucket-policy --bucket REPLACE_ME_BUCKET_NAME --policy file://~/en
 ```
 aws s3 cp ~/environment/aws-modern-application-workshop/module-1/web/index.html s3://REPLACE_ME_BUCKET_NAME/index.html 
 ```
-
+![avatar](image/6-2.png)
 ## Setup Core Infrastructure
 - Deploy CloudFormation Templates
 ```
 aws cloudformation create-stack --stack-name MythicalMysfitsCoreStack --capabilities CAPABILITY_NAMED_IAM --template-body file://~/environment/aws-modern-application-workshop/module-2/cfn/core.yml
 aws cloudformation describe-stacks --stack-name MythicalMysfitsCoreStack
 ```
+![avatar](image/6-3.png)
 ## Deploy A Service With AWS Fargate
 ### Create a Flask Service
 - Build A Docker Image
@@ -43,6 +44,7 @@ docker run -p 8080:8080 REPLACE_ME_WITH_DOCKER_IMAGE_TAG
 ```
 aws ecr create-repository --repository-name mythicalmysfits/service
 ```
+![avatar](image/6-4.png)
 - Login
 ```
 $(aws ecr get-login --no-include-email)
@@ -64,6 +66,7 @@ aws logs create-log-group --log-group-name mythicalmysfits-logs
 ```
 aws ecs register-task-definition --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/task-definition.json
 ```
+![avatar](image/6-5.png)
 ## Enable A Load Balanced Fargate Service
 - Create A Network Load Balancer
 ```
@@ -83,6 +86,7 @@ aws elbv2 create-listener --default-actions TargetGroupArn=REPLACE_ME_NLB_TARGET
 ```
 aws s3 cp ~/environment/aws-modern-application-workshop/module-2/web/index.html s3://INSERT-YOUR-BUCKET-NAME/index.html
 ```
+![avatar](image/6-6.png)
 ## Automate Deployments using AWS Code Services
 - Create A S3 Bucket For Pipeline Artifacts
 ```
@@ -114,6 +118,7 @@ cd ~/environment/
 git clone https://git-codecommit.REPLACE_REGION.amazonaws.com/v1/repos/MythicalMysfitsService-Repository
 cp -r ~/environment/aws-modern-application-workshop/module-2/app/* ~/environment/MythicalMysfitsService-Repository/
 ```
+![avatar](image/6-7.png)
 - Pushing A Code Change
 ```
 cd ~/environment/MythicalMysfitsService-Repository/
@@ -180,7 +185,7 @@ git push
 ```
 aws s3 cp --recursive ~/environment/aws-modern-application-workshop/module-4/web/ s3://YOUR-S3-BUCKET/
 ```
-
+![avatar](image/6-8.png)
 ## Capture User Behavior
 - Create A New CodeCommit Repository
 ```
@@ -223,3 +228,4 @@ aws cloudformation describe-stacks --stack-name MythicalMysfitsStreamingStack
 ```
 aws s3 cp ~/environment/aws-modern-application-workshop/module-5/web/index.html s3://YOUR-S3-BUCKET/
 ```
+![avatar](image/6-9.png)
