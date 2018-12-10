@@ -1,6 +1,7 @@
 ## Create Static Website
 - Click Create Environment on the Cloud9 home page:
 - Name it MythicalMysfitsIDE
+![avatar]("/image/6-1.png")
 >> In Cloud9, we can implement linux command
 - Clone The Mythical Mysfits Workshop Repository
 ```
@@ -119,4 +120,106 @@ cd ~/environment/MythicalMysfitsService-Repository/
 git add .
 git commit -m "I changed the age of one of the mysfits."
 git push
+```
+## Store Mysfit Information
+- Addring A NoSQL Database To Mythical Mysfits
+- Create A DynamoDB Table
+```
+aws dynamodb create-table --cli-input-json file://~/environment/aws-modern-application-workshop/module-3/aws-cli/dynamodb-table.json
+aws dynamodb describe-table --table-name MysfitsTable
+aws dynamodb scan --table-name MysfitsTable
+```
+- Add Items To The DynamoDB Table
+```
+aws dynamodb batch-write-item --request-items file://~/environment/aws-modern-application-workshop/module-3/aws-cli/populate-dynamodb.json
+```
+- Commit First Real Code Change
+- Copy The UpdateD Flask Service Code
+```
+cp ~/environment/aws-modern-application-workshop/module-3/app/service/* ~/environment/MythicalMysfitsService-Repository/service/
+```
+- Copy The Updated Flask Service Code
+```
+cd ~/environment/MythicalMysfitsService-Repository
+git add .
+git commit -m "Add new integration to DynamoDB."
+git push
+```
+## Setup User Registration
+- Create The Cognito User Pool
+```
+aws cognito-idp create-user-pool --pool-name MysfitsUserPool --auto-verified-attributes email
+```
+- Create A Cognito User Pool Client
+```
+aws cognito-idp create-user-pool-client --user-pool-id REPLACE_ME --client-name MysfitsUserPoolClient
+```
+- Create An API Gateway VPC Link
+```
+aws apigateway create-vpc-link --name MysfitsApiVpcLink --target-arns REPLACE_ME_NLB_ARN > ~/environment/api-gateway-link-output.json
+```
+- Create The REST API Using Swagger
+```
+aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body file://~/environment/aws-modern-application-workshop/module-4/aws-cli/api-swagger.json --fail-on-warnings
+```
+- Deploy The API
+```
+aws apigateway create-deployment --rest-api-id REPLACE_ME_WITH_API_ID --stage-name prod
+https://REPLACE_ME_WITH_API_ID.execute-api.REPLACE_ME_WITH_REGION.amazonaws.com/prod
+```
+- Update the Flask Service Backend
+```
+cd ~/environment/MythicalMysfitsService-Repository/
+cp -r ~/environment/aws-modern-application-workshop/module-4/app/* .
+git add .
+git commit -m "Update service code backend to enable additional website features."
+git push
+```
+
+- Update The Mythical Mysfits Website In S3
+```
+aws s3 cp --recursive ~/environment/aws-modern-application-workshop/module-4/web/ s3://YOUR-S3-BUCKET/
+```
+
+## Capture User Behavior
+- Create A New CodeCommit Repository
+```
+aws codecommit create-repository --repository-name MythicalMysfitsStreamingService-Repository
+cd ~/environment/
+git clone {insert the copied cloneValueUrl from above}
+```
+- Copy The Streaming Service Code Base
+```
+cd ~/environment/MythicalMysfitsStreamingService-Repository/
+cp -r ~/environment/aws-modern-application-workshop/module-5/app/streaming/* .
+cp ~/environment/aws-modern-application-workshop/module-5/cfn/* .
+```
+- Update The Lambda Function Package And Code
+- Use Pip To Install Lambda Function ependencies
+```
+pip install requests -t
+```
+- Update The Lambda Function Code
+- Push Code Into CodeCommit
+```
+git add .
+git commit -m "New stream processing service."
+git push
+```
+- Create An S3 Buckeet For Lambda Function Code Packages
+- Use The SAM CLI To Package Code For Lambda
+```
+sam package --template-file ./real-time-streaming.yml --output-template-file ./transformed-streaming.yml --s3-bucket replace-with-your-bucket-name
+```
+- Deploy The Stack Using AWS CloudFormation
+```
+aws cloudformation deploy --template-file /home/ec2-user/environment/MythicalMysfitsStreamingService-Repository/cfn/transformed-streaming.yml --stack-name MythicalMysfitsStreamingStack --capabilities CAPABILITY_IAM
+```
+- Update The Website Content
+```
+aws cloudformation describe-stacks --stack-name MythicalMysfitsStreamingStack
+```
+- Push The New Site Version to S3
+```
+aws s3 cp ~/environment/aws-modern-application-workshop/module-5/web/index.html s3://YOUR-S3-BUCKET/
 ```
