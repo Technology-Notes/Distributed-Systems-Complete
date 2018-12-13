@@ -2,6 +2,8 @@
 
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
+Here is the link of my technical report: [Technical Report for CS 6421 Distributed Systems](https://johnbryant.github.io/blog/2018/12/technical_report)
+
 ## Area 1: Cloud Web Apps
 
 > Beginner Level
@@ -427,8 +429,6 @@ Finally, I had a model that is deployed in Amazon SageMaker. To validate the mod
 
 In addition, the tutorial gives some instructions about how to integrate Amazon SageMaker endpoints into internet-facing application. The simplest method is creating a Lambda function that calls Amazon SageMaker `InvokeEndpoint` API then calling the Lambda function from the target application.
 
-
-
 > Bring it all together
 
 [Build a Serverless Real-Time Data Processing App](https://aws.amazon.com/getting-started/projects/build-serverless-real-time-data-processing-app-lambda-kinesis-s3-dynamodb-cognito-athena/?trk=gs_card) (time: 150min)
@@ -456,8 +456,6 @@ Before start, I did some preparation jobs: Launch an AWS Cloud9 IDE and set up t
 The first step is building a data stream. As the picture shows, I need to create an **Amazon Kinesis Data Streams** to collect the unicorn data. The real-time data will be shown on the Unicorn-Dashboard. Although I don't know the detail contents in clients *producer* and *consumer*, I know that the *producer* will send the unicorn data and the *consumer* will receive the unicorn data. Here I also need to create an **Amazon Cognito identity pool** to grant unauthenticated users access to read from my Kinesis stream. The real-time data can be shown as follows: (I create 3 unicorns):
 
 ![Serverless_m1_unicorn_data](images/Serverless_m1_unicorn_data.png)
-
-
 
 ![Serverless_real_time_data_processing_app_m2](images/Serverless_real_time_data_processing_app_m2.png)
 
