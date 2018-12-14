@@ -171,3 +171,52 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 - Make the object public
 - Create a bucket policy
 - Upload a newer version and explore versioning
+
+## Area 3: Docker and Containers
+### What is docker and why docker?  
+- Super-light-weight virtualization.
+- Once-in-a decade shift in infrastructure.
+- Mainframe -> PC -> Virtualization -> Cloud -> Container
+- Enable quick deployment of software stacks, this world is all about speed.
+- Adopted by so many big corps, the huge wave is conquering the world.
+### Fast as first-class concern, designed for developers
+- Develop faster.
+- Build faster.
+- Test faster.
+- Deploy faster.
+- Update faster.
+- Recover faster.
+- Maintain faster.
+### Container virtulizes the software stack:
+- Based on LXC, cgroups.
+- No kernel virtualization, smaller overhead, one set of drivers!
+- Can run different distros and different library versions.
+- Configuration file for ease of technology stack choice - one piece of paper!
+- Community-maintained repos that are updated regularly.
+- Compared to VMs, so many benefits, except for security - not much improvement if it is a kernel exploit...
+### Experiment 1: hello world docker & docker swarm
+- Relatively easy, clicks through... may need superuser priviledge
+1-1.  Hello world example  
+![25](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-1-simple-docker.png)
+1-2. Interactive container  
+![26](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-2-interactive-container.png)
+1-3. Building containers  
+![27](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-3-building-containers.png)
+1-4. Original one  
+![28](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-4-original-display.png)
+1-5. Updated one - modifying something running
+![28](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-5-changed-display.png)
+1-6. Pushing containers
+![29](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-6-pushing-containers.png)
+1-7. Overnet - docker swarm
+![30](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-7-docker-overnet.png)
+### Kubernete: desired state management
+- Automatic service discovery
+- Automatic load balancing
+- Automatic node recovery and self-healing
+- Automatic deployment from a config file or binpacking
+- Workload & storage orchestration and batch execution
+- Horizontal scaling...
+- More... than just Docker Swarm
+### AWS: microservices!
+
