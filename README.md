@@ -196,7 +196,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 - Compared to VMs, so many benefits, except for security - not much improvement if it is a kernel exploit...
 ### Experiment 1: hello world docker & docker swarm
 - Relatively easy, clicks through... may need superuser priviledge
-1-1.  Hello world example  
+1-1. Hello world example  
 ![25](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-1-simple-docker.png)
 1-2. Interactive container  
 ![26](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-2-interactive-container.png)
@@ -204,11 +204,11 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 ![27](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-3-building-containers.png)
 1-4. Original one  
 ![28](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-4-original-display.png)
-1-5. Updated one - modifying something running
+1-5. Updated one - modifying something running  
 ![28](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-5-changed-display.png)
-1-6. Pushing containers
+1-6. Pushing containers  
 ![29](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-6-pushing-containers.png)
-1-7. Overnet - docker swarm
+1-7. Overnet - docker swarm  
 ![30](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-7-docker-overnet.png)
 ### Kubernete: desired state management
 - Automatic service discovery
@@ -219,4 +219,41 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 - Horizontal scaling...
 - More... than just Docker Swarm
 ### AWS: microservices!
+- Breaks a monolithic monster into smaller parts
+- More scalability
+- Better load balancing 
+- Might be easier to update a portion of them
+- Yet hard to configure and design...
+### Experiment 2: AWS microservices
+- A little hard. Using linux throught the playing is recommended.
+2-1. Successful login  
+![31](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-1-login-successful.png)
+2-2. Container created  
+![32](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-2-container-created.png)
+2-3. Pushing to AWS  
+![33](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-3-pushed-AWS.png)
+2-4. Showing content  
+![34](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-4-showing-content.png)
+2-5. Setup the cluster stack  
+![35](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-5-changed-display.png)
+2-6. Configuring load balancer  
+![36](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-6-vcp.png)
+2-7. Ready to receive incoming requests on the monolithic!  
+![37](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-7-ready-to-recv.png)
+2-8. One of the instances  
+![38](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-8-one-of-them.png)
+2-9. Creating rules  
+![39](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-9-rules.png)
+2-10. Microservices running...  
+![40](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-10-services-running.png)
+2-11. Cleaning up - deleting the monolithic API  
+![41](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-11-api-deleted.png)
+2-12. Microservices working!  
+![42](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-12-microservice.png)
+2-13. Cleanup: Stopping tasks  
+![43](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-13-tasks-stopping.png)
+2-14. Cleanup: Deleting stack  
+![44](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-14-deleting-stack.png)
+2-15. Cleanup: Deregister everything and we're done!  
+![44](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-15-deregistering-everything.png)
 
