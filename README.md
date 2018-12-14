@@ -195,7 +195,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 - Community-maintained repos that are updated regularly.
 - Compared to VMs, so many benefits, except for security - not much improvement if it is a kernel exploit...
 ### Experiment 1: hello world docker & docker swarm
-- Relatively easy, clicks through... may need superuser priviledge
+- Relatively easy, clicks through... may need superuser priviledge  
 1-1. Hello world example  
 ![25](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/1-1-simple-docker.png)  
 1-2. Interactive container  
@@ -225,7 +225,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 - Might be easier to update a portion of them
 - Yet hard to configure and design...
 ### Experiment 2: AWS microservices
-- A little hard. Using linux throught the playing is recommended.
+- A little hard. Using linux throught the playing is recommended.  
 2-1. Successful login  
 ![31](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-1-login-successful.png)  
 2-2. Container created  
