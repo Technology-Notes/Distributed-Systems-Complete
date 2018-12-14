@@ -235,7 +235,7 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 2-4. Showing content  
 ![34](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-4-showing-content.png)  
 2-5. Setup the cluster stack  
-![35](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-5-changed-display.png)  
+![35](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-5-setup.png)  
 2-6. Configuring load balancer  
 ![36](https://raw.githubusercontent.com/hungry-foolish/dist-sys-practice/master/experiment2/2-6-vcp.png)  
 2-7. Ready to receive incoming requests on the monolithic!  
