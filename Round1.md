@@ -1,5 +1,12 @@
+
+* Author: [@unlimitediw](https://github.com/unlimitediw)
+* Resources: 
+	- [CS 6421 Distributed Systems - Fall 2018, provided by @Prof. Tim Wood](https://gwdistsys18.github.io/)
+	- [AWS Tutorail](https://aws.amazon.com/getting-started/tutorials/)
+	- [Docker Documentation](https://docs.docker.com/)
+
 <a name="menu"></a>
-## Big Data and Machine Learning
+## BIG DATA AND MACHINE LEARNING (Intermediate Round1)
 1. [Hadoop Introduction](#introduction)
 2. [Analyze Big Data with Hadoop](#bigdata)
 3. [Introduction to Amazon Simple Storage Service](#s3)
@@ -11,13 +18,8 @@
 9. [Build a Serverless Real-Time Data Processing APP](#app)
 10. [Conclusion for the Unicorn project](#unicorn)
 
-## Docker and Containers
-1. [Why Docker?](#docker)
-2. [DevOps Docker Beginners Guide](#guide)
 
-* Author: [@unlimitediw](https://github.com/unlimitediw)
-* Resources: [CS 6421 Distributed Systems - Fall 2018, provided by @Prof. Tim Wood](https://gwdistsys18.github.io/)
-
+****************************************************
 # BIG DATA AND MACHINE LEARNING
 
 <a name="Introduction"></a>
@@ -69,6 +71,7 @@ Can store as much of the data and decide to use it later.
     	Based on the map and reduce programming model Commonly used
     	An extensive and mature fault tolerance framework
     * Spark:
+    Instead of storage data, Spark optimizes dealing with consistent data stream.
     An open-source cluster computing framework
     Provides 100 times faster performance as compared to MapReduce
     Support Machine learning, Business intelligence, Streaming, and 
@@ -538,6 +541,8 @@ Finally Connect to destination
    * 10x average CPU utilization (management)
    * 66% cost reduction
  
+****************************
+### ! This is the old version of container beginner tutorial.
 <a name="guide"></a>
 # DevOps Docker Beginners Guide (1h)
 [Back to Menu](#menu)
