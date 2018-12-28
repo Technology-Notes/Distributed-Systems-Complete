@@ -6,3 +6,13 @@
 	path = aws-serverless-workshops
 	url = https://github.com/aws-samples/aws-serverless-workshops
 	branch = master
+[submodule "aws-modern-application-workshop"]
+	path = aws-modern-application-workshop
+	url = https://github.com/aws-samples/aws-modern-application-workshop
+	branch = master
+[submodule "source/themes/hello-friend"]
+	path = source/themes/hello-friend
+	url = https://github.com/huyb1991/hugo-lamp.git
+[submodule "source/themes/hugo-lamp"]
+	path = source/themes/hugo-lamp
+	url = https://github.com/huyb1991/hugo-lamp.git
