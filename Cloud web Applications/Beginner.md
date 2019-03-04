@@ -5,7 +5,7 @@
 > **Following are the main processes done after entering the amazon EC2 console**
 
 > launched instance:
-![launched instance](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/L1.PNG)
+![launched instance](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Beginner/launched%20instance.PNG)
 
 > pair key:
 ![pair key ](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l2.PNG)
