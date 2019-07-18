@@ -114,17 +114,17 @@ Main learning:
 > Modified capacity of the environment using auto scaling group.
 
 > Hosting static resources in S3
-![M4](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/S3.PNG)
+![M4](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/M4.PNG)
 
 >Running instance states of two linux t2
 
-![M2](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/ins.PNG)
+![M2](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/M2.PNG)
 
 > Monitoring
-![M3](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/Mon.PNG)
+![M3](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/M3.PNG)
 
 > Using Multiple servers for reliability
-![M1](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unh_vs_h.PNG)
+![M1](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/M1.PNG)
 
 ## Serverless and Edge Computing:
 
@@ -135,7 +135,7 @@ Main learning:
 > It is used as a back-end service where computing resources are automatically triggered based on custom request.
 
 > **Following image shows the successfull deployment of AWS Lambda.**
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/AWS_lambda.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/AWS_lambda.PNG)
 
 ##  Intro to Amazon API Gateway
 
@@ -147,7 +147,7 @@ Amazon API gateway is an interface between multiple backend services to multiple
 > That would involve-- * creating aws lambda function, api gateway endpoints, debugging api gateway and lambda  function with amazon cloud watch*
 
 > **MICROSERVICE - ARCHITECTURE**
-![img](https://github.com/agsrc/dist-sys-practice/blob/master/images/app_arch.PNG)
+![img](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/app_arch.PNG)
 
 *https://developer.spotify.com/documentation/web-api/*  was good example to understand RESTFUL API.
 
@@ -162,7 +162,7 @@ Create a simple serverless web application that enables users to request unicorn
 2. The application will provide user the facility to register with services and log in before requesting rides.
 
 > 1
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/app_arch.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/app_arch.PNG)
 
 ### Manage users
 > Create an Amazon Cognito user pool to manage your users' accounts. 
@@ -202,34 +202,34 @@ auth token: eyJraWQiOiJuTnA4NUVcL2tnS1Q3VmkxZ0kyRW5xVjlaZEdpTEFSYW5KenV0N01nNzd0
 **Whole process is described through the series of screenshots**
 
 > 2
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/static_web_hosting_S3.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless1.PNG)
 > 3
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/static_bp.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless2.PNG)
 > 4
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/2.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless3.PNG)
 > 5 
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/3.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless4.PNG)
 > 6 
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/webapp_awslambda.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless5.PNG)
 > 7
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/lambdalog_webapp.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless6.PNG)
 > 8
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/authentication.PNG)
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/APcognito_verification.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless7.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless8.PNG)
 > 9
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/api_method.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless9.PNG)
 > 10
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/lambda_requestunicorn.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless10.PNG)
 > 11
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/method_requestcard.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless11.PNG)
 > 12 
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/authorized.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless12.PNG)
 > 13 
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unicorn%20arrived.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless13.PNG)
 > 14 
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/cognito_usergroup.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless14.PNG)
 > 15 
-![](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/unicorn_dynamo.PNG)
+![](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/Serverless15.PNG)
 
 # Build a Modern Web Application in python
 
@@ -251,7 +251,7 @@ auth token: eyJraWQiOiJuTnA4NUVcL2tnS1Q3VmkxZ0kyRW5xVjlaZEdpTEFSYW5KenV0N01nNzd0
 >The application architecture diagrams provide a structural representation of the services that make up Mythical Mysfits and how these services interact with each other
 
 > 
-![Application Architecture](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/P1.PNG)
+![Application Architecture](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/APPLICATION_ARCH.PNG)
 
 ## Modules
 The project has been divided into following modules:
@@ -270,7 +270,7 @@ The project has been divided into following modules:
 
 
 >Modue1-(static hosting)
-![architecture](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/F2.1.PNG)
+![architecture](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/F2.1.PNG)
 
 >>Cloud 9 created
 mythical-mysfits-bucket01(S3 bucket created)
@@ -318,13 +318,13 @@ Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits
 >>>Replace the API Endpoint
 
 >>Module 2C: Automate Deployments using AWS Code Services*will automatically deliver all of the code changes that you make to your code base to the service you created during the last module.*
-![architecture](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/F2.PNG)
+![architecture](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/F2.PNG)
 
 >>>creating and testing  CI/CD Pipeline
 ---------------
 
 >Module 3: Store Mysfit Information*will create a table in Amazon DynamoDB, a managed and scalable NoSQL database service on AWS with super fast performance*
-![architecture](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/f3.PNG)
+![architecture](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/F3.PNG)
 
 >>adding a No SQ Databasee To Mythical Mysfits
 
@@ -334,7 +334,7 @@ Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits
 ----------------
 
 >Module 4: Setup User Registration*To enable registration and authentication of website users, we will create a User Pool in AWS Cognito - a fully managed user identity management service. *
-![architecture](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/F4.PNG)
+![architecture](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/F4.PNG)
 **To make sure that only registered users are authorized to like or adopt mysfits on the website, we will deploy an REST API with Amazon API Gateway to sit in front of our NLB. Amazon API Gateway is also a managed service, and provides commonly required REST API capabilities out of the box like SSL termination, request authorization, throttling, API stages and versioning, and much more.**
 
 >>added user pool for website Users
@@ -345,7 +345,7 @@ Successfully tagged 566965401352.dkr.ecr.us-west-2.amazonaws.com/mythicalmysfits
 -------------------
 
 >Module 5: Capture User Behavior *in order to make use of the site it is a ggod practice to analyze user response*
-![architecture](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/F5.PNG)
+![architecture](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Intermediate/F5.PNG)
 **following instructions are required to implement it**
 
 1. create streaming service code

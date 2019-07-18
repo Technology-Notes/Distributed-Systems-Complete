@@ -5,13 +5,13 @@
 > **Following are the main processes done after entering the amazon EC2 console**
 
 > launched instance:
-![launched instance](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/L1.PNG)
+![launched instance](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Beginner/launched%20instance.PNG)
 
 > pair key:
-![pair key ](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l2.PNG)
+![pair key ](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Beginner/pair%20key.PNG)
 
 connection through putty:
-![connection through putty](https://raw.githubusercontent.com/agsrc/dist-sys-practice/master/images/l3.PNG)
+![connection through putty](https://github.com/agsrc/dist-sys-practice/blob/master/Cloud%20web%20Applications/Screenshots-Beginner/putty.PNG)
 
 ---------------------------------
 ### Introduction to Amazon Simple Storage Service S3
