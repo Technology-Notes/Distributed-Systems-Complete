@@ -1,6 +1,19 @@
 # Distributed Systems Practice
 Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys18.github.io/) with [Prof. Wood](https://faculty.cs.gwu.edu/timwood/)
 
+## Topics:
+
+* 1. Docker and Containers
+
+* 2. Big Data and Machine Learning
+
+* 3. Cloud Web Applications
+
+## Tech report:
+
+* ```./Tech-report Jialiang Jiang.docx```
+
+## Round 1
 ## Docker and Containers
 > **why docker**
 
@@ -257,3 +270,269 @@ Notes from learning about distributed systems in [GW CS 6421](https://gwdistsys1
 * Create a bucket policy. A bucket policy is a set of permission associated with Amazon S3 bucket. It can be used to control access to a whole bucket or to specific directories within a bucket.
 
 * Explore versioning. Versioning is a means of keeping multiple variants of an object in the same bucket. Can be used to preserve, retrieve, and restore every version of every object stored in Amazon S3 bucket.
+
+
+## Round 2
+
+## Big Data and Machine Learning
+
+> **Video: Hadoop Intro**
+
+![](./hadoop.png)
+
+* Distributed systems : used to deal with the data explosion
+
+* Hadoop is a framework that allows for distributed processing of large dataset across clusters of commodity computers using simple programming models
+
+* Economical, reliable, scalable, and flexible
+
+* Traditional systems have data going to a program, while with Hadoop the program goes to the data
+
+* Hadoop has 12 components:
+
+    - HDFS (Hadoop Distirbuted File System) : a storage layer for Hadoop
+    
+    - HBase : a NoSQL database that stores data in HDFS
+    
+    - Sqoop : transfers data between Hadoop and relational database servers
+    
+    - Flume : ingests streaming data
+    
+    - Spark : a cluster computing framework
+    
+    - Hadoop MapReduce : the original processing engine but is losing ground to Spark
+    
+    - Pig : a dataflow system primarily used for analytics that converts pig script to Map-Reduce code
+    
+    - Impala : a high-performance SQL engine with low latency
+    
+    - Hive : similar to Impala but is good for data processing
+    
+    - Cloudera Search : enables non-technical users to search and explore data
+    
+    - Oozie : a workflow or coodination system used to manage Hadoop jobs
+    
+    - Hue (Hadoop User Experience) : a web interface for Hadoop
+    
+* These components help with the four stages of big data processing: ingest, processing, analyze, and access
+
+![](./workflow.png)
+
+> **QwikLab: Analyze Big Data with Hadoop**
+
+* Applications installed by default on **EMR** cluster
+    
+    - EMR ： a managed service that makes Apache Hadoop and Sparkit process vast amounts of data fast, easy, and cost-effective. Supports powerful and proven Hadoop tools such as Presto, Hive, Pig, HBase, and more.
+
+* The default EMR cluster configuration includes 
+
+    - Apache Hadoop 
+    
+    - Ganglia : performance monitor
+    
+    - Apache Tez : framework for creating a complex directied acyclic graph of tasks 
+    
+    - Hive : data warehouse and analytics package
+    
+    - Hue : GUI
+    
+    - Pig : converts Pig Latin to Tez jobs
+    
+* Amazon CloudFront : speeds up web content distribution through worldwide network of edge location data centers
+
+> **QwikLab: Intro to S3(5 min)**
+
+* Done before.
+
+* Add-on : Objects in S3 are private by default. 
+
+> **QwikLab: Intro to Amazon Redshift(30 min)**
+
+* Amazon Redshift : a fast, fully managed data warehouse that makes it simple and cost-effective to analyze data using standard SQL and existing Business Intelligence (BI) tools.
+
+* pgweb : a web-based utility for connecting to SQL databases and running quries.
+
+* Important steps :
+
+    -  1. Lanuch an Amazon Redshift Cluster
+    
+        - !  Cluster Database Properties: Contains information on the Endpoint, which is the DNS address of the cluster, and the port number on which the database accepts connections. These are required when you want to create SQL connections. It also lets you know whether the cluster has a public IP address that can be accessed from the public internet. The JDBC URL and ODBC URL contain the URLs to connect to the cluster via a java database connection or an Oracle database connection client.
+    
+    - 2. Launch Pgweb to Communicate with Redshift Cluster
+    
+    - 3. Create a Table
+    
+    - 4. Load Sample Data from Amazon S3
+    
+    - 5. Query data
+    
+> **Video: Short AWS Machine Learning Overview (5 min)**
+
+* Machine learning stack:
+    
+    - Framework and Interfaces: used by companies with experts who build and train ML models
+
+    - ML Platforms: make it easy to build, train, tune, and deploy models without expertise
+
+    - Application Services: APIs for computer vision, speech processing, etc.
+    
+> **AWS Tutorial: Analyze Big Data with Hadoop (60 min)**
+
+* Important steps (can be submitted to a cluster when it is set up, or run on the command line after connecting to the master node) :
+
+    - Created an S3 bucket and an EC2 key pair
+
+    - Launched an EMR cluster
+
+    - Allowed SSH connections to cluster
+    
+* **cluster** : a collection of Amazon Elastic Compute Cloud (Amazon EC2) instances. Each instance in the cluster is called a node. Each node has a role within the cluster, referred to as the node type. 
+
+* Master node: A node that manages the cluster by running software components to coordinate the distribution of data and tasks among other nodes for processing. The master node tracks the status of tasks and monitors the health of the cluster. Every cluster has a master node, and it's possible to create a single-node cluster with only the master node.
+
+* Core node: A node with software components that run tasks and store data in the Hadoop Distributed File System (HDFS) on your cluster. Multi-node clusters have at least one core node.
+
+* Task node: A node with software components that only runs tasks and does not store data in HDFS. Task nodes are optional.
+
+* **Benefits**
+
+    - Cost Savings
+
+    - AWS Integration
+
+    - Deployment
+    
+    - Flexibility
+
+    - Reliability
+
+    - Security 
+
+    - Monitoring
+
+![](./1.png)
+
+> **QwikLab: Intro to Amazon Machine Learning (45 min)**
+
+* Amazon Machine Learning (Amazon ML) : a platform which specializes in the training and storage of ML models in their cloud infrastructure.
+    
+    - A datasource contains metadata about input data but not the data itself
+    
+    - An ML model generates predictions
+
+    - An evaluation measures ML model quality
+
+    - Batch predictions generate predictions for a set of observations
+    
+    - Real-time predictions generate predictions for single input observations with low latency
+
+* Keys :
+
+    - Upload Training Data by adding data to an S3 bucket
+    
+        - by default reserves 70% of data for training and 30% for evaluation
+    
+    - Create a Datasource
+    
+    - Create an ML Model from the Datasource
+    
+    - Evaluate an ML Model
+    
+    - Generate Predictions From Your ML Model
+        
+        - Real-time predictions can be done without submitting all of the input data values
+        
+        - Real-time predictions show predicted scores (adding up to 1) for each category
+
+> **AWS Tutorial: Build a Machine Learning Model (30 min)**
+
+* Proceed with different data compared to prior lab
+
+* AUC (Area Under a Curve) : a quality metric for ML models
+
+* The score threshold can be adjusted to choose a balance of false positives and false negatives
+
+* Batch predictions can be done by linking to a new spreadsheet of input data
+
+* The results spreadsheet gives the best answer and the score 
+
+* The score threshold determines the best answer based on the score
+
+> **Video Tutorial: Overview of AWS SageMaker (30 min)**
+
+* SageMaker is a machine learning service consisting of four parts: 
+
+    - notebook instances, jobs, models, and endpoints
+
+* It provides an integrated Jupyter authoring notebook instance for easy access to your data sources for exploration and analysis, so you don't have to manage servers. 
+
+* It also provides common machine learning algorithms that are optimized to run efficiently against extremely large data in a distributed environment.
+
+* keys :
+
+    - use the shelf model
+    
+    - use library (e.g., tensorflow, mxnet) and your own custom model creation and trainings cript 
+    
+    - bring your own pretrained model and simply deploy it and create an endpoint
+
+    - or create your own docker container containing your model and access it from within sagemaker 
+
+* workflow : 1.Generate example data 2.Train a model 3.Deploy the model
+
+![](./workflow2.png)
+
+> **AWS Tutorial: AWS SageMaker (60 min)**
+
+* Keys :
+
+    - Sagemaker is a fully maanged ML platform that provides an interface to load data, train a model, and make it accessible to other applications
+    
+    - AWS Sagemaker algorithms prefer data in RecordIO Protobuf format. They provide some useful libraries to make this conversion seamless from something like a Numpy nd array.
+
+    - Just follow the steps.
+    
+> **Build a Serverless Real-Time Data Processing App (2 hour)**
+
+* Overview :
+
+    - First, the producer sent its data to an Amazon Kinesis stream, which could be directly accessed by a dashboard for viewing on a map. 
+    
+    - After that, a SQL query in Kinesis Data Analytics analyzed the data and sent aggregate statistics out another Kinesis stream every minute. 
+    
+    - A Lambda function was then used to take the data from this stream and save it in a DynamoDB table as it arrived via an S3 bucket. 
+    
+    - Meanwhile, a Kinesis Data Firehose was used to put the stream data into an S3 bucket which was then queried to be put into an Athena table.
+
+![](./application-arch.png)
+
+* Build a data stream
+    
+    -Create a stream in Kinesis and write to and read from the stream to track Wild Rydes unicorns on the live map. In this module you'll also create an Amazon Cognito identity pool to grant live map access to your stream.
+    
+![](./shadowfax.png)
+    
+* Aggregate data
+
+    - Build a Kinesis Data Analytics application to read from the stream and aggregate metrics like unicorn health and distance traveled each minute.
+
+![](./aggregate.png)
+    
+* Process streaming data
+    
+    - Persist aggregate data from the application to a backend database stored in DynamoDB and run queries against those data.
+
+![](./lambda.png)
+
+* Store & query data
+
+    - Use Kinesis Data Firehose to flush the raw sensor data to an S3 bucket for archival purposes. Using Athena, you'll run SQL queries against the raw data for ad-hoc analyses. 
+
+![](./table.png)
+
+
+
+
+
+
+
